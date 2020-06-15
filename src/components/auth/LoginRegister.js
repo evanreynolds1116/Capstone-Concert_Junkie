@@ -55,10 +55,10 @@ const LoginRegister = (props) => {
           </Button>
           <Modal
             isOpen={modalLogin}
-            togglelogin={toggleLogin}
+            toggle={toggleLogin}
             className={className}
           >
-            <ModalHeader togglelogin={toggleLogin}>Sign In</ModalHeader>
+            <ModalHeader toggle={toggleLogin}>Sign In</ModalHeader>
             <ModalBody>
               <form onSubmit={handleLogin}>
                 <div className="container">
