@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "",
+      "email": "",
+      "password": ""
+    }
+  ],
+  "bands": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": ""
+    }
+  ],
+  "venues": [
+    {
+      "id": 1,
+      "userId": 1,
+      "locationId": 1,
+      "name": ""
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "userId": 1,
+      "cityState": "City, State"
+    }
+  ],
+  "concerts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "",
+      "venueId": 1
+    }
+  ],
+  "concertBands": [
+    {
+      "id": 1,
+      "concertId": 1,
+      "bandId": 1
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "concertId": 1,
+      "url": "",
+      "description": ""
+    }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "concertId": 1,
+      "url": "",
+      "description": ""
+    }
+  ]
+}
