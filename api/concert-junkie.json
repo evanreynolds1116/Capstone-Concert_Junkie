@@ -5,6 +5,13 @@
       "username": "",
       "email": "",
       "password": ""
+    },
+    {
+      "email": "evan.m.reynolds95@gmail.com",
+      "username": "e",
+      "password": "e",
+      "passwordConfirm": "e",
+      "id": 2
     }
   ],
   "bands": [
