@@ -1,0 +1,51 @@
+input[type="text"], input[type="date"] {
+  width: 500px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 10px 10px;
+}
+
+.add-another-band-btn {
+  width: 200px;
+  height: 30px;
+  margin: 15px 0px 0px 30px;
+  padding: 12px 20px;
+}
+
+.band-input, .venue-input, .location-input {
+  display: flex;
+  flex-direction: row;
+}
+
+.add-band-btn, .add-venue-btn, .add-location-btn {
+  height: 38px;
+  margin: 8px 0px 0px 3px;
+}
+
+#newBand, #newLocation, #newVenue, #location-venue {
+  width: 440px;
+}
+
+/* #newVenue {
+  width: 440px;
+} */
+
+.concert-form {
+  margin: 10px 10px 10px 10px;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-header > h1 {
+  margin: 10px 0px 10px 10px;
+}
+
+label {
+  font-weight: bold;
+}

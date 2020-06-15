@@ -1,0 +1,14 @@
+header > h1 {
+  margin-left: 10px;
+  margin-top: 25px;
+}
+
+.header-div {
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
