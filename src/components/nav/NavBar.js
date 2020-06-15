@@ -4,17 +4,11 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
+  NavLink
 } from "reactstrap";
-import './NavBar.css'
+import "./NavBar.css";
 
 const NavBar = (props) => {
   const handleLogout = (e) => {
@@ -33,9 +27,17 @@ const NavBar = (props) => {
 
   return (
     <>
-      <header>
-        <h1>Concert Junkie</h1>
-      </header>
+      <div className="header-div">
+        <picture>
+          <img
+            src={require("/home/evanr95/workspace/capstone-concert_junkie/src/components/capstone-logo.png")}
+            alt="logo"
+          />
+        </picture>
+        <header>
+          <h1>Concert Junkie</h1>
+        </header>
+      </div>
       <div>
         <Navbar color="light" light expand="md">
           {/* <NavbarBrand href="/">reactstrap</NavbarBrand> */}
@@ -46,9 +48,7 @@ const NavBar = (props) => {
                 <NavLink href="/concerts">Concerts</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/bands">
-                  Bands
-                </NavLink>
+                <NavLink href="/bands">Bands</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink>Venues</NavLink>
@@ -57,9 +57,10 @@ const NavBar = (props) => {
                 <NavLink>Locations</NavLink>
               </NavItem>
             </Nav>
-            
-              <NavLink href="/" onClick={handleLogout}>Log Out</NavLink>
-            
+
+            <NavLink href="/" onClick={handleLogout}>
+              Log Out
+            </NavLink>
           </Collapse>
         </Navbar>
       </div>
