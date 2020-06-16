@@ -17,23 +17,52 @@
   "bands": [
     {
       "id": 1,
-      "userId": 1,
-      "name": ""
+      "name": "Band One"
+    },
+    {
+      "name": "Band Two",
+      "id": 2
+    },
+    {
+      "name": "Band 3",
+      "id": 3
+    },
+    {
+      "name": "My Chemical Romance",
+      "id": 4
+    },
+    {
+      "name": "Metallica",
+      "id": 4
+    },
+    {
+      "name": "Yellowcard",
+      "id": 5
+    },
+    {
+      "name": "TEST",
+      "id": 6
     }
   ],
   "venues": [
     {
       "id": 1,
-      "userId": 1,
       "locationId": 1,
       "name": ""
+    },
+    {
+      "name": "The End",
+      "id": 2
     }
   ],
   "locations": [
     {
       "id": 1,
-      "userId": 1,
       "cityState": "City, State"
+    },
+    {
+      "cityState": "Nashville, TN",
+      "id": 2
     }
   ],
   "concerts": [

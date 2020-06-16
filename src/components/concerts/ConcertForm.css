@@ -25,7 +25,7 @@ input[type="text"], input[type="date"] {
   margin: 8px 0px 0px 3px;
 }
 
-#newBand, #newLocation, #newVenue, #location-venue {
+#name, #cityState, #newVenue, #location-venue {
   width: 440px;
 }
 
@@ -48,4 +48,9 @@ input[type="text"], input[type="date"] {
 
 label {
   font-weight: bold;
+}
+
+select {
+  width: 500px;
+  height: 38px;
 }
