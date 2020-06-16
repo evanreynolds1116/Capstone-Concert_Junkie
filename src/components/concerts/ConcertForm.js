@@ -18,7 +18,7 @@ import VenueManager from "../../modules/VenueManager";
 
 const ConcertForm = (props) => {
   // for modal stuff
-  const { buttonLabel, className } = props;
+  const { /*buttonLabel,*/ className } = props;
 
   // for modal stuff
   const [modalBand, setModalBand] = useState(false);
@@ -40,8 +40,9 @@ const ConcertForm = (props) => {
   // typeahead stuff
   const [bands, setBands] = useState([]);
   const [loc, setLocations] = useState([]);
-  const [multiple, setMultiple] = useState(false);
-  const [selected, setSelected] = useState([]);
+  const [venues, setVenues] = useState([]);
+  /*const [multiple, setMultiple] = useState(false);
+  const [selected, setSelected] = useState([]);*/
   const getBands = () => {
     return BandManager.getAll().then((bandsFromAPI) => {
       setBands(bandsFromAPI);
@@ -55,9 +56,15 @@ const ConcertForm = (props) => {
       setLocations(locationsFromAPI);
     });
   };
+  const getVenues = () => {
+    return VenueManager.getAll().then((venuesFromAPI) => {
+      setVenues(venuesFromAPI)
+    })
+  }
   useEffect(() => {
     getBands();
     getLocations();
+    getVenues();
   }, []);
   //
 
@@ -70,12 +77,20 @@ const ConcertForm = (props) => {
   });
   const [isLoading, setIsLoading] = useState(false);
 
+  // add new band to database
   const handleAddBandFieldChange = (evt) => {
     const bandToAdd = { ...newBand };
     bandToAdd[evt.target.id] = evt.target.value;
     setNewBand(bandToAdd);
   };
+  
+  const constructNewBand = (evt) => {
+    evt.preventDefault();
+    setIsLoading(true);
+    BandManager.postNewBand(newBand);
+  };
 
+  // add new location to database
   const handleAddLocationFieldChange = (evt) => {
     const locationToAdd = { ...newLocation };
     locationToAdd[evt.target.id] = evt.target.value;
@@ -83,28 +98,24 @@ const ConcertForm = (props) => {
     setIsLoading(true);
   };
 
+  const constructNewLocation = (evt) => {
+    evt.preventDefault();
+    setIsLoading(true);
+    LocationManager.postNewLocation(newLocation);
+  };
+
+  // add location id to new venue to database DOESNT WORK
   const handleAddVenueLocationFieldChange = (evt) => {
     const venueLocationToAdd = { ...loc };
     venueLocationToAdd[evt.target.id] = evt.target.value;
     setLocations(venueLocationToAdd);
   }
 
+  // add new venue to database
   const handleAddVenueFieldChange = (evt) => {
     const venueToAdd = { ...newVenue };
     venueToAdd[evt.target.id] = evt.target.value;
     setNewVenue(venueToAdd);
-  };
-
-  const constructNewBand = (evt) => {
-    evt.preventDefault();
-    setIsLoading(true);
-    BandManager.postNewBand(newBand);
-  };
-
-  const constructNewLocation = (evt) => {
-    evt.preventDefault();
-    setIsLoading(true);
-    LocationManager.postNewLocation(newLocation);
   };
 
   const constructNewVenue = (evt) => {
@@ -187,10 +198,12 @@ const ConcertForm = (props) => {
         <FormGroup>
           <Label for="location">Location</Label>
           <div className="location-input">
-            <Input
+            <Typeahead
+              options={loc}
+              labelKey={(loc) => loc.cityState}
               type="text"
               name="location"
-              id="location"
+              id="loc"
               placeholder="e.g. Nashville, TN"
               className="concert-form-input"
             />
@@ -235,8 +248,10 @@ const ConcertForm = (props) => {
         <FormGroup>
           <Label for="venue">Venue</Label>
           <div className="venue-input">
-            <Input
+            <Typeahead
               type="text"
+              options={venues}
+              labelKey={(venue) => venue.name}
               name="venue"
               id="venue"
               placeholder="e.g. Exit/In"
@@ -272,7 +287,7 @@ const ConcertForm = (props) => {
                       options={loc}
                       labelKey={(loc) => loc.cityState}
                       onInputChange={handleAddVenueLocationFieldChange}
-                      id={loc.id}
+                      id="typeahead"
                     />
                     <Button
                       type="submit"
