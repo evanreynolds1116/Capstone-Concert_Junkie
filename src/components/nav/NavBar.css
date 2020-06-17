@@ -12,3 +12,8 @@ img {
   height: 100px;
   width: 100px;
 }
+
+.header-div {
+  background-color: black;
+  color: white
+}

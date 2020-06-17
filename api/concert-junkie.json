@@ -16,24 +16,52 @@
   ],
   "bands": [
     {
-      "id": 1,
-      "userId": 1,
-      "name": ""
+      "name": "My Chemical Romance",
+      "id": 1
+    },
+    {
+      "name": "Metallica",
+      "id": 2
+    },
+    {
+      "name": "Yellowcard",
+      "id": 3
+    },
+    {
+      "name": "MXPX",
+      "id": 4
     }
   ],
   "venues": [
     {
       "id": 1,
-      "userId": 1,
       "locationId": 1,
       "name": ""
+    },
+    {
+      "name": "Cannery Ballroom",
+      "locationId": 1,
+      "id": 2
+    },
+    {
+      "name": "Mercy Lounge",
+      "locationId": 1,
+      "id": 3
+    },
+    {
+      "name": "Test",
+      "locationId": 1,
+      "id": 4
     }
   ],
   "locations": [
     {
-      "id": 1,
-      "userId": 1,
-      "cityState": "City, State"
+      "cityState": "Nashville, TN",
+      "id": 1
+    },
+    {
+      "cityState": "Los Angeles, CA",
+      "id": 2
     }
   ],
   "concerts": [
@@ -44,6 +72,30 @@
       "tourPoster": "",
       "date": "",
       "venueId": 1
+    },
+    {
+      "userId": 2,
+      "tourName": "Bryan is so helpful tour",
+      "tourPoster": "",
+      "date": "2020-06-20",
+      "venueId": 2,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "tourName": "TESTTT",
+      "tourPoster": "",
+      "date": "2020-06-19",
+      "venueId": 2,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "tourName": "Test",
+      "tourPoster": "",
+      "date": "2020-06-19",
+      "venueId": 2,
+      "id": 4
     }
   ],
   "concertBands": [
@@ -51,6 +103,16 @@
       "id": 1,
       "concertId": 1,
       "bandId": 1
+    },
+    {
+      "bandId": 4,
+      "concertId": 3,
+      "id": 3
+    },
+    {
+      "bandId": 3,
+      "concertId": 4,
+      "id": 4
     }
   ],
   "videos": [
