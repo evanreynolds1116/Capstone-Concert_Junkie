@@ -16,36 +16,20 @@
   ],
   "bands": [
     {
-      "id": 1,
-      "name": "Band One"
-    },
-    {
-      "name": "Band Two",
-      "id": 2
-    },
-    {
-      "name": "Band 3",
-      "id": 3
-    },
-    {
       "name": "My Chemical Romance",
-      "id": 4
+      "id": 1
     },
     {
       "name": "Metallica",
-      "id": 4
+      "id": 2
     },
     {
       "name": "Yellowcard",
-      "id": 5
-    },
-    {
-      "name": "TEST",
-      "id": 6
+      "id": 3
     },
     {
       "name": "MXPX",
-      "id": 7
+      "id": 4
     }
   ],
   "venues": [
@@ -63,26 +47,23 @@
       "id": 3
     },
     {
-      "name": "Test",
-      "id": 4
+      "name": "Exit/In",
+      "id": 6
     },
     {
-      "name": "Test Venue",
-      "id": 5
+      "name": "Cannery Ballroom",
+      "locationId": 1,
+      "id": 7
     }
   ],
   "locations": [
     {
-      "id": 1,
-      "cityState": "City, State"
-    },
-    {
       "cityState": "Nashville, TN",
-      "id": 2
+      "id": 1
     },
     {
       "cityState": "Los Angeles, CA",
-      "id": 3
+      "id": 2
     }
   ],
   "concerts": [
@@ -109,6 +90,14 @@
       "date": "2020-06-19",
       "venueId": 2,
       "id": 3
+    },
+    {
+      "userId": 2,
+      "tourName": "Test",
+      "tourPoster": "",
+      "date": "2020-06-19",
+      "venueId": 2,
+      "id": 4
     }
   ],
   "concertBands": [
@@ -121,6 +110,11 @@
       "bandId": 4,
       "concertId": 3,
       "id": 3
+    },
+    {
+      "bandId": 3,
+      "concertId": 4,
+      "id": 4
     }
   ],
   "videos": [

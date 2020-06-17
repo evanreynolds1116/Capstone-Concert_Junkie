@@ -99,11 +99,11 @@ const ConcertForm = (props) => {
     LocationManager.postNewLocation(newLocation);
   };
   
-  // add location id to new venue to database DOESNT WORK
-  const handleAddVenueLocationFieldChange = (evt) => {
-    const newVenueLocationToAdd = { ...loc };
-    newVenueLocationToAdd[evt.target.id] = evt.target.value;
-    setLocations(newVenueLocationToAdd);
+  // add location id to new venue to database
+  const handleAddVenueLocationFieldChange = (selectedVenueLocation) => {
+    const newVenueLocationToAdd = { ...newVenue };
+    newVenueLocationToAdd["locationId"] = selectedVenueLocation[0].id;
+    setNewVenue(newVenueLocationToAdd);
   }
   
   // add new venue to database
@@ -115,8 +115,8 @@ const ConcertForm = (props) => {
   
   const constructNewVenue = (evt) => {
     evt.preventDefault();
-    setIsLoading(true);
     VenueManager.postNewVenue(newVenue);
+    setIsLoading(true);
   };
 
   
@@ -128,10 +128,12 @@ const ConcertForm = (props) => {
   const [concert, setConcert] = useState({ userId: parseInt(sessionStorage.activeUser), tourName: "", tourPoster: "", date: "", venueId: venue.id })
   const [concertBand, setConcertBand] = useState({ id: 0, name: ""})
 
+  // handles the band typeahead input
   const handleBandFieldChange = (selectedBandsArray) => {
     setConcertBand(selectedBandsArray[0])
   };
 
+  // handles the venue typeahead input
   const handleVenueFieldChange = (selectedVenue) => {
     const concertToAdd = { ...concert};
     concertToAdd["venueId"] = selectedVenue[0].id;
@@ -151,7 +153,7 @@ const ConcertForm = (props) => {
     ConcertManager.postConcert(concert).then(postedConcert => {
       const newConcertBand = {bandId: concertBand.id, concertId: postedConcert.id}
       BandManager.postConcertBand(newConcertBand);
-    })
+    }).then(() => props.history.push("/concerts"))
   }
 
   return (
@@ -159,6 +161,9 @@ const ConcertForm = (props) => {
       <Form className="concert-form">
         <div className="form-header">
           <h1>Add New Concert</h1>
+          <div>
+            <p>Enter concert info</p>
+          </div>
         </div>
         <FormGroup>
           <Label for="band">Band</Label>
@@ -169,6 +174,7 @@ const ConcertForm = (props) => {
               onChange={handleBandFieldChange}
               name="band"
               id="name"
+              emptyLabel="If no matches found, click Add Band to add it to the database!"
               placeholder="e.g. My Chemical Romance"
             />
             <Button
@@ -346,50 +352,3 @@ const ConcertForm = (props) => {
 
 export default ConcertForm;
 
-/*<FormGroup>
-          <Label for="band">Band</Label>
-          <div className="band-input">
-            <select
-              type="text"
-              name="band"
-              id="band"
-              placeholder="e.g. My Chemical Romance"
-              className="concert-form-input"
-            />
-            <Button
-              color="secondary"
-              onClick={toggleBand}
-              className="add-band-btn"
-            >
-              Add Band
-            </Button>{" "}
-            <Modal isOpen={modalBand} toggle={toggleBand} className={className}>
-              <ModalHeader toggle={toggleBand}>Add Band</ModalHeader>
-              <ModalBody>
-                <Form onSubmit={constructNewBand}>
-                  <FormGroup>
-                    <Label for="band">Band</Label>
-                    <Input
-                      type="text"
-                      name="band"
-                      id="name"
-                      onChange={handleAddBandFieldChange}
-                      placeholder="e.g. Taking Back Sunday"
-                    />
-                    <Button
-                      type="submit"
-                      color="secondary"
-                      className="add-band-database"
-                      onClick={toggleBand}
-                    >
-                      Add
-                    </Button>
-                  </FormGroup>
-                </Form>
-              </ModalBody>
-            </Modal>
-          </div>
-          <a className="add-another-band-btn" href="">
-            + Add Another Band
-          </a>{" "}
-        </FormGroup>*/
