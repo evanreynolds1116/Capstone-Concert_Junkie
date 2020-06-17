@@ -39,21 +39,19 @@
       "name": ""
     },
     {
-      "name": "The End",
+      "name": "Cannery Ballroom",
+      "locationId": 1,
       "id": 2
     },
     {
-      "name": "The Shrine",
+      "name": "Mercy Lounge",
+      "locationId": 1,
       "id": 3
     },
     {
-      "name": "Exit/In",
-      "id": 6
-    },
-    {
-      "name": "Cannery Ballroom",
+      "name": "Test",
       "locationId": 1,
-      "id": 7
+      "id": 4
     }
   ],
   "locations": [

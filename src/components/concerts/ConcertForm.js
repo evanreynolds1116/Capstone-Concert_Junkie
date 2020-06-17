@@ -73,11 +73,7 @@ const ConcertForm = (props) => {
   const handleAddBandFieldChange = (evt) => {
     const newBandToAdd = { ...newBand };
     newBandToAdd[evt.target.id] = evt.target.value;
-    console.log(newBandToAdd)
     setNewBand(newBandToAdd);
-    console.log("setNewBand", setNewBand)
-    console.log("newBand", newBand)
-    console.log("newBandToAdd", newBandToAdd)
   };
   
   const constructNewBand = (evt) => {
@@ -120,9 +116,7 @@ const ConcertForm = (props) => {
   };
 
   
-  
   // form stuff
-  const [band, setBand] = useState({ name: ""});
   const [loca, setLocation] = useState({ cityState: ""})
   const [venue, setVenue] = useState({ name: "", locationId: loca.id})
   const [concert, setConcert] = useState({ userId: parseInt(sessionStorage.activeUser), tourName: "", tourPoster: "", date: "", venueId: venue.id })
