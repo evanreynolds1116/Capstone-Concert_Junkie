@@ -42,6 +42,10 @@
     {
       "name": "TEST",
       "id": 6
+    },
+    {
+      "name": "MXPX",
+      "id": 7
     }
   ],
   "venues": [
@@ -53,6 +57,18 @@
     {
       "name": "The End",
       "id": 2
+    },
+    {
+      "name": "The Shrine",
+      "id": 3
+    },
+    {
+      "name": "Test",
+      "id": 4
+    },
+    {
+      "name": "Test Venue",
+      "id": 5
     }
   ],
   "locations": [
@@ -63,6 +79,10 @@
     {
       "cityState": "Nashville, TN",
       "id": 2
+    },
+    {
+      "cityState": "Los Angeles, CA",
+      "id": 3
     }
   ],
   "concerts": [
@@ -73,6 +93,22 @@
       "tourPoster": "",
       "date": "",
       "venueId": 1
+    },
+    {
+      "userId": 2,
+      "tourName": "Bryan is so helpful tour",
+      "tourPoster": "",
+      "date": "2020-06-20",
+      "venueId": 2,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "tourName": "TESTTT",
+      "tourPoster": "",
+      "date": "2020-06-19",
+      "venueId": 2,
+      "id": 3
     }
   ],
   "concertBands": [
@@ -80,6 +116,11 @@
       "id": 1,
       "concertId": 1,
       "bandId": 1
+    },
+    {
+      "bandId": 4,
+      "concertId": 3,
+      "id": 3
     }
   ],
   "videos": [

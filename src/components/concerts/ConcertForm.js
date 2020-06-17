@@ -15,6 +15,7 @@ import "react-bootstrap-typeahead/css/Typeahead.css";
 import { Typeahead } from "react-bootstrap-typeahead";
 import LocationManager from "../../modules/LocationManager";
 import VenueManager from "../../modules/VenueManager";
+import ConcertManager from "../../modules/ConcertManager";
 
 const ConcertForm = (props) => {
   // for modal stuff
@@ -30,13 +31,7 @@ const ConcertForm = (props) => {
   const toggleVenue = () => setModalVenue(!modalVenue);
   const toggleLocation = () => setModalLocation(!modalLocation);
 
-  // form stuff
-  // const [band, setBand] = useState({ name: ""});
-  // const [concert, setConcert] = useState({ date: "", tourName: "", userId: sessionStorage.activeUser })
-  // const [location, setLocation] = useState({ cityState: ""})
-  // const [venue, setVenue] = useState({ name: "", locationId: location.id})
-  // const [concertBand, setConcertBand] = useState({ bandId: band.id, concertId: concert.id})
-
+  
   // typeahead stuff
   const [bands, setBands] = useState([]);
   const [loc, setLocations] = useState([]);
@@ -46,13 +41,10 @@ const ConcertForm = (props) => {
   const getBands = () => {
     return BandManager.getAll().then((bandsFromAPI) => {
       setBands(bandsFromAPI);
-      console.log("bands", bands);
     });
   };
   const getLocations = () => {
     return LocationManager.getAll().then((locationsFromAPI) => {
-      console.log("loc", loc)
-      console.log(locationsFromAPI)
       setLocations(locationsFromAPI);
     });
   };
@@ -73,15 +65,19 @@ const ConcertForm = (props) => {
   const [newLocation, setNewLocation] = useState({ cityState: "" });
   const [newVenue, setNewVenue] = useState({
     name: "",
-    locationId: loc.id,
+    locationId: newLocation.id,
   });
   const [isLoading, setIsLoading] = useState(false);
-
+  
   // add new band to database
   const handleAddBandFieldChange = (evt) => {
-    const bandToAdd = { ...newBand };
-    bandToAdd[evt.target.id] = evt.target.value;
-    setNewBand(bandToAdd);
+    const newBandToAdd = { ...newBand };
+    newBandToAdd[evt.target.id] = evt.target.value;
+    console.log(newBandToAdd)
+    setNewBand(newBandToAdd);
+    console.log("setNewBand", setNewBand)
+    console.log("newBand", newBand)
+    console.log("newBandToAdd", newBandToAdd)
   };
   
   const constructNewBand = (evt) => {
@@ -89,40 +85,74 @@ const ConcertForm = (props) => {
     setIsLoading(true);
     BandManager.postNewBand(newBand);
   };
-
+  
   // add new location to database
   const handleAddLocationFieldChange = (evt) => {
-    const locationToAdd = { ...newLocation };
-    locationToAdd[evt.target.id] = evt.target.value;
-    setNewLocation(locationToAdd)
-    setIsLoading(true);
+    const newLocationToAdd = { ...newLocation };
+    newLocationToAdd[evt.target.id] = evt.target.value;
+    setNewLocation(newLocationToAdd)
   };
-
+  
   const constructNewLocation = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
     LocationManager.postNewLocation(newLocation);
   };
-
+  
   // add location id to new venue to database DOESNT WORK
   const handleAddVenueLocationFieldChange = (evt) => {
-    const venueLocationToAdd = { ...loc };
-    venueLocationToAdd[evt.target.id] = evt.target.value;
-    setLocations(venueLocationToAdd);
+    const newVenueLocationToAdd = { ...loc };
+    newVenueLocationToAdd[evt.target.id] = evt.target.value;
+    setLocations(newVenueLocationToAdd);
   }
-
+  
   // add new venue to database
   const handleAddVenueFieldChange = (evt) => {
-    const venueToAdd = { ...newVenue };
-    venueToAdd[evt.target.id] = evt.target.value;
-    setNewVenue(venueToAdd);
+    const newVenueToAdd = { ...newVenue };
+    newVenueToAdd[evt.target.id] = evt.target.value;
+    setNewVenue(newVenueToAdd);
   };
-
+  
   const constructNewVenue = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
     VenueManager.postNewVenue(newVenue);
   };
+
+  
+  
+  // form stuff
+  const [band, setBand] = useState({ name: ""});
+  const [loca, setLocation] = useState({ cityState: ""})
+  const [venue, setVenue] = useState({ name: "", locationId: loca.id})
+  const [concert, setConcert] = useState({ userId: parseInt(sessionStorage.activeUser), tourName: "", tourPoster: "", date: "", venueId: venue.id })
+  const [concertBand, setConcertBand] = useState({ id: 0, name: ""})
+
+  const handleBandFieldChange = (selectedBandsArray) => {
+    setConcertBand(selectedBandsArray[0])
+  };
+
+  const handleVenueFieldChange = (selectedVenue) => {
+    const concertToAdd = { ...concert};
+    concertToAdd["venueId"] = selectedVenue[0].id;
+    setConcert(concertToAdd);
+  }
+
+  const handleConcertFieldChange = (evt) => {
+    const concertToAdd = { ...concert};
+    console.log("concertToAdd", concertToAdd)
+    concertToAdd[evt.target.id] = evt.target.value;
+    setConcert(concertToAdd);
+  }
+
+  const constructNewConcert = evt => {
+    evt.preventDefault();
+    setIsLoading(true);
+    ConcertManager.postConcert(concert).then(postedConcert => {
+      const newConcertBand = {bandId: concertBand.id, concertId: postedConcert.id}
+      BandManager.postConcertBand(newConcertBand);
+    })
+  }
 
   return (
     <>
@@ -135,10 +165,10 @@ const ConcertForm = (props) => {
           <div className="band-input">
             <Typeahead
               options={bands}
-              /*mulitple={multiple}
-            selected={selected} */
               labelKey={(band) => band.name}
-              id="typeahead"
+              onChange={handleBandFieldChange}
+              name="band"
+              id="name"
               placeholder="e.g. My Chemical Romance"
             />
             <Button
@@ -154,7 +184,7 @@ const ConcertForm = (props) => {
             <ModalBody>
               <Form onSubmit={constructNewBand}>
                 <FormGroup>
-                  <Label for="band">Band</Label>
+                  <Label htmlFor="band">Band</Label>
                   <Input
                     type="text"
                     name="newBand"
@@ -181,6 +211,7 @@ const ConcertForm = (props) => {
             type="date"
             name="date"
             id="date"
+            onChange={handleConcertFieldChange}
             placeholder="date placeholder"
             className="concert-form-input"
           />
@@ -190,7 +221,8 @@ const ConcertForm = (props) => {
           <Input
             type="text"
             name="tour"
-            id="tour"
+            id="tourName"
+            onChange={handleConcertFieldChange}
             placeholder="e.g. Vans Warped Tour"
             className="concert-form-input"
           />
@@ -204,6 +236,7 @@ const ConcertForm = (props) => {
               type="text"
               name="location"
               id="loc"
+              // onChange={handleConcertFieldChange}
               placeholder="e.g. Nashville, TN"
               className="concert-form-input"
             />
@@ -254,6 +287,7 @@ const ConcertForm = (props) => {
               labelKey={(venue) => venue.name}
               name="venue"
               id="venue"
+              onChange={handleVenueFieldChange}
               placeholder="e.g. Exit/In"
               className="concert-form-input"
             />
@@ -286,8 +320,9 @@ const ConcertForm = (props) => {
                       type="text"
                       options={loc}
                       labelKey={(loc) => loc.cityState}
-                      onInputChange={handleAddVenueLocationFieldChange}
-                      id="typeahead"
+                      onChange={handleAddVenueLocationFieldChange}
+                      name="locationId"
+                      id="loc"
                     />
                     <Button
                       type="submit"
@@ -303,7 +338,7 @@ const ConcertForm = (props) => {
             </Modal>
           </div>
         </FormGroup>
-        <Button color="secondary">Add Concert</Button>{" "}
+        <Button onClick={constructNewConcert} disabled={isLoading} color="secondary">Add Concert</Button>{" "}
       </Form>
     </>
   );
