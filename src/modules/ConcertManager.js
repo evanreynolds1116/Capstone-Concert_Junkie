@@ -12,5 +12,8 @@ export default {
   },
   get(id) {
     return fetch(`${remoteURL}/concerts?userId=${id}&_expand=venue`).then(result => result.json())
+  },
+  getConcert(id, venueId) {
+    return fetch(`${remoteURL}/concerts/${id}?venue=${venueId}&_expand=venue`).then(result => result.json())
   }
 }

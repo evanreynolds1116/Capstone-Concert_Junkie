@@ -30,6 +30,22 @@
     {
       "name": "MXPX",
       "id": 4
+    },
+    {
+      "name": "Bad Omens",
+      "id": 5
+    },
+    {
+      "name": "Oh, Sleeper",
+      "id": 6
+    },
+    {
+      "name": "Thousand Below",
+      "id": 7
+    },
+    {
+      "name": "Bloodline",
+      "id": 8
     }
   ],
   "concerts": [
@@ -51,27 +67,11 @@
     },
     {
       "userId": 2,
-      "tourName": "TEST Tour",
+      "tourName": "The Killed and Born Again Tour",
       "tourPoster": "",
-      "date": "2020-06-20",
-      "venueId": 2,
+      "date": "2020-02-23",
+      "venueId": 4,
       "id": 3
-    },
-    {
-      "userId": 2,
-      "tourName": "aaaaa",
-      "tourPoster": "",
-      "date": "2020-06-19",
-      "venueId": 2,
-      "id": 4
-    },
-    {
-      "userId": 2,
-      "tourName": "THICC THICCLY",
-      "tourPoster": "",
-      "date": "2020-06-18",
-      "venueId": 3,
-      "id": 5
     }
   ],
   "concertBands": [
@@ -81,29 +81,24 @@
       "bandId": 2
     },
     {
-      "id": 2,
+      "bandId": 5,
       "concertId": 3,
-      "bandId": 1
+      "id": 7
     },
     {
-      "id": 4,
+      "bandId": 6,
       "concertId": 3,
-      "bandId": 4
+      "id": 8
     },
     {
-      "id": 3,
-      "concertId": 2,
-      "bandId": 3
+      "bandId": 7,
+      "concertId": 3,
+      "id": 8
     },
     {
-      "bandId": 4,
-      "concertId": 4,
-      "id": 5
-    },
-    {
-      "bandId": 1,
-      "concertId": 5,
-      "id": 6
+      "bandId": 8,
+      "concertId": 3,
+      "id": 9
     }
   ],
   "videos": [
@@ -139,7 +134,7 @@
       "id": 3
     },
     {
-      "name": "Test",
+      "name": "The End",
       "locationId": 1,
       "id": 4
     }

@@ -1,0 +1,25 @@
+.concert-details {
+  margin: 10px 10px 10px 10px;
+}
+
+.bands-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+hr {
+  width: 300px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.edit-delete-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.edit-delete-btns > Button {
+  margin: 2px 2px 2px 2px;
+}

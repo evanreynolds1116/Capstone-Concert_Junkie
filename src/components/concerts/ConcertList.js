@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import { Button } from "reactstrap";
 import ConcertManager from "../../modules/ConcertManager";
 // import ConcertCard from "./ConcertCard";
@@ -77,6 +78,9 @@ const ConcertList = (props) => {
                 </td>
                 <td>{concert.venue.name}</td>
                 <td>Location</td>
+                <button onClick={()=> props.history.push(`/concerts/${concert.id}`)}>
+                  Details
+                </button>   
               </tr>
             ))}
           </tbody>
