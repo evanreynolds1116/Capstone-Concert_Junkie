@@ -23,3 +23,13 @@ hr {
 .edit-delete-btns > Button {
   margin: 2px 2px 2px 2px;
 }
+
+.tour-poster-img > img {
+  height: 350px;
+  width: 300px;
+  border: 2px solid black;
+}
+
+body {
+  background-color: black;
+}
