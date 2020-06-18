@@ -4,6 +4,9 @@ export default {
   get(id) {
     return fetch(`${remoteURL}/bands/${id}`).then((result) => result.json());
   },
+  getConcertBand(id) {
+    return fetch(`${remoteURL}/concertBands?concertId=${id}&_expand=band`).then((result) => result.json());
+  },
   postNewBand(band) {
     return fetch(`${remoteURL}/bands`, {
       method: "POST",

@@ -32,6 +32,96 @@
       "id": 4
     }
   ],
+  "concerts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "",
+      "venueId": 1
+    },
+    {
+      "userId": 2,
+      "tourName": "Bryan is so helpful tour",
+      "tourPoster": "",
+      "date": "2020-06-20",
+      "venueId": 2,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "tourName": "TEST Tour",
+      "tourPoster": "",
+      "date": "2020-06-20",
+      "venueId": 2,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "tourName": "aaaaa",
+      "tourPoster": "",
+      "date": "2020-06-19",
+      "venueId": 2,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "tourName": "THICC THICCLY",
+      "tourPoster": "",
+      "date": "2020-06-18",
+      "venueId": 3,
+      "id": 5
+    }
+  ],
+  "concertBands": [
+    {
+      "id": 1,
+      "concertId": 2,
+      "bandId": 2
+    },
+    {
+      "id": 2,
+      "concertId": 3,
+      "bandId": 1
+    },
+    {
+      "id": 4,
+      "concertId": 3,
+      "bandId": 4
+    },
+    {
+      "id": 3,
+      "concertId": 2,
+      "bandId": 3
+    },
+    {
+      "bandId": 4,
+      "concertId": 4,
+      "id": 5
+    },
+    {
+      "bandId": 1,
+      "concertId": 5,
+      "id": 6
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "concertId": 1,
+      "url": "",
+      "description": ""
+    }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "concertId": 1,
+      "url": "",
+      "description": ""
+    }
+  ],
   "venues": [
     {
       "id": 1,
@@ -62,73 +152,6 @@
     {
       "cityState": "Los Angeles, CA",
       "id": 2
-    }
-  ],
-  "concerts": [
-    {
-      "id": 1,
-      "userId": 1,
-      "tourName": "",
-      "tourPoster": "",
-      "date": "",
-      "venueId": 1
-    },
-    {
-      "userId": 2,
-      "tourName": "Bryan is so helpful tour",
-      "tourPoster": "",
-      "date": "2020-06-20",
-      "venueId": 2,
-      "id": 2
-    },
-    {
-      "userId": 2,
-      "tourName": "TESTTT",
-      "tourPoster": "",
-      "date": "2020-06-19",
-      "venueId": 2,
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "tourName": "Test",
-      "tourPoster": "",
-      "date": "2020-06-19",
-      "venueId": 2,
-      "id": 4
-    }
-  ],
-  "concertBands": [
-    {
-      "id": 1,
-      "concertId": 1,
-      "bandId": 1
-    },
-    {
-      "bandId": 4,
-      "concertId": 3,
-      "id": 3
-    },
-    {
-      "bandId": 3,
-      "concertId": 4,
-      "id": 4
-    }
-  ],
-  "videos": [
-    {
-      "id": 1,
-      "concertId": 1,
-      "url": "",
-      "description": ""
-    }
-  ],
-  "photos": [
-    {
-      "id": 1,
-      "concertId": 1,
-      "url": "",
-      "description": ""
     }
   ]
 }
