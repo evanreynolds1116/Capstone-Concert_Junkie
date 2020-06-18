@@ -9,5 +9,8 @@ export default {
       },
       body: JSON.stringify(concert),
     }).then((data) => data.json());
+  },
+  get(id) {
+    return fetch(`${remoteURL}/concerts?userId=${id}&_expand=venue`).then(result => result.json())
   }
 }
