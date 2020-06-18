@@ -79,7 +79,7 @@ const ConcertForm = (props) => {
   const constructNewBand = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-    BandManager.postNewBand(newBand);
+    BandManager.postNewBand(newBand).then(getBands())
   };
   
   // add new location to database
@@ -178,6 +178,7 @@ const ConcertForm = (props) => {
               id="name"
               emptyLabel="If no matches found, click Add Band to add it to the database!"
               placeholder="e.g. My Chemical Romance"
+              className="band-typeahead"
             />
             <Button
               color="secondary"

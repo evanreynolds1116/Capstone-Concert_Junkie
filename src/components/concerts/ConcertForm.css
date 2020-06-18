@@ -54,3 +54,7 @@ select {
   width: 500px;
   height: 38px;
 }
+
+.band-typeahead {
+  min-width: 500px;
+}
