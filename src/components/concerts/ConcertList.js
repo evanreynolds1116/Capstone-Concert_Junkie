@@ -4,6 +4,8 @@ import ConcertManager from "../../modules/ConcertManager";
 // import ConcertCard from "./ConcertCard";
 import { Table } from "reactstrap";
 import BandManager from "../../modules/BandManager";
+import LocationManager from "../../modules/LocationManager";
+import VenueManager from '../../modules/VenueManager'
 
 const ConcertList = (props) => {
   const [concerts, setConcerts] = useState([]);
@@ -35,7 +37,19 @@ const ConcertList = (props) => {
             );
           return concert;
         })
-      )).then((concertsWithBands) => setConcerts(concertsWithBands))
+      )).then((concertsWithBands) => {
+        return Promise.all(
+          concertsWithBands.map((concert) => 
+            VenueManager.get(concert.venueId).then((venueLocation) => {
+              concert.venue = venueLocation
+              return concert;
+            })
+          )
+        )
+
+
+        // setConcerts(concertsWithBands)
+      }).then((concertsWithBandsVenues) => setConcerts(concertsWithBandsVenues))
     });
   }, [sessionStorage.activeUser]);
 
@@ -76,7 +90,7 @@ const ConcertList = (props) => {
                   ))}
                 </td>
                 <td>{concert.venue.name}</td>
-                <td>Location</td>
+                <td>{concert.venue.location.cityState}</td>
                 <td>
                 <Button 
                   outline color="primary"

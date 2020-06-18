@@ -120,11 +120,15 @@ const ConcertForm = (props) => {
   const [loca, setLocation] = useState({ cityState: ""})
   const [venue, setVenue] = useState({ name: "", locationId: loca.id})
   const [concert, setConcert] = useState({ userId: parseInt(sessionStorage.activeUser), tourName: "", tourPoster: "", date: "", venueId: venue.id })
-  const [concertBand, setConcertBand] = useState({ id: 0, name: ""})
+  const [concertBand, setConcertBand] = useState([])
+  const [multiple, setMultiple] = useState(false)
 
   // handles the band typeahead input
   const handleBandFieldChange = (selectedBandsArray) => {
-    setConcertBand(selectedBandsArray[0])
+    console.log("selectedBandsArray", selectedBandsArray)
+      // console.log("band", band)
+      setConcertBand(selectedBandsArray) 
+      console.log("concertBand", concertBand)
   };
 
   // handles the venue typeahead input
@@ -145,8 +149,11 @@ const ConcertForm = (props) => {
     evt.preventDefault();
     setIsLoading(true);
     ConcertManager.postConcert(concert).then(postedConcert => {
-      const newConcertBand = {bandId: concertBand.id, concertId: postedConcert.id}
-      BandManager.postConcertBand(newConcertBand);
+      concertBand.forEach((band) => {
+        const newConcertBand = {bandId: band.id, concertId: postedConcert.id}
+        band = newConcertBand
+        BandManager.postConcertBand(band);
+      })
     }).then(() => props.history.push("/concerts"))
   }
 
@@ -165,6 +172,7 @@ const ConcertForm = (props) => {
             <Typeahead
               options={bands}
               labelKey={(band) => band.name}
+              multiple
               onChange={handleBandFieldChange}
               name="band"
               id="name"

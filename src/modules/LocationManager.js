@@ -12,5 +12,8 @@ export default {
   },
   getAll() {
     return fetch(`${remoteURL}/locations`).then((result) => result.json());
-  }
+  },
+  get(id) {
+    return fetch(`${remoteURL}/locations/${id}`).then(result => result.json())
+  },
 }
