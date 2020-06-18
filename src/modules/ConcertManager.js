@@ -20,5 +20,14 @@ export default {
     return fetch(`${remoteURL}/concerts/${id}`, {
       method: "DELETE"
     }).then(result => result.json())
+  },
+  update(editedConcert) {
+    return fetch(`${remoteURL}/concerts/${editedConcert.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedConcert)
+    }).then(data => data.json());
   }
 }

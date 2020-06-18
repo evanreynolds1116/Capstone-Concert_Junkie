@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import ConcertList from './concerts/ConcertList';
 import ConcertForm from './concerts/ConcertForm';
 import ConcertDetails from './concerts/ConcertDetails'
+import ConcertEditForm from './concerts/ConcertEditForm'
 
 const ApplicationViews = props => {
   return (
@@ -21,6 +22,10 @@ const ApplicationViews = props => {
 
       <Route exact path="/concerts/:concertId(\d+)" render={(props) => {
         return <ConcertDetails concertId={parseInt(props.match.params.concertId)} {...props} />
+      }} />
+
+      <Route path="/concerts/:concertId(\d+)/edit" render={(props) => {
+        return <ConcertEditForm {...props} />
       }} />
 
     </React.Fragment>

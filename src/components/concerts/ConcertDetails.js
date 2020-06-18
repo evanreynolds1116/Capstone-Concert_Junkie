@@ -11,7 +11,7 @@ const ConcertDetails = (props) => {
     date: "",
     venue: "",
     tourPoster: "",
-    video: "",
+    video: ""
   });
   const [isLoading, setIsLoading] = useState(true)
 
@@ -104,10 +104,19 @@ const ConcertDetails = (props) => {
           </Button>{" "}
         </div>
         <div className="edit-delete-btns">
-          <Button color="primary" size="sm">
+          <Button 
+            color="primary" 
+            size="sm" 
+            onClick={() => props.history.push(`/concerts/${props.concertId}/edit`)}
+          >
             Edit Concert
           </Button>{" "}
-          <Button color="danger" size="sm" disabled={isLoading} onClick={handleDelete}>
+          <Button 
+            color="danger" 
+            size="sm" 
+            disabled={isLoading} 
+            onClick={handleDelete}
+          >
             Delete Concert
           </Button>{" "}
         </div>
