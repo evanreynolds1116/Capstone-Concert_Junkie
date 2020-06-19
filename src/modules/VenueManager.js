@@ -16,4 +16,7 @@ export default {
   get(id) {
     return fetch(`${remoteURL}/venues/${id}?_expand=location`).then(result => result.json())
   },
+  getAllVenueLocations() {
+    return fetch(`${remoteURL}/venues/?_expand=location`).then(result => result.json())
+  },
 }

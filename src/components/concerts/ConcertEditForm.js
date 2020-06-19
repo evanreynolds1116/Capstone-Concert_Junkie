@@ -49,12 +49,12 @@ const ConcertEditForm = props => {
   const handleVenueFieldChange = (selectedVenue) => {
     const concertToAdd = { ...concert};
     concertToAdd["venueId"] = selectedVenue[0].id;
+    console.log(concertToAdd)
     setConcert(concertToAdd);
   }
 
   const handleConcertFieldChange = (evt) => {
     const concertToAdd = { ...concert};
-    console.log("concertToAdd", concertToAdd)
     concertToAdd[evt.target.id] = evt.target.value;
     setConcert(concertToAdd);
   }

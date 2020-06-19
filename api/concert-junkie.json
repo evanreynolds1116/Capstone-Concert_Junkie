@@ -58,6 +58,18 @@
     {
       "name": "YEEET",
       "id": 11
+    },
+    {
+      "name": "Trophy Eyes",
+      "id": 12
+    },
+    {
+      "name": "Test Band",
+      "id": 13
+    },
+    {
+      "name": "Test Band 2",
+      "id": 14
     }
   ],
   "concerts": [
@@ -149,6 +161,16 @@
       "name": "The End",
       "locationId": 1,
       "id": 4
+    },
+    {
+      "name": "Exit/In",
+      "locationId": 1,
+      "id": 5
+    },
+    {
+      "name": "Test Venue",
+      "locationId": 1,
+      "id": 6
     }
   ],
   "locations": [
