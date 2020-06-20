@@ -11,7 +11,10 @@ export default {
     }).then((data) => data.json());
   },
   get(id) {
-    return fetch(`${remoteURL}/concerts?userId=${id}&_expand=venue`).then(result => result.json())
+    return fetch(`${remoteURL}/concerts?userId=${id}&_expand=venue&_sort=date&_order=desc`).then(result => result.json())
+  },
+  getUserConcerts(id) {
+    return fetch(`${remoteURL}/concerts?userId=${id}`).then(result => result.json())
   },
   getConcert(id, venueId) {
     return fetch(`${remoteURL}/concerts/${id}?venue=${venueId}&_expand=venue`).then(result => result.json())

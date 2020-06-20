@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: black;
+  background-color: black;
 }
 
 code {
@@ -15,11 +16,15 @@ code {
 
 footer {
   color: white;
-  background-color: black;
+  background-color: rgb(30, 30, 30);
   height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
 }

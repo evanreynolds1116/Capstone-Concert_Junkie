@@ -6,7 +6,7 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
 } from "reactstrap";
 import "./NavBar.css";
 
@@ -27,19 +27,64 @@ const NavBar = (props) => {
 
   return (
     <>
-      <div className="header-div">
-        <picture>
+      <div className="header-div ">
+        {/* <picture>
           <img
             src={require("/home/evanr95/workspace/capstone-concert_junkie/src/components/capstone-logo.png")}
             alt="logo"
           />
-        </picture>
+        </picture> */}
         <header>
-          <h1>Concert Junkie</h1>
+        <div className="container">
+          <div className="neon">Concert</div>
+          <div className="flux">Junkie</div>
+        </div>
+          {/* <div class="foo">
+            <span class="letter" data-letter="C">
+              C
+            </span>
+            <span class="letter" data-letter="O">
+              O
+            </span>
+            <span class="letter" data-letter="N">
+              N
+            </span>
+            <span class="letter" data-letter="C">
+              C
+            </span>
+            <span class="letter" data-letter="E">
+              E
+            </span>
+            <span class="letter" data-letter="R">
+              R
+            </span>
+            <span class="letter" data-letter="T">
+              T
+            </span>
+            <span></span>
+            <span class="letter" data-letter="J">
+              J
+            </span>
+            <span class="letter" data-letter="U">
+              U
+            </span>
+            <span class="letter" data-letter="N">
+              N
+            </span>
+            <span class="letter" data-letter="K">
+              K
+            </span>
+            <span class="letter" data-letter="I">
+              I
+            </span>
+            <span class="letter" data-letter="E">
+              E
+            </span>
+          </div> */}
         </header>
       </div>
-      <div>
-        <Navbar color="light" light expand="md">
+      <div className="navbar-div">
+        <Navbar expand="md">
           {/* <NavbarBrand href="/">reactstrap</NavbarBrand> */}
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>

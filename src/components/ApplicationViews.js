@@ -5,6 +5,7 @@ import ConcertList from './concerts/ConcertList';
 import ConcertForm from './concerts/ConcertForm';
 import ConcertDetails from './concerts/ConcertDetails'
 import ConcertEditForm from './concerts/ConcertEditForm'
+import BandList from './bands/BandList';
 
 const ApplicationViews = props => {
   return (
@@ -26,6 +27,10 @@ const ApplicationViews = props => {
 
       <Route path="/concerts/:concertId(\d+)/edit" render={(props) => {
         return <ConcertEditForm {...props} />
+      }} />
+
+      <Route path="/bands" render={(props) => {
+        return <BandList {...props}/>
       }} />
 
     </React.Fragment>

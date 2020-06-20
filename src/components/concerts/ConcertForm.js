@@ -128,10 +128,7 @@ const ConcertForm = (props) => {
 
   // handles the band typeahead input
   const handleBandFieldChange = (selectedBandsArray) => {
-    console.log("selectedBandsArray", selectedBandsArray)
-      // console.log("band", band)
-      setConcertBand(selectedBandsArray) 
-      console.log("concertBand", concertBand)
+    setConcertBand(selectedBandsArray) 
   };
 
   // handles the venue typeahead input
@@ -144,8 +141,8 @@ const ConcertForm = (props) => {
 
   const handleConcertFieldChange = (evt) => {
     const concertToAdd = { ...concert};
-    console.log("concertToAdd", concertToAdd)
     concertToAdd[evt.target.id] = evt.target.value;
+    // const sortedConcertsToAdd = concertToAdd.sort((a, b) => b.date - a.date)
     setConcert(concertToAdd);
   }
 
@@ -174,8 +171,9 @@ const ConcertForm = (props) => {
           <Label for="band">Band</Label>
           <div className="band-input">
             <Typeahead
+              // allowNew
               options={bands}
-              labelKey={(band) => band.name}
+              labelKey={(band) => `${band.name}`}
               multiple
               onChange={handleBandFieldChange}
               name="band"

@@ -28,4 +28,13 @@ export default {
       body: JSON.stringify(concertBand),
     }).then((data) => data.json());
   },
+  update(editedConcertBand) {
+    return fetch(`${remoteURL}/concertBands/${editedConcertBand.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedConcertBand)
+    }).then(data => data.json());
+  }
 }

@@ -57,9 +57,10 @@ const ConcertList = (props) => {
 
   return (
     <>
-      <div>
+      <div className="concert-list-body">
         <Button
-          variant="dark"
+          size="sm"
+          color="primary"
           onClick={() => {
             props.history.push("/new-concert");
           }}
@@ -68,13 +69,14 @@ const ConcertList = (props) => {
         </Button>{" "}
       </div>
       <div>
-        <Table dark className="table">
+        <Table className="concert-list-table">
           <thead>
             <tr>
               <th>Date</th>
               <th>Concert</th>
               <th>Venue</th>
               <th>Location</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
