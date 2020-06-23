@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ConcertManager from "../../modules/ConcertManager";
-import BandManager from "../../modules/BandManager";
 import { Table } from "reactstrap";
 import "./Venue.css";
 import VenueManager from "../../modules/VenueManager";
@@ -19,7 +18,6 @@ const VenueList = (props) => {
           })
         })
       ).then((venuesWithLocations) => {
-        console.log("venuesWithLocations", venuesWithLocations)
         
         const countResults = [...venuesWithLocations.reduce((mp, o) => {
           const key = JSON.stringify([o.id]);
@@ -27,8 +25,6 @@ const VenueList = (props) => {
           mp.get(key).count++;
           return mp;
         }, new Map).values()] 
-
-        console.log("countResults", countResults)
         
         const result = Array.from(new Set(countResults.map(s => s.id)))
           .map(id => {
@@ -39,12 +35,10 @@ const VenueList = (props) => {
               count: countResults.find(s => s.id === id).count
             };
           });
-        console.log("result", result)
         setVenues(result)
       }) 
     });
   }, []);
-
 
   // total venue counter
   useEffect(() => {
@@ -90,16 +84,4 @@ const VenueList = (props) => {
 
 export default VenueList;
 
-// useEffect(() => {
-//   ConcertManager.get(sessionStorage.activeUser).then((concertsFromAPI) => {
-//     const venuesArray = concertsFromAPI.map((concert) => concert.venue);
-//     console.log(venuesArray)
-//     function getOccurrence(venuesArray, value) {
-//       let count = 0;
-//       venuesArray.forEach((v) => (v === value && count++))
-//       return count;
-//     }
-//     const distinctVenueNames = [...new Set(venuesArray.map(x => x.name))]
-//     setVenues(distinctVenueNames)
-//   });
-// }, []);
+

@@ -7,7 +7,6 @@ header > h1 {
   letter-spacing: 5px;
   color: #FFF;
   color: -webkit-linear-gradient(white, #38495a)
-    
 }
 
 .header-div {
@@ -83,7 +82,7 @@ p, h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5px 5px;
+  margin: 10px 10px;
 }
 
 .venue-list-table, .bands-list-table, .location-list-table {
@@ -93,6 +92,14 @@ p, h3 {
   align-items: center;
   align-content: center;
   font-family: 'lato', sans-serif;
+}
+
+.card-content {
+  background-color: black;
+}
+
+#locations-table {
+  width: 500px;
 }
 
 html,

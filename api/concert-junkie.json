@@ -141,6 +141,14 @@
       "date": "2020-06-22",
       "venueId": 4,
       "id": 8
+    },
+    {
+      "userId": 2,
+      "tourName": "Testing Venue and Location List",
+      "tourPoster": "",
+      "date": "2020-06-23",
+      "venueId": 10,
+      "id": 9
     }
   ],
   "concertBands": [
@@ -203,6 +211,11 @@
       "bandId": 8,
       "concertId": 8,
       "id": 20
+    },
+    {
+      "bandId": 16,
+      "concertId": 9,
+      "id": 21
     }
   ],
   "videos": [
@@ -261,6 +274,11 @@
       "name": "The Observatory",
       "locationId": 3,
       "id": 9
+    },
+    {
+      "name": "Soma",
+      "locationId": 4,
+      "id": 10
     }
   ],
   "locations": [

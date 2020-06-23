@@ -1,51 +1,78 @@
 import React, { useState, useEffect } from "react";
 import ConcertManager from "../../modules/ConcertManager";
-import BandManager from "../../modules/BandManager";
 import { Table } from "reactstrap";
 import VenueManager from "../../modules/VenueManager";
-import VenueList from "../venues/VenueList";
 
 const LocationList = (props) => {
   const [locations, setLocations] = useState([]);
-  const [venuesArray, setVenuesArray] = useState([]);
-  const [venueCounter, setVenueCounter] = useState("");
-  const [totalVenues, setTotalVenues] = useState("");
+  const [locationCounter, setLocationCounter] = useState("");
 
   useEffect(() => {
     ConcertManager.get(sessionStorage.activeUser).then((concertsFromAPI) => {
-        const locationsArray = concertsFromAPI.map((concert) => 
-          VenueManager.get(concert.venueId).then((venueLocation) => {
-            // console.log("venueLocation", venueLocation)
-            concert.venue = venueLocation
-            // console.log(concert)
-            return concert;
-          })
-        )
-        // console.log(locationsArray)
-       setLocations(locationsArray)
+      Promise.all(
+        concertsFromAPI.map((concert) => {
+          return VenueManager.get(concert.venueId).then((venueLocation) => {
+            concert.venue = venueLocation;
+            return concert.venue;
+          });
+        })
+      ).then((venuesWithLocations) => {
+        const locationsList = venuesWithLocations.map(
+          (locations) => locations.location
+        );
+
+        const countResults = [
+          ...locationsList
+            .reduce((mp, o) => {
+              const key = JSON.stringify([o.id]);
+              if (!mp.has(key)) mp.set(key, { ...o, count: 0 });
+              mp.get(key).count++;
+              return mp;
+            }, new Map())
+            .values(),
+        ];
+
+        const result = Array.from(new Set(countResults.map((s) => s.id))).map(
+          (id) => {
+            return {
+              id: id,
+              cityState: countResults.find((s) => s.id === id).cityState,
+              count: countResults.find((s) => s.id === id).count,
+            };
+          }
+        );
+        setLocations(result);
+      });
     });
   }, []);
 
-
-  // total venue counter
   useEffect(() => {
-    // ConcertManager.get(sessionStorage.activeUser).then((concertsFromAPI) => {
-    //     const venuesArray = concertsFromAPI.map((concert) => concert.venue.id);
-    //     const distinctVenues = [...new Set(venuesArray)]
-    //     const totalVenues = distinctVenues.length
-    //     setVenueCounter(totalVenues);
-    //   }
-    // );
+    ConcertManager.get(sessionStorage.activeUser).then((concertsFromAPI) => {
+      Promise.all(
+        concertsFromAPI.map((concert) => {
+          return VenueManager.get(concert.venueId).then((venueLocation) => {
+            concert.venue = venueLocation;
+            return concert.venue;
+          });
+        })
+      ).then((venuesWithLocations) => {
+        const allLocations = venuesWithLocations.map(locations => locations.location)
+        const totalLocations = allLocations.map((location) => location.id)
+        const distinctLocations = [...new Set(totalLocations)]
+        const total = distinctLocations.length
+        setLocationCounter(total)
+      });
+    });
   }, []);
 
   return (
     <>
       <div className="location-list-header">
-        <h3>You have seen concerts in {venueCounter} locations</h3>
+        <h3>You have seen concerts in {locationCounter} locations</h3>
       </div>
       <div className="location-list-table">
         <div>
-          <Table>
+          <Table id="locations-table">
             <thead>
               <tr>
                 <th>Location</th>
@@ -53,13 +80,12 @@ const LocationList = (props) => {
               </tr>
             </thead>
             <tbody>
-              {/* {venues.map((venue) => (
-                <tr key={venue.id}>
-                  <td>{venue}</td>
-                  <td>blegh</td>
-                  <td>?</td>
+              {locations.map((location) => (
+                <tr key={location.id}>
+                  <td>{location.cityState}</td>
+                  <td>{location.count}</td>
                 </tr>
-              ))} */}
+              ))}
             </tbody>
           </Table>
         </div>
