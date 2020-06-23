@@ -28,6 +28,7 @@ img {
 li a, .navbar {
   color: white;
   background-color: black;
+  font-family: 'lato', sans-serif;
 }
 
 table {
@@ -39,14 +40,20 @@ table > thead, table > tbody {
   color: white;
 }
 
+.table td {
+  vertical-align: middle;
+}
+
 .concert-list-body {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   align-content: center;
   background-color: black;
   margin: 5px 5px;
+  color: white;
+  font-family: 'lato', sans-serif;
 }
 
 .navbar {
@@ -58,6 +65,35 @@ table > thead, table > tbody {
   color: white;
 }
 
+.concert-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-family: 'lato', sans-serif;
+}
+
+p, h3 {
+  color: white;
+}
+
+.venue-list-header, .bands-list-header, .location-list-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 5px;
+}
+
+.venue-list-table, .bands-list-table, .location-list-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-family: 'lato', sans-serif;
+}
 
 html,
 body {
@@ -135,6 +171,15 @@ body {
     color: #146C80;
   }
 }
+
+.table td {
+  vertical-align: middle;
+}
+
+#concert-table > tbody > tr > td {
+  vertical-align: middle;
+}
+
 
 /* h1 {
   text-align: center;

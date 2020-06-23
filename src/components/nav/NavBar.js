@@ -96,10 +96,10 @@ const NavBar = (props) => {
                 <NavLink href="/bands">Bands</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink>Venues</NavLink>
+                <NavLink href="/venues">Venues</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink>Locations</NavLink>
+                <NavLink href="/locations">Locations</NavLink>
               </NavItem>
             </Nav>
 

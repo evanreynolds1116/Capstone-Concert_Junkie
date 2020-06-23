@@ -89,12 +89,13 @@ const ConcertForm = (props) => {
     const newLocationToAdd = { ...newLocation };
     newLocationToAdd[evt.target.id] = evt.target.value;
     setNewLocation(newLocationToAdd)
+    getLocations();
   };
   
   const constructNewLocation = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-    LocationManager.postNewLocation(newLocation);
+    LocationManager.postNewLocation(newLocation).then(getLocations())
   };
   
   // add location id to new venue to database
@@ -109,13 +110,13 @@ const ConcertForm = (props) => {
     const newVenueToAdd = { ...newVenue };
     newVenueToAdd[evt.target.id] = evt.target.value;
     setNewVenue(newVenueToAdd);
+    getVenues();
   };
   
   const constructNewVenue = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-    VenueManager.postNewVenue(newVenue)
-    getVenues();
+    VenueManager.postNewVenue(newVenue).then(getVenues())
   };
 
   
@@ -304,14 +305,14 @@ const ConcertForm = (props) => {
           <Label for="location">Location</Label>
           <div className="location-input">
             <Typeahead
+              type="text"
               options={loc}
               labelKey={(loc) => loc.cityState}
-              type="text"
               name="location"
               id="loc"
               value={concert}
               // onChange={handleConcertFieldChange}
-
+              minLength="2"
               placeholder="e.g. Nashville, TN"
               className="concert-form-input"
             />

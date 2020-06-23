@@ -354,7 +354,6 @@ const ConcertEditForm = props => {
               labelKey={(venue) => venue.name}
               name="venue"
               id="venue"
-              selected={[]}
               onChange={handleVenueFieldChange}
               className="concert-form-input"
             />

@@ -66,6 +66,14 @@
     {
       "name": "Make Them Suffer",
       "id": 16
+    },
+    {
+      "name": "Spiritbox",
+      "id": 17
+    },
+    {
+      "name": "Iwrestledabearonce",
+      "id": 18
     }
   ],
   "concerts": [
@@ -108,7 +116,31 @@
       "tourName": "Test for Sort by Date & Descending",
       "tourPoster": "",
       "date": "2020-06-30",
-      "venueId": 2
+      "venueId": 5
+    },
+    {
+      "userId": 2,
+      "tourName": "Testing Concert Counter",
+      "tourPoster": "",
+      "date": "2020-06-22",
+      "venueId": 9,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "tourName": "Test for Venue List",
+      "tourPoster": "",
+      "date": "2020-07-08",
+      "venueId": 4,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "tourName": "Another Test",
+      "tourPoster": "",
+      "date": "2020-06-22",
+      "venueId": 4,
+      "id": 8
     }
   ],
   "concertBands": [
@@ -141,6 +173,36 @@
       "bandId": 9,
       "concertId": 5,
       "id": 14
+    },
+    {
+      "bandId": 1,
+      "concertId": 6,
+      "id": 15
+    },
+    {
+      "bandId": 3,
+      "concertId": 7,
+      "id": 16
+    },
+    {
+      "bandId": 5,
+      "concertId": 8,
+      "id": 17
+    },
+    {
+      "bandId": 6,
+      "concertId": 8,
+      "id": 18
+    },
+    {
+      "bandId": 7,
+      "concertId": 8,
+      "id": 19
+    },
+    {
+      "bandId": 8,
+      "concertId": 8,
+      "id": 20
     }
   ],
   "videos": [
@@ -189,6 +251,16 @@
       "name": "The Shrine",
       "locationId": 2,
       "id": 7
+    },
+    {
+      "name": "The Basement East",
+      "locationId": 1,
+      "id": 8
+    },
+    {
+      "name": "The Observatory",
+      "locationId": 3,
+      "id": 9
     }
   ],
   "locations": [
@@ -199,6 +271,18 @@
     {
       "cityState": "Los Angeles, CA",
       "id": 2
+    },
+    {
+      "cityState": "Santa Ana, CA",
+      "id": 3
+    },
+    {
+      "cityState": "San Diego, CA",
+      "id": 4
+    },
+    {
+      "cityState": "Pomona, CA",
+      "id": 5
     }
   ]
 }

@@ -10,6 +10,8 @@ import VenueManager from '../../modules/VenueManager'
 const ConcertList = (props) => {
   const [concerts, setConcerts] = useState([]);
 
+  const [concertCounter, setConcertCounter] = useState("")
+
   // const getConcerts = () => {
   //   ConcertManager.get(sessionStorage.activeUser).then((concertsFromAPI) => {
   //     concertsFromAPI.map((concert) =>
@@ -38,6 +40,7 @@ const ConcertList = (props) => {
           return concert;
         })
       )).then((concertsWithBands) => {
+        console.log(concertsWithBands)
         return Promise.all(
           concertsWithBands.map((concert) => 
             VenueManager.get(concert.venueId).then((venueLocation) => {
@@ -55,9 +58,22 @@ const ConcertList = (props) => {
 
   // console.log("concerts", concerts)
 
+  const getNumberConcerts = () => {
+    ConcertManager.get(sessionStorage.activeUser).then(concertsFromAPI => {
+      const totalConcerts = concertsFromAPI.length
+      setConcertCounter(totalConcerts);
+    })
+  }
+
+  useEffect(() => {
+    getNumberConcerts();
+  }, []);
+
+
   return (
     <>
       <div className="concert-list-body">
+        <h3>You have been to {concertCounter} concerts</h3>
         <Button
           size="sm"
           color="primary"
@@ -68,8 +84,9 @@ const ConcertList = (props) => {
           Add New Concert
         </Button>{" "}
       </div>
-      <div>
-        <Table className="concert-list-table">
+      <div className="concert-list">
+        <div>
+        <Table className="concert-list-table" id="concert-table">
           <thead>
             <tr>
               <th>Date</th>
@@ -88,7 +105,7 @@ const ConcertList = (props) => {
                     <strong>{concert.tourName}</strong>
                   </p>
                   {concert.bands.map((band) => (
-                    <span key={band.id}>{band.name} / </span>
+                    <span key={band.id}>/ {band.name}  </span>
                   ))}
                 </td>
                 <td>{concert.venue.name}</td>
@@ -106,6 +123,7 @@ const ConcertList = (props) => {
             ))}
           </tbody>
         </Table>
+        </div>
       </div>
     </>
   );

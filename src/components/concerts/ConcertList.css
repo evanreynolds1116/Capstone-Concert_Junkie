@@ -22,3 +22,11 @@
   align-items: center;
   align-content: center;
 }
+
+.concert-list {
+  width: 700px;
+}
+
+#concert-table {
+  vertical-align: middle;
+}
