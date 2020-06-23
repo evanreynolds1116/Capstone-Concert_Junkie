@@ -41,7 +41,8 @@ const LocationList = (props) => {
             };
           }
         );
-        setLocations(result);
+        const sortedResult = result.sort((a, b) => b.count - a.count);
+        setLocations(sortedResult);
       });
     });
   }, []);
@@ -56,11 +57,13 @@ const LocationList = (props) => {
           });
         })
       ).then((venuesWithLocations) => {
-        const allLocations = venuesWithLocations.map(locations => locations.location)
-        const totalLocations = allLocations.map((location) => location.id)
-        const distinctLocations = [...new Set(totalLocations)]
-        const total = distinctLocations.length
-        setLocationCounter(total)
+        const allLocations = venuesWithLocations.map(
+          (locations) => locations.location
+        );
+        const totalLocations = allLocations.map((location) => location.id);
+        const distinctLocations = [...new Set(totalLocations)];
+        const total = distinctLocations.length;
+        setLocationCounter(total);
       });
     });
   }, []);

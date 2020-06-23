@@ -22,44 +22,44 @@ const BandList = (props) => {
           );
         })
       ).then((concertsWithBands) => {
-        console.log(concertsWithBands)
-        const bandsArray = concertsWithBands.map((concerts) => concerts.bands)
-        const bandsObj = []
+        console.log(concertsWithBands);
+        const bandsArray = concertsWithBands.map((concerts) => concerts.bands);
+        const bandsObj = [];
         const anotherBandsArray = bandsArray.map((bands) => {
-          bands.forEach((band) => bandsObj.push(band))
-        })
-        console.log("bandsObj", bandsObj)
-        
+          bands.forEach((band) => bandsObj.push(band));
+        });
+        console.log("bandsObj", bandsObj);
+
         const countResults = [
           ...bandsObj
             .reduce((mp, o) => {
               const key = JSON.stringify([o.id]);
-              if (!mp.has(key)) mp.set(key, { ...o, count: 0});
+              if (!mp.has(key)) mp.set(key, { ...o, count: 0 });
               mp.get(key).count++;
               return mp;
             }, new Map())
             .values(),
         ];
-        console.log("countResults", countResults)
+        console.log("countResults", countResults);
 
-        const total = countResults.length
-        console.log("total", total)
-        setTotalBands(total)
+        const total = countResults.length;
+        console.log("total", total);
+        setTotalBands(total);
 
         const result = Array.from(new Set(countResults.map((s) => s.id))).map(
           (id) => {
             return {
               id: id,
               name: countResults.find((s) => s.id === id).name,
-              count: countResults.find((s) => s.id === id).count
-            }
+              count: countResults.find((s) => s.id === id).count,
+            };
           }
         );
 
         const sortedResult = result.sort((a, b) => b.count - a.count);
-        
-        setBandsList(sortedResult)
-      })
+
+        setBandsList(sortedResult);
+      });
     });
   }, []);
 
@@ -81,11 +81,11 @@ const BandList = (props) => {
             </thead>
             <tbody>
               {bandsList.map((band) => (
-              <tr key={band.id}>
-                <td>{band.name}</td>
-                <td>{band.count}</td>
-              </tr>
-            ))}
+                <tr key={band.id}>
+                  <td>{band.name}</td>
+                  <td>{band.count}</td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </div>
