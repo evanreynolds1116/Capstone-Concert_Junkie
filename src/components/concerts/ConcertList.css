@@ -7,8 +7,26 @@
 .table > tbody > tr > td {
   vertical-align: middle;
   text-align: center;
+  background-color: rgb(30, 30, 30)
 }
 
 .table td {
+  vertical-align: middle;
+  color: white;
+}
+
+.concert-list-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.concert-list {
+  width: 700px;
+}
+
+#concert-table {
   vertical-align: middle;
 }

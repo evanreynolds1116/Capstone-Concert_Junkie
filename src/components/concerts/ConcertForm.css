@@ -42,7 +42,7 @@ input[type="text"], input[type="date"] {
   flex-direction: column;
 }
 
-.form-header > h1 {
+.form-header > h1, .form-header > div > p {
   margin: 10px 0px 10px 10px;
 }
 
@@ -53,4 +53,9 @@ label {
 select {
   width: 500px;
   height: 38px;
+}
+
+.band-typeahead {
+  min-width: 500px;
+  max-width: 700px;
 }

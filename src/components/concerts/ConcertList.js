@@ -4,9 +4,13 @@ import ConcertManager from "../../modules/ConcertManager";
 // import ConcertCard from "./ConcertCard";
 import { Table } from "reactstrap";
 import BandManager from "../../modules/BandManager";
+import LocationManager from "../../modules/LocationManager";
+import VenueManager from '../../modules/VenueManager'
 
 const ConcertList = (props) => {
   const [concerts, setConcerts] = useState([]);
+
+  const [concertCounter, setConcertCounter] = useState("")
 
   // const getConcerts = () => {
   //   ConcertManager.get(sessionStorage.activeUser).then((concertsFromAPI) => {
@@ -35,17 +39,44 @@ const ConcertList = (props) => {
             );
           return concert;
         })
-      )).then((concertsWithBands) => setConcerts(concertsWithBands))
+      )).then((concertsWithBands) => {
+        console.log(concertsWithBands)
+        return Promise.all(
+          concertsWithBands.map((concert) => 
+            VenueManager.get(concert.venueId).then((venueLocation) => {
+              concert.venue = venueLocation
+              return concert;
+            })
+          )
+        )
+
+
+        // setConcerts(concertsWithBands)
+      }).then((concertsWithBandsVenues) => setConcerts(concertsWithBandsVenues))
     });
   }, [sessionStorage.activeUser]);
 
   // console.log("concerts", concerts)
 
+  const getNumberConcerts = () => {
+    ConcertManager.get(sessionStorage.activeUser).then(concertsFromAPI => {
+      const totalConcerts = concertsFromAPI.length
+      setConcertCounter(totalConcerts);
+    })
+  }
+
+  useEffect(() => {
+    getNumberConcerts();
+  }, []);
+
+
   return (
     <>
-      <div>
+      <div className="concert-list-body">
+        <h3>You have been to {concertCounter} concerts</h3>
         <Button
-          variant="dark"
+          size="sm"
+          color="primary"
           onClick={() => {
             props.history.push("/new-concert");
           }}
@@ -53,14 +84,16 @@ const ConcertList = (props) => {
           Add New Concert
         </Button>{" "}
       </div>
-      <div>
-        <Table dark className="table">
+      <div className="concert-list">
+        <div>
+        <Table className="concert-list-table" id="concert-table">
           <thead>
             <tr>
               <th>Date</th>
               <th>Concert</th>
               <th>Venue</th>
               <th>Location</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -72,15 +105,25 @@ const ConcertList = (props) => {
                     <strong>{concert.tourName}</strong>
                   </p>
                   {concert.bands.map((band) => (
-                    <span key={band.id}>{band.name} / </span>
+                    <span key={band.id}>/ {band.name}  </span>
                   ))}
                 </td>
                 <td>{concert.venue.name}</td>
-                <td>Location</td>
+                <td>{concert.venue.location.cityState}</td>
+                <td>
+                <Button 
+                  outline color="primary"
+                  size="sm"
+                  onClick={()=> props.history.push(`/concerts/${concert.id}`)}
+                >
+                  Details
+                </Button>   
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
+        </div>
       </div>
     </>
   );

@@ -49,7 +49,8 @@ const ConcertForm = (props) => {
     });
   };
   const getVenues = () => {
-    return VenueManager.getAll().then((venuesFromAPI) => {
+    return VenueManager.getAllVenueLocations().then((venuesFromAPI) => {
+      console.log("venuesFromAPI", venuesFromAPI)
       setVenues(venuesFromAPI)
     })
   }
@@ -74,12 +75,13 @@ const ConcertForm = (props) => {
     const newBandToAdd = { ...newBand };
     newBandToAdd[evt.target.id] = evt.target.value;
     setNewBand(newBandToAdd);
+    getBands();
   };
   
   const constructNewBand = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-    BandManager.postNewBand(newBand);
+    BandManager.postNewBand(newBand).then(getBands())
   };
   
   // add new location to database
@@ -87,12 +89,13 @@ const ConcertForm = (props) => {
     const newLocationToAdd = { ...newLocation };
     newLocationToAdd[evt.target.id] = evt.target.value;
     setNewLocation(newLocationToAdd)
+    getLocations();
   };
   
   const constructNewLocation = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-    LocationManager.postNewLocation(newLocation);
+    LocationManager.postNewLocation(newLocation).then(getLocations())
   };
   
   // add location id to new venue to database
@@ -107,12 +110,13 @@ const ConcertForm = (props) => {
     const newVenueToAdd = { ...newVenue };
     newVenueToAdd[evt.target.id] = evt.target.value;
     setNewVenue(newVenueToAdd);
+    getVenues();
   };
   
   const constructNewVenue = (evt) => {
     evt.preventDefault();
-    VenueManager.postNewVenue(newVenue);
     setIsLoading(true);
+    VenueManager.postNewVenue(newVenue).then(getVenues())
   };
 
   
@@ -120,11 +124,12 @@ const ConcertForm = (props) => {
   const [loca, setLocation] = useState({ cityState: ""})
   const [venue, setVenue] = useState({ name: "", locationId: loca.id})
   const [concert, setConcert] = useState({ userId: parseInt(sessionStorage.activeUser), tourName: "", tourPoster: "", date: "", venueId: venue.id })
-  const [concertBand, setConcertBand] = useState({ id: 0, name: ""})
+  const [concertBand, setConcertBand] = useState([])
+  const [multiple, setMultiple] = useState(false)
 
   // handles the band typeahead input
   const handleBandFieldChange = (selectedBandsArray) => {
-    setConcertBand(selectedBandsArray[0])
+    setConcertBand(selectedBandsArray) 
   };
 
   // handles the venue typeahead input
@@ -133,11 +138,12 @@ const ConcertForm = (props) => {
     concertToAdd["venueId"] = selectedVenue[0].id;
     setConcert(concertToAdd);
   }
+  
 
   const handleConcertFieldChange = (evt) => {
     const concertToAdd = { ...concert};
-    console.log("concertToAdd", concertToAdd)
     concertToAdd[evt.target.id] = evt.target.value;
+    // const sortedConcertsToAdd = concertToAdd.sort((a, b) => b.date - a.date)
     setConcert(concertToAdd);
   }
 
@@ -145,8 +151,11 @@ const ConcertForm = (props) => {
     evt.preventDefault();
     setIsLoading(true);
     ConcertManager.postConcert(concert).then(postedConcert => {
-      const newConcertBand = {bandId: concertBand.id, concertId: postedConcert.id}
-      BandManager.postConcertBand(newConcertBand);
+      concertBand.forEach((band) => {
+        const newConcertBand = {bandId: band.id, concertId: postedConcert.id}
+        band = newConcertBand
+        BandManager.postConcertBand(band);
+      })
     }).then(() => props.history.push("/concerts"))
   }
 
@@ -163,13 +172,17 @@ const ConcertForm = (props) => {
           <Label for="band">Band</Label>
           <div className="band-input">
             <Typeahead
+              // allowNew
               options={bands}
-              labelKey={(band) => band.name}
+              labelKey={(band) => `${band.name}`}
+              multiple
               onChange={handleBandFieldChange}
               name="band"
               id="name"
+              minLength="2"
               emptyLabel="If no matches found, click Add Band to add it to the database!"
               placeholder="e.g. My Chemical Romance"
+              className="band-typeahead"
             />
             <Button
               color="secondary"
@@ -228,66 +241,16 @@ const ConcertForm = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="location">Location</Label>
-          <div className="location-input">
-            <Typeahead
-              options={loc}
-              labelKey={(loc) => loc.cityState}
-              type="text"
-              name="location"
-              id="loc"
-              // onChange={handleConcertFieldChange}
-              placeholder="e.g. Nashville, TN"
-              className="concert-form-input"
-            />
-            <Button
-              color="secondary"
-              onClick={toggleLocation}
-              className="add-location-btn"
-            >
-              Add Location
-            </Button>{" "}
-            <Modal
-              isOpen={modalLocation}
-              toggle={toggleLocation}
-              className={className}
-            >
-              <ModalHeader toggle={toggleLocation}>Add Location</ModalHeader>
-              <ModalBody>
-                <Form onSubmit={constructNewLocation}>
-                  <FormGroup>
-                    <Label for="newLocation">Location</Label>
-                    <Input
-                      type="text"
-                      name="newLocation"
-                      id="cityState"
-                      placeholder="e.g. Los Angeles, CA"
-                      onChange={handleAddLocationFieldChange}
-                    />
-                    <Button
-                      type="submit"
-                      color="secondary"
-                      className="add-location-database"
-                      onClick={toggleLocation}
-                    >
-                      Add
-                    </Button>
-                  </FormGroup>
-                </Form>
-              </ModalBody>
-            </Modal>
-          </div>
-        </FormGroup>
-        <FormGroup>
           <Label for="venue">Venue</Label>
           <div className="venue-input">
             <Typeahead
               type="text"
               options={venues}
-              labelKey={(venue) => venue.name}
+              labelKey={(venue) => `${venue.name} @ ${venue.location.cityState}`}
               name="venue"
               id="venue"
               onChange={handleVenueFieldChange}
+              minLength="2"
               placeholder="e.g. Exit/In"
               className="concert-form-input"
             />
@@ -329,6 +292,59 @@ const ConcertForm = (props) => {
                       onClick={toggleVenue}
                       color="secondary"
                       className="add-venue-database"
+                    >
+                      Add
+                    </Button>
+                  </FormGroup>
+                </Form>
+              </ModalBody>
+            </Modal>
+          </div>
+        </FormGroup>
+        <FormGroup>
+          <Label for="location">Location</Label>
+          <div className="location-input">
+            <Typeahead
+              type="text"
+              options={loc}
+              labelKey={(loc) => loc.cityState}
+              name="location"
+              id="loc"
+              value={concert}
+              // onChange={handleConcertFieldChange}
+              minLength="2"
+              placeholder="e.g. Nashville, TN"
+              className="concert-form-input"
+            />
+            <Button
+              color="secondary"
+              onClick={toggleLocation}
+              className="add-location-btn"
+            >
+              Add Location
+            </Button>{" "}
+            <Modal
+              isOpen={modalLocation}
+              toggle={toggleLocation}
+              className={className}
+            >
+              <ModalHeader toggle={toggleLocation}>Add Location</ModalHeader>
+              <ModalBody>
+                <Form onSubmit={constructNewLocation}>
+                  <FormGroup>
+                    <Label for="newLocation">Location</Label>
+                    <Input
+                      type="text"
+                      name="newLocation"
+                      id="cityState"
+                      placeholder="e.g. Los Angeles, CA"
+                      onChange={handleAddLocationFieldChange}
+                    />
+                    <Button
+                      type="submit"
+                      color="secondary"
+                      className="add-location-database"
+                      onClick={toggleLocation}
                     >
                       Add
                     </Button>
