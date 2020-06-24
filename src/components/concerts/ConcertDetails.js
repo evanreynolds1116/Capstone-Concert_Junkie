@@ -23,7 +23,7 @@ const ConcertDetails = (props) => {
             concertFromAPI.bands = concertBandsFromAPI.map(
               (concertBand) => concertBand.band
             );
-            console.log("concertFromAPI", concertFromAPI);
+            // console.log("concertFromAPI", concertFromAPI);
             return concertFromAPI;
           })
           .then((concertWithBands) =>
@@ -51,7 +51,7 @@ const ConcertDetails = (props) => {
   return (
     <div className="card">
       <div className="card-content">
-        <div className="concert-details">
+        <div className="concert-details tour-details">
           <h3>
             <span className="card-petname">
               <strong>{concert.tourName}</strong>
@@ -61,6 +61,7 @@ const ConcertDetails = (props) => {
             <img src={concert.tourPoster} alt="Tour Poster" />
           </picture>
         </div>
+          <Button color="primary" size="sm" className="add-tour-poster-btn">+ Upload Tour Poster</Button>{' '}
         <div className="concert-details bands-heading">
           <h3>
             <strong>Bands</strong>

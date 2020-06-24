@@ -74,166 +74,436 @@
     {
       "name": "Iwrestledabearonce",
       "id": 18
+    },
+    {
+      "name": "Bad Luck",
+      "id": 19
+    },
+    {
+      "name": "Basement",
+      "id": 20
+    },
+    {
+      "name": "Highly Suspect",
+      "id": 21
+    },
+    {
+      "name": "Movements",
+      "id": 22
+    },
+    {
+      "name": "August Burns Red",
+      "id": 23
+    },
+    {
+      "name": "The Devil Wears Prada",
+      "id": 24
+    },
+    {
+      "name": "Code Orange",
+      "id": 25
+    },
+    {
+      "name": "Bilmuri",
+      "id": 26
+    },
+    {
+      "name": "Embracer",
+      "id": 27
+    },
+    {
+      "name": "Maiden Mother Crone",
+      "id": 28
+    },
+    {
+      "name": "Swann",
+      "id": 29
+    },
+    {
+      "name": "Beset",
+      "id": 30
+    },
+    {
+      "name": "A Day To Remember",
+      "id": 31
+    },
+    {
+      "name": "I Prevail",
+      "id": 32
+    },
+    {
+      "name": "Beartooth",
+      "id": 33
+    },
+    {
+      "name": "Can't Swim",
+      "id": 34
+    },
+    {
+      "name": "Slothurst",
+      "id": 35
+    },
+    {
+      "name": "Norma Jean",
+      "id": 36
+    },
+    {
+      "name": "Gideon",
+      "id": 37
+    },
+    {
+      "name": "Idle Threat",
+      "id": 38
+    },
+    {
+      "name": "Taking Back Sunday",
+      "id": 39
+    },
+    {
+      "name": "Knocked Loose",
+      "id": 40
+    },
+    {
+      "name": "Eternal Sleep",
+      "id": 41
+    },
+    {
+      "name": "Judiciary",
+      "id": 42
+    },
+    {
+      "name": "Keep Flying",
+      "id": 43
+    },
+    {
+      "name": "Foreign Hands",
+      "id": 44
+    },
+    {
+      "name": "Nothing",
+      "id": 45
+    },
+    {
+      "name": "Red City Radio",
+      "id": 46
+    },
+    {
+      "name": "Gouge Away",
+      "id": 47
+    },
+    {
+      "name": "Dance Gavin Dance",
+      "id": 48
+    },
+    {
+      "name": "Don Bronco",
+      "id": 49
+    },
+    {
+      "name": "Hail The Sun",
+      "id": 50
+    },
+    {
+      "name": "Covet",
+      "id": 51
+    },
+    {
+      "name": "Lord Huron",
+      "id": 52
+    },
+    {
+      "name": "The Story So Far",
+      "id": 53
+    },
+    {
+      "name": "Turnover",
+      "id": 54
+    },
+    {
+      "name": "Citizen",
+      "id": 55
+    },
+    {
+      "name": "The Plot In You",
+      "id": 56
     }
   ],
   "concerts": [
     {
-      "id": 1,
-      "userId": 1,
-      "tourName": "",
-      "tourPoster": "",
-      "date": "",
-      "venueId": 1
-    },
-    {
+      "id": 2,
       "userId": 2,
-      "tourName": "Bryan is so helpful tour",
+      "tourName": "THICC THICCLY TOUR PART 1",
       "tourPoster": "",
-      "date": "2020-06-20",
-      "venueId": 2,
-      "id": 2
+      "date": "2020-03-11",
+      "venueId": 2
     },
     {
-      "id": 3,
-      "date": "2020-02-23",
-      "venue": {
-        "name": "The End",
-        "locationId": 1,
-        "id": 4
-      }
-    },
-    {
-      "id": 4,
       "userId": 2,
       "tourName": "The Killed and Born Again Tour",
       "tourPoster": "",
-      "date": "2020-02-24",
-      "venueId": 4
-    },
-    {
-      "id": 5,
-      "userId": 2,
-      "tourName": "Test for Sort by Date & Descending",
-      "tourPoster": "",
-      "date": "2020-06-30",
-      "venueId": 5
+      "date": "2020-02-23",
+      "venueId": 2,
+      "id": 3
     },
     {
       "userId": 2,
-      "tourName": "Testing Concert Counter",
+      "tourName": "The Degenerates Tour",
       "tourPoster": "",
-      "date": "2020-06-22",
-      "venueId": 9,
+      "date": "2019-11-22",
+      "venueId": 3,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2019-11-21",
+      "venueId": 5,
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "tourName": "The Act Tour",
+      "tourPoster": "",
+      "date": "2019-11-05",
+      "venueId": 4,
       "id": 6
     },
     {
       "userId": 2,
-      "tourName": "Test for Venue List",
+      "tourName": "A Different Shade of Blue Tour",
       "tourPoster": "",
-      "date": "2020-07-08",
-      "venueId": 4,
+      "date": "2019-08-25",
+      "venueId": 2,
       "id": 7
     },
     {
       "userId": 2,
-      "tourName": "Another Test",
+      "tourName": "20th Anniversary Tour",
       "tourPoster": "",
-      "date": "2020-06-22",
-      "venueId": 4,
+      "date": "2019-10-16",
+      "venueId": 5,
       "id": 8
     },
     {
       "userId": 2,
-      "tourName": "Testing Venue and Location List",
+      "tourName": "",
       "tourPoster": "",
-      "date": "2020-06-23",
-      "venueId": 10,
+      "date": "2019-05-22",
+      "venueId": 4,
       "id": 9
+    },
+    {
+      "userId": 2,
+      "tourName": "Artificial Selection Tour 2019",
+      "tourPoster": "",
+      "date": "2019-05-02",
+      "venueId": 5,
+      "id": 10
+    },
+    {
+      "userId": 2,
+      "tourName": "Proper Dose Tour 2018",
+      "tourPoster": "",
+      "date": "2018-11-25",
+      "venueId": 6,
+      "id": 11
     }
   ],
   "concertBands": [
     {
-      "id": 1,
-      "concertId": 2,
-      "bandId": 2
-    },
-    {
       "bandId": 5,
-      "concertId": 4,
-      "id": 10
+      "concertId": 3,
+      "id": 7
     },
     {
       "bandId": 6,
+      "concertId": 3,
+      "id": 8
+    },
+    {
+      "bandId": 7,
+      "concertId": 3,
+      "id": 9
+    },
+    {
+      "bandId": 8,
+      "concertId": 3,
+      "id": 10
+    },
+    {
+      "bandId": 31,
       "concertId": 4,
       "id": 11
     },
     {
-      "bandId": 7,
+      "bandId": 32,
       "concertId": 4,
       "id": 12
     },
     {
-      "bandId": 8,
+      "bandId": 33,
       "concertId": 4,
       "id": 13
     },
     {
-      "bandId": 9,
-      "concertId": 5,
+      "bandId": 34,
+      "concertId": 4,
       "id": 14
     },
     {
-      "bandId": 1,
-      "concertId": 6,
+      "bandId": 21,
+      "concertId": 5,
       "id": 15
     },
     {
-      "bandId": 3,
-      "concertId": 7,
+      "bandId": 35,
+      "concertId": 5,
       "id": 16
     },
     {
-      "bandId": 5,
-      "concertId": 8,
+      "bandId": 24,
+      "concertId": 6,
       "id": 17
     },
     {
-      "bandId": 6,
-      "concertId": 8,
+      "bandId": 36,
+      "concertId": 6,
       "id": 18
     },
     {
-      "bandId": 7,
-      "concertId": 8,
+      "bandId": 37,
+      "concertId": 6,
       "id": 19
     },
     {
-      "bandId": 8,
-      "concertId": 8,
+      "bandId": 38,
+      "concertId": 6,
       "id": 20
     },
     {
-      "bandId": 16,
-      "concertId": 9,
+      "bandId": 40,
+      "concertId": 7,
       "id": 21
-    }
-  ],
-  "videos": [
+    },
     {
-      "id": 1,
-      "concertId": 1,
-      "url": "",
-      "description": ""
-    }
-  ],
-  "photos": [
+      "bandId": 41,
+      "concertId": 7,
+      "id": 22
+    },
     {
-      "id": 1,
-      "concertId": 1,
-      "url": "",
-      "description": ""
+      "bandId": 42,
+      "concertId": 7,
+      "id": 23
+    },
+    {
+      "bandId": 43,
+      "concertId": 7,
+      "id": 24
+    },
+    {
+      "bandId": 44,
+      "concertId": 7,
+      "id": 25
+    },
+    {
+      "bandId": 39,
+      "concertId": 8,
+      "id": 26
+    },
+    {
+      "bandId": 46,
+      "concertId": 8,
+      "id": 27
+    },
+    {
+      "bandId": 20,
+      "concertId": 9,
+      "id": 28
+    },
+    {
+      "bandId": 45,
+      "concertId": 9,
+      "id": 29
+    },
+    {
+      "bandId": 47,
+      "concertId": 9,
+      "id": 30
+    },
+    {
+      "bandId": 48,
+      "concertId": 10,
+      "id": 31
+    },
+    {
+      "bandId": 49,
+      "concertId": 10,
+      "id": 32
+    },
+    {
+      "bandId": 50,
+      "concertId": 10,
+      "id": 33
+    },
+    {
+      "bandId": 51,
+      "concertId": 10,
+      "id": 34
+    },
+    {
+      "bandId": 7,
+      "concertId": 10,
+      "id": 35
+    },
+    {
+      "bandId": 53,
+      "concertId": 11,
+      "id": 36
+    },
+    {
+      "bandId": 54,
+      "concertId": 11,
+      "id": 37
+    },
+    {
+      "bandId": 55,
+      "concertId": 11,
+      "id": 38
+    },
+    {
+      "bandId": 22,
+      "concertId": 11,
+      "id": 39
+    },
+    {
+      "bandId": 26,
+      "concertId": 2,
+      "id": 97
+    },
+    {
+      "bandId": 27,
+      "concertId": 2,
+      "id": 98
+    },
+    {
+      "bandId": 28,
+      "concertId": 2,
+      "id": 99
+    },
+    {
+      "bandId": 29,
+      "concertId": 2,
+      "id": 100
+    },
+    {
+      "bandId": 30,
+      "concertId": 2,
+      "id": 101
     }
   ],
+  "videos": [],
+  "photos": [],
   "venues": [
     {
       "id": 1,
@@ -241,44 +511,29 @@
       "name": ""
     },
     {
-      "name": "Cannery Ballroom",
+      "name": "The End",
       "locationId": 1,
       "id": 2
     },
     {
-      "name": "Mercy Lounge",
+      "name": "Nashville Municipal Auditorium",
       "locationId": 1,
       "id": 3
     },
     {
-      "name": "The End",
+      "name": "Exit/In",
       "locationId": 1,
       "id": 4
     },
     {
-      "name": "Exit/In",
+      "name": "Marathon Music Works",
       "locationId": 1,
       "id": 5
     },
     {
-      "name": "The Shrine",
-      "locationId": 2,
-      "id": 7
-    },
-    {
-      "name": "The Basement East",
-      "locationId": 1,
-      "id": 8
-    },
-    {
-      "name": "The Observatory",
-      "locationId": 3,
-      "id": 9
-    },
-    {
-      "name": "Soma",
-      "locationId": 4,
-      "id": 10
+      "name": "The Masquerade (Heaven)",
+      "locationId": 6,
+      "id": 6
     }
   ],
   "locations": [
@@ -301,6 +556,10 @@
     {
       "cityState": "Pomona, CA",
       "id": 5
+    },
+    {
+      "cityState": "Atlanta, GA",
+      "id": 6
     }
   ]
 }

@@ -50,7 +50,7 @@ table > thead, table > tbody {
   align-items: center;
   align-content: center;
   background-color: black;
-  margin: 5px 5px;
+  margin: 25px 15px;
   color: white;
   font-family: 'lato', sans-serif;
 }
@@ -82,7 +82,7 @@ p, h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px 10px;
+  margin: 25px 15px;
 }
 
 .venue-list-table, .bands-list-table, .location-list-table {
@@ -102,6 +102,22 @@ p, h3 {
   width: 500px;
 }
 
+#concert-table {
+  max-width: 1200px;
+}
+
+.concert-date, .concert-location, .concert-venue {
+  white-space: nowrap;
+}
+
+.tour-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-tour-poster-btn {
+  margin-left: 10px;
+}
 html,
 body {
   margin: 0;

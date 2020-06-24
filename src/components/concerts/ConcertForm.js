@@ -354,7 +354,7 @@ const ConcertForm = (props) => {
             </Modal>
           </div>
         </FormGroup>
-        <Button onClick={constructNewConcert} disabled={isLoading} color="secondary">Add Concert</Button>{" "}
+        <Button onClick={constructNewConcert} /*disabled={isLoading}*/ color="secondary">Add Concert</Button>{" "}
       </Form>
     </>
   );
