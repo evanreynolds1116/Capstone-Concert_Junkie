@@ -534,12 +534,12 @@
       "id": 4
     },
     {
+      "id": 5,
       "userId": 2,
       "tourName": "",
       "tourPoster": "",
       "date": "2019-11-21",
-      "venueId": 5,
-      "id": 5
+      "venueId": 5
     },
     {
       "userId": 2,
@@ -846,16 +846,6 @@
       "bandId": 34,
       "concertId": 4,
       "id": 14
-    },
-    {
-      "bandId": 21,
-      "concertId": 5,
-      "id": 15
-    },
-    {
-      "bandId": 35,
-      "concertId": 5,
-      "id": 16
     },
     {
       "bandId": 24,
@@ -1496,6 +1486,16 @@
       "bandId": 33,
       "concertId": 38,
       "id": 201
+    },
+    {
+      "bandId": 21,
+      "concertId": 5,
+      "id": 204
+    },
+    {
+      "bandId": 35,
+      "concertId": 5,
+      "id": 205
     }
   ],
   "videos": [],
