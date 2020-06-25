@@ -7,7 +7,6 @@ header > h1 {
   letter-spacing: 5px;
   color: #FFF;
   color: -webkit-linear-gradient(white, #38495a)
-    
 }
 
 .header-div {
@@ -51,7 +50,7 @@ table > thead, table > tbody {
   align-items: center;
   align-content: center;
   background-color: black;
-  margin: 5px 5px;
+  margin: 25px 15px;
   color: white;
   font-family: 'lato', sans-serif;
 }
@@ -83,7 +82,7 @@ p, h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5px 5px;
+  margin: 25px 15px;
 }
 
 .venue-list-table, .bands-list-table, .location-list-table {
@@ -95,6 +94,34 @@ p, h3 {
   font-family: 'lato', sans-serif;
 }
 
+.card-content {
+  background-color: black;
+}
+
+#locations-table {
+  width: 500px;
+}
+
+#concert-table {
+  max-width: 1200px;
+}
+
+.concert-date, .concert-location, .concert-venue {
+  white-space: nowrap;
+}
+
+.tour-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-tour-poster-btn {
+  margin-left: 10px;
+}
+
+.concert-container {
+  vertical-align: middle;
+}
 html,
 body {
   margin: 0;

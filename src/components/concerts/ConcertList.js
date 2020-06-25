@@ -4,31 +4,14 @@ import ConcertManager from "../../modules/ConcertManager";
 // import ConcertCard from "./ConcertCard";
 import { Table } from "reactstrap";
 import BandManager from "../../modules/BandManager";
-import LocationManager from "../../modules/LocationManager";
 import VenueManager from '../../modules/VenueManager'
 
 const ConcertList = (props) => {
   const [concerts, setConcerts] = useState([]);
 
-  const [concertCounter, setConcertCounter] = useState("")
-
-  // const getConcerts = () => {
-  //   ConcertManager.get(sessionStorage.activeUser).then((concertsFromAPI) => {
-  //     concertsFromAPI.map((concert) =>
-  //       BandManager.getConcertBand(concert.id).then((concertBandsFromAPI) => {
-  //         concert.bands = concertBandsFromAPI;
-  //         // .map(
-  //         //   (concertBand) => concertBand.band
-  //         //   );
-  //         return concert;
-  //       })
-  //     );
-  //     setConcerts(concertsFromAPI);
-  //   });
-  // };
+  const [concertCounter, setConcertCounter] = useState("");
 
   useEffect(() => {
-    // getConcerts();
     ConcertManager.get(sessionStorage.activeUser).then((concertsFromAPI) => {
       Promise.all(
       concertsFromAPI.map((concert) => 
@@ -40,7 +23,7 @@ const ConcertList = (props) => {
           return concert;
         })
       )).then((concertsWithBands) => {
-        console.log(concertsWithBands)
+        // console.log(concertsWithBands)
         return Promise.all(
           concertsWithBands.map((concert) => 
             VenueManager.get(concert.venueId).then((venueLocation) => {
@@ -49,14 +32,9 @@ const ConcertList = (props) => {
             })
           )
         )
-
-
-        // setConcerts(concertsWithBands)
       }).then((concertsWithBandsVenues) => setConcerts(concertsWithBandsVenues))
     });
   }, [sessionStorage.activeUser]);
-
-  // console.log("concerts", concerts)
 
   const getNumberConcerts = () => {
     ConcertManager.get(sessionStorage.activeUser).then(concertsFromAPI => {
@@ -99,17 +77,18 @@ const ConcertList = (props) => {
           <tbody>
             {concerts.map((concert) => (
               <tr key={concert.id}>
-                <td>{concert.date}</td>
+                <td className="concert-date">{concert.date}</td>
                 <td className="concert-container">
-                  <p>
-                    <strong>{concert.tourName}</strong>
-                  </p>
+                  <strong>
+                    {concert.tourName}
+                  </strong>
+                  <br></br>
                   {concert.bands.map((band) => (
-                    <span key={band.id}>/ {band.name}  </span>
+                    <span key={band.id}>| {band.name} |</span>
                   ))}
                 </td>
-                <td>{concert.venue.name}</td>
-                <td>{concert.venue.location.cityState}</td>
+                <td className="concert-venue">{concert.venue.name}</td>
+                <td className="concert-location">{concert.venue.location.cityState}</td>
                 <td>
                 <Button 
                   outline color="primary"

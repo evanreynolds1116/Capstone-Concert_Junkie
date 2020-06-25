@@ -30,24 +30,16 @@ const ConcertEditForm = props => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [updateBands, setUpdatedBands] = useState([])
-
-  const handleFieldChange = evt => {
-    const stateToChange = {...concert}
-    stateToChange[evt.target.id] = evt.target.value;
-    setConcert(stateToChange)
-  }
-
-  // form stuff
-  // const [loca, setLocation] = useState({ cityState: ""})
-  // const [venue, setVenue] = useState({ name: "", locationId: loca.id})
-  // const [concert, setConcert] = useState({ userId: parseInt(sessionStorage.activeUser), tourName: "", tourPoster: "", date: "", venueId: venue.id })
-  const [concertBand, setConcertBand] = useState([])
+  const [concertBands, setConcertBands] = useState([])
+  const [onlyVenue, setOnlyVenue] = useState([])
+  const [onlyLocation, setOnlyLocation] = useState([])
 
   // handles the band typeahead input
   const handleBandFieldChange = (selectedBandsArray) => {
     const bandsToAdd = {...concert}
     bandsToAdd.bands = selectedBandsArray
     setConcert(bandsToAdd)
+    setConcertBands(selectedBandsArray)
   };
 
   // handles the venue typeahead input
@@ -77,45 +69,57 @@ const ConcertEditForm = props => {
       venueId: concert.venueId
     }
 
-    const editedConcertBand = {
-      id: props.match.params.concertBandId,
-      concertId: concert.id,
-      bandId: updateBands.id
-    }
-
-    
-    ConcertManager.update(editedConcert).then((concert) => {
-      console.log("concertBand", concertBand)
-      console.log("concert", concert)
-        concert.bands.forEach((band) => {
-        band = editedConcertBand
-        console.log("editedConcertBand", editedConcert)
-        console.log("band", band)
-        BandManager.update(band)
+    ConcertManager.getConcert(props.match.params.concertId).then((concert) => {
+      BandManager.getConcertBands(concert.id).then((concertBandsFromAPI) => {
+        concertBandsFromAPI.forEach((concertBand) => BandManager.delete(concertBand.id))
       })
-    }).then(() => props.history.push("/concerts"))
+    })
+
+    ConcertManager.update(editedConcert).then((postedConcert) => {
+      concertBands.forEach((band) => {
+        const newConcertBand = {bandId: band.id, concertId: postedConcert.id }
+        band = newConcertBand
+        BandManager.postConcertBand(band)
+      })
+    }).then(() => props.history.push(`/concerts/${editedConcert.id}`))
   };
 
   useEffect(() => {
     ConcertManager.getConcert(props.match.params.concertId)
     .then(concert => {
       BandManager.getConcertBand(concert.id).then((concertBandsFromAPI) => {
-        console.log("concertBandsFromAPI", concertBandsFromAPI)
-        console.log("concert", concert)
-        setUpdatedBands(concertBandsFromAPI)
         concert.bands = concertBandsFromAPI
         .map(
           (concertBand) => concertBand.band
-        )
-        // console.log("concert", concert)
-        // console.log("concert.venue", concert.venue)
-        // console.log("concert.venue.name =", concert.venue.name)
+          )
+          console.log("concert", concert.venue.name)
         return concert;
       })
       .then((concertWithBands) => setConcert(concertWithBands))
       setIsLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    ConcertManager.getConcert(props.match.params.concertId).then((concert) => {
+      console.log(concert)
+      const venueArray = []
+      const venueObj = concert.venue
+      venueArray.push(venueObj)
+      console.log(venueArray)
+      setOnlyVenue(venueArray);
+      VenueManager.get(concert.venueId).then((venueLocation) => {
+        const locationArray = [];
+        const locationObj = venueLocation.location;
+        locationArray.push(locationObj)
+        setOnlyLocation(locationArray)
+      })
+    })
+  }, []);
+
+  
+
+ 
 
   // for modal stuff
   const { /*buttonLabel,*/ className } = props;
@@ -229,7 +233,7 @@ const ConcertEditForm = props => {
               options={bands}
               labelKey={(band) => band.name}
               multiple
-              onChange={handleBandFieldChange}
+              onChange={(selected) => handleBandFieldChange(selected)}
               selected={concert.bands}
               name="band"
               id="name"
@@ -304,6 +308,7 @@ const ConcertEditForm = props => {
               name="location"
               id="loc"
               // onChange={handleConcertFieldChange}
+              selected={onlyLocation}
               placeholder="e.g. Nashville, TN"
               className="concert-form-input"
             />
@@ -352,6 +357,7 @@ const ConcertEditForm = props => {
               type="text"
               options={venues}
               labelKey={(venue) => venue.name}
+              selected={onlyVenue}
               name="venue"
               id="venue"
               onChange={handleVenueFieldChange}

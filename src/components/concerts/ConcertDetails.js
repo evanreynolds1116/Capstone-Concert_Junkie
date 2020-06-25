@@ -3,6 +3,7 @@ import { Button } from "reactstrap";
 import ConcertManager from "../../modules/ConcertManager";
 import BandManager from "../../modules/BandManager";
 import "./ConcertDetails.css";
+import VenueManager from "../../modules/VenueManager";
 
 const ConcertDetails = (props) => {
   const [concert, setConcert] = useState({
@@ -10,6 +11,7 @@ const ConcertDetails = (props) => {
     bands: [],
     date: "",
     venue: "",
+    location: "",
     tourPoster: "",
     video: ""
   });
@@ -23,21 +25,28 @@ const ConcertDetails = (props) => {
             concertFromAPI.bands = concertBandsFromAPI.map(
               (concertBand) => concertBand.band
             );
-            console.log("concertFromAPI", concertFromAPI);
+            console.log(concertFromAPI)
             return concertFromAPI;
           })
-          .then((concertWithBands) =>
-            setConcert({
-              tourName: concertWithBands.tourName,
-              tourPoster: concertWithBands.tourPoster,
-              bands: concertWithBands.bands,
-              date: concertWithBands.date,
-              venue: concertWithBands.venue.name,
-              location: concert.location,
-              image: concert.image,
-              video: concert.video,
-            }));
+          .then((concertWithBands) => {
+            VenueManager.get(concertWithBands.venueId).then((venueLocation) => {
+              concertWithBands.location = venueLocation.location
+              console.log(concertWithBands)
+              setConcert({
+                tourName: concertWithBands.tourName,
+                tourPoster: concertWithBands.tourPoster,
+                bands: concertWithBands.bands,
+                date: concertWithBands.date,
+                venue: concertWithBands.venue.name,
+                location: concertWithBands.location.cityState,
+                image: concert.image,
+                video: concert.video,
+              })
+              return concertWithBands
+            })
+          })
             setIsLoading(false)
+            
       });
   }, [props.concertId]);
 
@@ -51,7 +60,7 @@ const ConcertDetails = (props) => {
   return (
     <div className="card">
       <div className="card-content">
-        <div className="concert-details">
+        <div className="concert-details tour-details">
           <h3>
             <span className="card-petname">
               <strong>{concert.tourName}</strong>
@@ -61,6 +70,7 @@ const ConcertDetails = (props) => {
             <img src={concert.tourPoster} alt="Tour Poster" />
           </picture>
         </div>
+          <Button color="primary" size="sm" className="add-tour-poster-btn">+ Upload Tour Poster</Button>{' '}
         <div className="concert-details bands-heading">
           <h3>
             <strong>Bands</strong>
@@ -68,7 +78,7 @@ const ConcertDetails = (props) => {
         </div>
         <div className="concert-details">
           {concert.bands.map((band) => (
-            <p>{band.name} </p>
+            <p key={band.id}>{band.name} </p>
           ))}
         </div>
         <div className="concert-details">
