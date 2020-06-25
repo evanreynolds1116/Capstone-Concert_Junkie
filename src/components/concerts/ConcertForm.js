@@ -61,6 +61,13 @@ const ConcertForm = (props) => {
   // }, []);
   //
 
+  const [selectedVenue, setSelectedVenue] = useState([])
+
+  const getSelectedVenue = (evt) => {
+    const selectedVenueInput = {...selectedVenue}
+    selectedVenueInput[evt.target.id] = evt.target.value;
+    setSelectedVenue(selectedVenueInput)
+  }
   // add new band, venue, location
   const [newBand, setNewBand] = useState({ name: "" });
   const [newLocation, setNewLocation] = useState({ cityState: "" });
@@ -75,16 +82,13 @@ const ConcertForm = (props) => {
     const newBandToAdd = { ...newBand };
     newBandToAdd[evt.target.id] = evt.target.value;
     setNewBand(newBandToAdd);
-    getBands();
   };
   
   const constructNewBand = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-    BandManager.postNewBand(newBand).then(getBands())
-    return BandManager.getAll().then((bandsFromAPI) => {
-      setBands(bandsFromAPI);
-    });
+    BandManager.postNewBand(newBand)
+    
   };
   
   // add new location to database
@@ -92,16 +96,12 @@ const ConcertForm = (props) => {
     const newLocationToAdd = { ...newLocation };
     newLocationToAdd[evt.target.id] = evt.target.value;
     setNewLocation(newLocationToAdd)
-    getLocations();
   };
   
   const constructNewLocation = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
     LocationManager.postNewLocation(newLocation).then(getLocations())
-    return LocationManager.getAll().then((locationsFromAPI) => {
-      setLocations(locationsFromAPI);
-    });
   };
   
   // add location id to new venue to database
@@ -116,17 +116,12 @@ const ConcertForm = (props) => {
     const newVenueToAdd = { ...newVenue };
     newVenueToAdd[evt.target.id] = evt.target.value;
     setNewVenue(newVenueToAdd);
-    getVenues();
   };
   
   const constructNewVenue = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
     VenueManager.postNewVenue(newVenue)
-    return VenueManager.getAllVenueLocations().then((venuesFromAPI) => {
-      console.log("venuesFromAPI", venuesFromAPI)
-      setVenues(venuesFromAPI)
-    })
   };
 
   
@@ -175,11 +170,6 @@ const ConcertForm = (props) => {
     getVenues();
   }, []);
 
-  const testFunction = () => {
-    constructNewVenue();
-    getVenues();
-  }
-
   return (
     <>
       <Form className="concert-form">
@@ -198,6 +188,8 @@ const ConcertForm = (props) => {
               labelKey={(band) => `${band.name}`}
               multiple
               onChange={handleBandFieldChange}
+              // onInputChange={getBands}
+              onFocus={getBands}
               name="band"
               id="name"
               minLength="2"
@@ -267,10 +259,11 @@ const ConcertForm = (props) => {
             <Typeahead
               type="text"
               options={venues}
-              labelKey={(venue) => `${venue.name} @ ${venue.location.cityState}`}
+              labelKey={(venue) => `${venue.name} (${venue.location.cityState})`}
               name="venue"
               id="venue"
               onChange={handleVenueFieldChange}
+              onFocus={getVenues}
               minLength="2"
               placeholder="e.g. Exit/In"
               className="concert-form-input"
@@ -333,6 +326,7 @@ const ConcertForm = (props) => {
               id="loc"
               value={concert}
               // onChange={handleConcertFieldChange}
+              onFocus={getLocations}
               minLength="2"
               placeholder="e.g. Nashville, TN"
               className="concert-form-input"

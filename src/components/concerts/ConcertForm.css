@@ -22,6 +22,11 @@ input[type="text"], input[type="date"] {
 
 .add-band-btn, .add-venue-btn, .add-location-btn {
   height: 38px;
+  margin-left: 3px;
+}
+
+.add-venue-btn, .add-location-btn {
+  height: 38px;
   margin: 8px 0px 0px 3px;
 }
 

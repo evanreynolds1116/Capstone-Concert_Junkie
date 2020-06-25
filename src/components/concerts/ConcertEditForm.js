@@ -92,7 +92,9 @@ const ConcertEditForm = props => {
         .map(
           (concertBand) => concertBand.band
           )
-          console.log("concert", concert.venue.name)
+        console.log("concert", concert)
+        const bandsFromAPI = concert.bands
+        setConcertBands(bandsFromAPI)
         return concert;
       })
       .then((concertWithBands) => setConcert(concertWithBands))
@@ -233,8 +235,8 @@ const ConcertEditForm = props => {
               options={bands}
               labelKey={(band) => band.name}
               multiple
-              onChange={(selected) => handleBandFieldChange(selected)}
               selected={concert.bands}
+              onChange={handleBandFieldChange}
               name="band"
               id="name"
               emptyLabel="If no matches found, click Add Band to add it to the database!"
