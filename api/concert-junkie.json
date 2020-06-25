@@ -226,6 +226,202 @@
     {
       "name": "The Plot In You",
       "id": 56
+    },
+    {
+      "name": "Homesafe",
+      "id": 57
+    },
+    {
+      "name": "Save Face",
+      "id": 58
+    },
+    {
+      "name": "Small Talks",
+      "id": 59
+    },
+    {
+      "name": "Chase Huglin",
+      "id": 60
+    },
+    {
+      "name": "The Band Camino",
+      "id": 61
+    },
+    {
+      "name": "Hardcastle",
+      "id": 62
+    },
+    {
+      "name": "Copeland",
+      "id": 63
+    },
+    {
+      "name": "From Indian Lakes",
+      "id": 64
+    },
+    {
+      "name": "Many Rooms",
+      "id": 65
+    },
+    {
+      "name": "Bring Me The Horizon",
+      "id": 66
+    },
+    {
+      "name": "Fever 333",
+      "id": 67
+    },
+    {
+      "name": "Thrice",
+      "id": 68
+    },
+    {
+      "name": "Crown The Empire",
+      "id": 69
+    },
+    {
+      "name": "Swingin' Utters",
+      "id": 70
+    },
+    {
+      "name": "Gallows Bound",
+      "id": 71
+    },
+    {
+      "name": "Fit For A King",
+      "id": 72
+    },
+    {
+      "name": "'68",
+      "id": 73
+    },
+    {
+      "name": "Fidlar",
+      "id": 74
+    },
+    {
+      "name": "Dilly Dally",
+      "id": 75
+    },
+    {
+      "name": "Norbo",
+      "id": 76
+    },
+    {
+      "name": "Side Eyes",
+      "id": 77
+    },
+    {
+      "name": "Neck Deep",
+      "id": 78
+    },
+    {
+      "name": "Stand Atlantic",
+      "id": 79
+    },
+    {
+      "name": "WSTR",
+      "id": 80
+    },
+    {
+      "name": "Parkway Drive",
+      "id": 81
+    },
+    {
+      "name": "Polaris",
+      "id": 83
+    },
+    {
+      "name": "Microwave",
+      "id": 84
+    },
+    {
+      "name": "Drug Church",
+      "id": 85
+    },
+    {
+      "name": "The Chainsmokers",
+      "id": 86
+    },
+    {
+      "name": "Pronoun",
+      "id": 87
+    },
+    {
+      "name": "Souvenirs",
+      "id": 88
+    },
+    {
+      "name": "Super Whatevr",
+      "id": 89
+    },
+    {
+      "name": "Gleemer",
+      "id": 90
+    },
+    {
+      "name": "Special Lonely",
+      "id": 91
+    },
+    {
+      "name": "Moose Blood",
+      "id": 92
+    },
+    {
+      "name": "Lydia",
+      "id": 93
+    },
+    {
+      "name": "McCafferty",
+      "id": 94
+    },
+    {
+      "name": "Papa Roach",
+      "id": 95
+    },
+    {
+      "name": "Falling In Reverse",
+      "id": 96
+    },
+    {
+      "name": "Mayday Parade",
+      "id": 97
+    },
+    {
+      "name": "Of Mice & Men",
+      "id": 98
+    },
+    {
+      "name": "State Champs",
+      "id": 99
+    },
+    {
+      "name": "Knuckle Puck",
+      "id": 100
+    },
+    {
+      "name": "Wage War",
+      "id": 101
+    },
+    {
+      "name": "Volumes",
+      "id": 102
+    },
+    {
+      "name": "Cane Hill",
+      "id": 103
+    },
+    {
+      "name": "Seaway",
+      "id": 104
+    },
+    {
+      "name": "Creeper",
+      "id": 105
+    },
+    {
+      "name": "Speak Low If You Speak Love",
+      "id": 106
     }
   ],
   "concerts": [
@@ -308,6 +504,150 @@
       "date": "2018-11-25",
       "venueId": 6,
       "id": 11
+    },
+    {
+      "userId": 2,
+      "tourName": "Spring Tour 2019",
+      "tourPoster": "",
+      "date": "2019-04-21",
+      "venueId": 7,
+      "id": 12
+    },
+    {
+      "userId": 2,
+      "tourName": "2019 US Tour",
+      "tourPoster": "",
+      "date": "2019-02-21",
+      "venueId": 2,
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2019-02-02",
+      "venueId": 4,
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "tourName": "2019 Tour USA/CAN",
+      "tourPoster": "",
+      "date": "2019-02-14",
+      "venueId": 8,
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "tourName": "'First Love' North America Tour 2019",
+      "tourPoster": "",
+      "date": "2019-01-23",
+      "venueId": 3,
+      "id": 16
+    },
+    {
+      "userId": 2,
+      "tourName": "Erase Me Tour",
+      "tourPoster": "",
+      "date": "2018-11-02",
+      "venueId": 9,
+      "id": 17
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2018-10-24",
+      "venueId": 2,
+      "id": 18
+    },
+    {
+      "userId": 2,
+      "tourName": "With Roots Above and Branches Below 10 Year Anniversary Tour",
+      "tourPoster": "",
+      "date": "2018-10-11",
+      "venueId": 4,
+      "id": 19
+    },
+    {
+      "userId": 2,
+      "tourName": "A North America Tour In 2018",
+      "tourPoster": "",
+      "date": "2018-09-21",
+      "venueId": 10,
+      "id": 20
+    },
+    {
+      "userId": 2,
+      "tourName": "The Peace and The Panic USA Tour 2",
+      "tourPoster": "",
+      "date": "2018-09-15",
+      "venueId": 5,
+      "id": 21
+    },
+    {
+      "userId": 2,
+      "tourName": "Reverence North America Tour 2018",
+      "tourPoster": "",
+      "date": "2018-08-30",
+      "venueId": 11,
+      "id": 22
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2018-08-23",
+      "venueId": 2,
+      "id": 23
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2018-08-11",
+      "venueId": 12,
+      "id": 24
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2018-05-08",
+      "venueId": 8,
+      "id": 25
+    },
+    {
+      "userId": 2,
+      "tourName": "\"Feel Something\" US Headline Tour 2018",
+      "tourPoster": "",
+      "date": "2018-04-07",
+      "venueId": 13,
+      "id": 26
+    },
+    {
+      "userId": 2,
+      "tourName": "North America 2018",
+      "tourPoster": "",
+      "date": "2018-03-25",
+      "venueId": 8,
+      "id": 27
+    },
+    {
+      "userId": 2,
+      "tourName": "Self Help Fest",
+      "tourPoster": "",
+      "date": "2018-03-03",
+      "venueId": 14,
+      "id": 28
+    },
+    {
+      "userId": 2,
+      "tourName": "The Peace and The Panic USA Tour",
+      "tourPoster": "",
+      "date": "2018-02-28",
+      "venueId": 15,
+      "id": 29
     }
   ],
   "concertBands": [
@@ -500,6 +840,351 @@
       "bandId": 30,
       "concertId": 2,
       "id": 101
+    },
+    {
+      "bandId": 52,
+      "concertId": 12,
+      "id": 102
+    },
+    {
+      "bandId": 34,
+      "concertId": 13,
+      "id": 103
+    },
+    {
+      "bandId": 57,
+      "concertId": 13,
+      "id": 104
+    },
+    {
+      "bandId": 58,
+      "concertId": 13,
+      "id": 105
+    },
+    {
+      "bandId": 59,
+      "concertId": 13,
+      "id": 106
+    },
+    {
+      "bandId": 60,
+      "concertId": 13,
+      "id": 107
+    },
+    {
+      "bandId": 61,
+      "concertId": 14,
+      "id": 108
+    },
+    {
+      "bandId": 62,
+      "concertId": 14,
+      "id": 109
+    },
+    {
+      "bandId": 63,
+      "concertId": 15,
+      "id": 110
+    },
+    {
+      "bandId": 64,
+      "concertId": 15,
+      "id": 111
+    },
+    {
+      "bandId": 65,
+      "concertId": 15,
+      "id": 112
+    },
+    {
+      "bandId": 66,
+      "concertId": 16,
+      "id": 113
+    },
+    {
+      "bandId": 68,
+      "concertId": 16,
+      "id": 114
+    },
+    {
+      "bandId": 67,
+      "concertId": 16,
+      "id": 115
+    },
+    {
+      "bandId": 9,
+      "concertId": 17,
+      "id": 116
+    },
+    {
+      "bandId": 48,
+      "concertId": 17,
+      "id": 117
+    },
+    {
+      "bandId": 69,
+      "concertId": 17,
+      "id": 118
+    },
+    {
+      "bandId": 56,
+      "concertId": 17,
+      "id": 119
+    },
+    {
+      "bandId": 70,
+      "concertId": 18,
+      "id": 120
+    },
+    {
+      "bandId": 71,
+      "concertId": 18,
+      "id": 121
+    },
+    {
+      "bandId": 24,
+      "concertId": 19,
+      "id": 122
+    },
+    {
+      "bandId": 72,
+      "concertId": 19,
+      "id": 123
+    },
+    {
+      "bandId": 73,
+      "concertId": 19,
+      "id": 124
+    },
+    {
+      "bandId": 74,
+      "concertId": 20,
+      "id": 125
+    },
+    {
+      "bandId": 75,
+      "concertId": 20,
+      "id": 126
+    },
+    {
+      "bandId": 76,
+      "concertId": 20,
+      "id": 127
+    },
+    {
+      "bandId": 77,
+      "concertId": 20,
+      "id": 128
+    },
+    {
+      "bandId": 78,
+      "concertId": 21,
+      "id": 129
+    },
+    {
+      "bandId": 12,
+      "concertId": 21,
+      "id": 130
+    },
+    {
+      "bandId": 79,
+      "concertId": 21,
+      "id": 131
+    },
+    {
+      "bandId": 80,
+      "concertId": 21,
+      "id": 132
+    },
+    {
+      "bandId": 81,
+      "concertId": 22,
+      "id": 133
+    },
+    {
+      "bandId": 23,
+      "concertId": 22,
+      "id": 134
+    },
+    {
+      "bandId": 24,
+      "concertId": 22,
+      "id": 135
+    },
+    {
+      "bandId": 83,
+      "concertId": 22,
+      "id": 136
+    },
+    {
+      "bandId": 84,
+      "concertId": 23,
+      "id": 137
+    },
+    {
+      "bandId": 34,
+      "concertId": 23,
+      "id": 138
+    },
+    {
+      "bandId": 85,
+      "concertId": 23,
+      "id": 139
+    },
+    {
+      "bandId": 86,
+      "concertId": 24,
+      "id": 140
+    },
+    {
+      "bandId": 20,
+      "concertId": 25,
+      "id": 141
+    },
+    {
+      "bandId": 55,
+      "concertId": 25,
+      "id": 142
+    },
+    {
+      "bandId": 87,
+      "concertId": 25,
+      "id": 143
+    },
+    {
+      "bandId": 88,
+      "concertId": 25,
+      "id": 144
+    },
+    {
+      "bandId": 22,
+      "concertId": 26,
+      "id": 145
+    },
+    {
+      "bandId": 34,
+      "concertId": 26,
+      "id": 146
+    },
+    {
+      "bandId": 89,
+      "concertId": 26,
+      "id": 147
+    },
+    {
+      "bandId": 91,
+      "concertId": 26,
+      "id": 148
+    },
+    {
+      "bandId": 90,
+      "concertId": 26,
+      "id": 149
+    },
+    {
+      "bandId": 92,
+      "concertId": 27,
+      "id": 150
+    },
+    {
+      "bandId": 93,
+      "concertId": 27,
+      "id": 151
+    },
+    {
+      "bandId": 94,
+      "concertId": 27,
+      "id": 152
+    },
+    {
+      "bandId": 31,
+      "concertId": 28,
+      "id": 153
+    },
+    {
+      "bandId": 95,
+      "concertId": 28,
+      "id": 154
+    },
+    {
+      "bandId": 96,
+      "concertId": 28,
+      "id": 155
+    },
+    {
+      "bandId": 97,
+      "concertId": 28,
+      "id": 156
+    },
+    {
+      "bandId": 98,
+      "concertId": 28,
+      "id": 157
+    },
+    {
+      "bandId": 99,
+      "concertId": 28,
+      "id": 158
+    },
+    {
+      "bandId": 23,
+      "concertId": 28,
+      "id": 159
+    },
+    {
+      "bandId": 100,
+      "concertId": 28,
+      "id": 160
+    },
+    {
+      "bandId": 24,
+      "concertId": 28,
+      "id": 161
+    },
+    {
+      "bandId": 69,
+      "concertId": 28,
+      "id": 162
+    },
+    {
+      "bandId": 101,
+      "concertId": 28,
+      "id": 163
+    },
+    {
+      "bandId": 102,
+      "concertId": 28,
+      "id": 164
+    },
+    {
+      "bandId": 103,
+      "concertId": 28,
+      "id": 165
+    },
+    {
+      "bandId": 104,
+      "concertId": 28,
+      "id": 166
+    },
+    {
+      "bandId": 78,
+      "concertId": 29,
+      "id": 167
+    },
+    {
+      "bandId": 104,
+      "concertId": 29,
+      "id": 168
+    },
+    {
+      "bandId": 105,
+      "concertId": 29,
+      "id": 169
+    },
+    {
+      "bandId": 106,
+      "concertId": 29,
+      "id": 170
     }
   ],
   "videos": [],
@@ -534,6 +1219,51 @@
       "name": "The Masquerade (Heaven)",
       "locationId": 6,
       "id": 6
+    },
+    {
+      "name": "Ryman Auditorium",
+      "locationId": 1,
+      "id": 7
+    },
+    {
+      "name": "The Basement East",
+      "locationId": 1,
+      "id": 8
+    },
+    {
+      "name": "War Memorial Auditorium",
+      "locationId": 1,
+      "id": 9
+    },
+    {
+      "name": "Cannery Ballroom",
+      "locationId": 1,
+      "id": 10
+    },
+    {
+      "name": "Soma",
+      "locationId": 4,
+      "id": 11
+    },
+    {
+      "name": "XS Nightclub",
+      "locationId": 7,
+      "id": 12
+    },
+    {
+      "name": "The Glass House",
+      "locationId": 5,
+      "id": 13
+    },
+    {
+      "name": "NOS Event Center",
+      "locationId": 8,
+      "id": 14
+    },
+    {
+      "name": "The Fonda Theatre",
+      "locationId": 9,
+      "id": 15
     }
   ],
   "locations": [
@@ -560,6 +1290,18 @@
     {
       "cityState": "Atlanta, GA",
       "id": 6
+    },
+    {
+      "cityState": "Las Vegas, NV",
+      "id": 7
+    },
+    {
+      "cityState": "San Bernardino, CA",
+      "id": 8
+    },
+    {
+      "cityState": "Hollywood, CA",
+      "id": 9
     }
   ]
 }

@@ -83,7 +83,7 @@ const ConcertList = (props) => {
                     <strong>{concert.tourName}</strong>
                   </p>
                   {concert.bands.map((band) => (
-                    <span key={band.id}>/ {band.name}  </span>
+                    <span key={band.id}>| {band.name} |</span>
                   ))}
                 </td>
                 <td className="concert-venue">{concert.venue.name}</td>

@@ -31,6 +31,7 @@ const ConcertEditForm = props => {
 
   const [updateBands, setUpdatedBands] = useState([])
   const [concertBands, setConcertBands] = useState([])
+  const [concertWithVenue, setConcertWithVenue] = useState([])
 
   // handles the band typeahead input
   const handleBandFieldChange = (selectedBandsArray) => {
@@ -86,9 +87,6 @@ const ConcertEditForm = props => {
     ConcertManager.getConcert(props.match.params.concertId)
     .then(concert => {
       BandManager.getConcertBand(concert.id).then((concertBandsFromAPI) => {
-        console.log("concertBandsFromAPI", concertBandsFromAPI)
-        concertBandsFromAPI.map((concertBand) => console.log("concertBand", concertBand.id))
-        setUpdatedBands(concertBandsFromAPI)
         concert.bands = concertBandsFromAPI
         .map(
           (concertBand) => concertBand.band
@@ -100,6 +98,21 @@ const ConcertEditForm = props => {
       setIsLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    ConcertManager.getConcert(props.match.params.concertId).then((concert) => {
+      VenueManager.get(concert.id)
+      .then((concertVenue) => {
+        console.log(concertVenue)
+        const venueArray = []
+        venueArray.push(concertVenue)
+        console.log(venueArray)
+        setConcertWithVenue(venueArray)
+      })
+    })
+  }, []);
+
+  
 
  
 
@@ -338,7 +351,7 @@ const ConcertEditForm = props => {
               type="text"
               options={venues}
               labelKey={(venue) => venue.name}
-              // selected={concert.venue}
+              selected={venues.selected}
               name="venue"
               id="venue"
               onChange={handleVenueFieldChange}

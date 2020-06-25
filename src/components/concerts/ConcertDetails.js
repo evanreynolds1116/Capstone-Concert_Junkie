@@ -69,7 +69,7 @@ const ConcertDetails = (props) => {
         </div>
         <div className="concert-details">
           {concert.bands.map((band) => (
-            <p>{band.name} </p>
+            <p key={band.id}>{band.name} </p>
           ))}
         </div>
         <div className="concert-details">
