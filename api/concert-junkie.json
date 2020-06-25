@@ -1398,17 +1398,12 @@
     {
       "bandId": 4,
       "concertId": 36,
-      "id": 194
+      "id": 192
     },
     {
       "bandId": 118,
       "concertId": 36,
-      "id": 195
-    },
-    {
-      "bandId": 2,
-      "concertId": 36,
-      "id": 196
+      "id": 193
     }
   ],
   "videos": [],

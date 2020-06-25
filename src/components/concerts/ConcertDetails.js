@@ -3,6 +3,7 @@ import { Button } from "reactstrap";
 import ConcertManager from "../../modules/ConcertManager";
 import BandManager from "../../modules/BandManager";
 import "./ConcertDetails.css";
+import VenueManager from "../../modules/VenueManager";
 
 const ConcertDetails = (props) => {
   const [concert, setConcert] = useState({
@@ -10,6 +11,7 @@ const ConcertDetails = (props) => {
     bands: [],
     date: "",
     venue: "",
+    location: "",
     tourPoster: "",
     video: ""
   });
@@ -23,21 +25,28 @@ const ConcertDetails = (props) => {
             concertFromAPI.bands = concertBandsFromAPI.map(
               (concertBand) => concertBand.band
             );
-            // console.log("concertFromAPI", concertFromAPI);
+            console.log(concertFromAPI)
             return concertFromAPI;
           })
-          .then((concertWithBands) =>
-            setConcert({
-              tourName: concertWithBands.tourName,
-              tourPoster: concertWithBands.tourPoster,
-              bands: concertWithBands.bands,
-              date: concertWithBands.date,
-              venue: concertWithBands.venue.name,
-              location: concert.location,
-              image: concert.image,
-              video: concert.video,
-            }));
+          .then((concertWithBands) => {
+            VenueManager.get(concertWithBands.venueId).then((venueLocation) => {
+              concertWithBands.location = venueLocation.location
+              console.log(concertWithBands)
+              setConcert({
+                tourName: concertWithBands.tourName,
+                tourPoster: concertWithBands.tourPoster,
+                bands: concertWithBands.bands,
+                date: concertWithBands.date,
+                venue: concertWithBands.venue.name,
+                location: concertWithBands.location.cityState,
+                image: concert.image,
+                video: concert.video,
+              })
+              return concertWithBands
+            })
+          })
             setIsLoading(false)
+            
       });
   }, [props.concertId]);
 

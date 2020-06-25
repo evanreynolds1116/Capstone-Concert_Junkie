@@ -233,7 +233,7 @@ const ConcertEditForm = props => {
               options={bands}
               labelKey={(band) => band.name}
               multiple
-              onChange={handleBandFieldChange}
+              onChange={(selected) => handleBandFieldChange(selected)}
               selected={concert.bands}
               name="band"
               id="name"
