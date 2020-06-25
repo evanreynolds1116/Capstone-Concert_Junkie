@@ -422,6 +422,54 @@
     {
       "name": "Speak Low If You Speak Love",
       "id": 106
+    },
+    {
+      "name": "",
+      "id": 107
+    },
+    {
+      "name": "Senses Fail",
+      "id": 108
+    },
+    {
+      "name": "Reggie and The Full Effect",
+      "id": 109
+    },
+    {
+      "name": "Have Mercy",
+      "id": 110
+    },
+    {
+      "name": "Household",
+      "id": 111
+    },
+    {
+      "name": "The Dangerous Summer",
+      "id": 112
+    },
+    {
+      "name": "Free Throw",
+      "id": 113
+    },
+    {
+      "name": "Heart Attack Man",
+      "id": 114
+    },
+    {
+      "name": "Head North",
+      "id": 115
+    },
+    {
+      "name": "Greyscale",
+      "id": 116
+    },
+    {
+      "name": "Turnstile",
+      "id": 117
+    },
+    {
+      "name": "Five Iron Frenzy",
+      "id": 118
     }
   ],
   "concerts": [
@@ -648,6 +696,62 @@
       "date": "2018-02-28",
       "venueId": 15,
       "id": 29
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2018-02-27",
+      "venueId": 16,
+      "id": 30
+    },
+    {
+      "userId": 2,
+      "tourName": "North America Tour 2018",
+      "tourPoster": "",
+      "date": "2018-01-24",
+      "venueId": 17,
+      "id": 31
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2017-10-15",
+      "venueId": 5,
+      "id": 32
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2017-07-01",
+      "venueId": 2,
+      "id": 33
+    },
+    {
+      "userId": 2,
+      "tourName": "North America 2017",
+      "tourPoster": "",
+      "date": "2017-12-06",
+      "venueId": 2,
+      "id": 34
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2017-11-04",
+      "venueId": 18,
+      "id": 35
+    },
+    {
+      "id": 36,
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2017-09-09",
+      "venueId": 2
     }
   ],
   "concertBands": [
@@ -1185,6 +1289,126 @@
       "bandId": 106,
       "concertId": 29,
       "id": 170
+    },
+    {
+      "bandId": 108,
+      "concertId": 30,
+      "id": 171
+    },
+    {
+      "bandId": 111,
+      "concertId": 30,
+      "id": 172
+    },
+    {
+      "bandId": 109,
+      "concertId": 30,
+      "id": 173
+    },
+    {
+      "bandId": 110,
+      "concertId": 30,
+      "id": 174
+    },
+    {
+      "bandId": 112,
+      "concertId": 31,
+      "id": 175
+    },
+    {
+      "bandId": 84,
+      "concertId": 31,
+      "id": 176
+    },
+    {
+      "bandId": 61,
+      "concertId": 31,
+      "id": 177
+    },
+    {
+      "bandId": 31,
+      "concertId": 32,
+      "id": 178
+    },
+    {
+      "bandId": 92,
+      "concertId": 32,
+      "id": 179
+    },
+    {
+      "bandId": 101,
+      "concertId": 32,
+      "id": 180
+    },
+    {
+      "bandId": 113,
+      "concertId": 33,
+      "id": 181
+    },
+    {
+      "bandId": 60,
+      "concertId": 33,
+      "id": 182
+    },
+    {
+      "bandId": 57,
+      "concertId": 33,
+      "id": 183
+    },
+    {
+      "bandId": 114,
+      "concertId": 33,
+      "id": 184
+    },
+    {
+      "bandId": 12,
+      "concertId": 34,
+      "id": 185
+    },
+    {
+      "bandId": 115,
+      "concertId": 34,
+      "id": 186
+    },
+    {
+      "bandId": 113,
+      "concertId": 34,
+      "id": 187
+    },
+    {
+      "bandId": 116,
+      "concertId": 34,
+      "id": 188
+    },
+    {
+      "bandId": 53,
+      "concertId": 35,
+      "id": 189
+    },
+    {
+      "bandId": 117,
+      "concertId": 35,
+      "id": 190
+    },
+    {
+      "bandId": 85,
+      "concertId": 35,
+      "id": 191
+    },
+    {
+      "bandId": 4,
+      "concertId": 36,
+      "id": 194
+    },
+    {
+      "bandId": 118,
+      "concertId": 36,
+      "id": 195
+    },
+    {
+      "bandId": 2,
+      "concertId": 36,
+      "id": 196
     }
   ],
   "videos": [],
@@ -1264,6 +1488,21 @@
       "name": "The Fonda Theatre",
       "locationId": 9,
       "id": 15
+    },
+    {
+      "name": "The Observatory",
+      "locationId": 3,
+      "id": 16
+    },
+    {
+      "name": "The High Watt",
+      "locationId": 1,
+      "id": 17
+    },
+    {
+      "name": "Chain Reaction",
+      "locationId": 10,
+      "id": 18
     }
   ],
   "locations": [
@@ -1302,6 +1541,10 @@
     {
       "cityState": "Hollywood, CA",
       "id": 9
+    },
+    {
+      "cityState": "Anaheim, CA",
+      "id": 10
     }
   ]
 }

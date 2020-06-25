@@ -31,7 +31,8 @@ const ConcertEditForm = props => {
 
   const [updateBands, setUpdatedBands] = useState([])
   const [concertBands, setConcertBands] = useState([])
-  const [concertWithVenue, setConcertWithVenue] = useState([])
+  const [onlyVenue, setOnlyVenue] = useState([])
+  const [onlyLocation, setOnlyLocation] = useState([])
 
   // handles the band typeahead input
   const handleBandFieldChange = (selectedBandsArray) => {
@@ -91,7 +92,7 @@ const ConcertEditForm = props => {
         .map(
           (concertBand) => concertBand.band
           )
-          console.log("concert", concert)
+          console.log("concert", concert.venue.name)
         return concert;
       })
       .then((concertWithBands) => setConcert(concertWithBands))
@@ -101,13 +102,17 @@ const ConcertEditForm = props => {
 
   useEffect(() => {
     ConcertManager.getConcert(props.match.params.concertId).then((concert) => {
-      VenueManager.get(concert.id)
-      .then((concertVenue) => {
-        console.log(concertVenue)
-        const venueArray = []
-        venueArray.push(concertVenue)
-        console.log(venueArray)
-        setConcertWithVenue(venueArray)
+      console.log(concert)
+      const venueArray = []
+      const venueObj = concert.venue
+      venueArray.push(venueObj)
+      console.log(venueArray)
+      setOnlyVenue(venueArray);
+      VenueManager.get(concert.venueId).then((venueLocation) => {
+        const locationArray = [];
+        const locationObj = venueLocation.location;
+        locationArray.push(locationObj)
+        setOnlyLocation(locationArray)
       })
     })
   }, []);
@@ -303,6 +308,7 @@ const ConcertEditForm = props => {
               name="location"
               id="loc"
               // onChange={handleConcertFieldChange}
+              selected={onlyLocation}
               placeholder="e.g. Nashville, TN"
               className="concert-form-input"
             />
@@ -351,7 +357,7 @@ const ConcertEditForm = props => {
               type="text"
               options={venues}
               labelKey={(venue) => venue.name}
-              selected={venues.selected}
+              selected={onlyVenue}
               name="venue"
               id="venue"
               onChange={handleVenueFieldChange}
