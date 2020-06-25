@@ -470,6 +470,42 @@
     {
       "name": "Five Iron Frenzy",
       "id": 118
+    },
+    {
+      "name": "Real Friends",
+      "id": 119
+    },
+    {
+      "name": "Tiny Moving Parts",
+      "id": 120
+    },
+    {
+      "name": "Broadside",
+      "id": 121
+    },
+    {
+      "name": "nothing,nowhere.",
+      "id": 122
+    },
+    {
+      "name": "The Ghost Inside",
+      "id": 123
+    },
+    {
+      "name": "Fit For An Autopsy",
+      "id": 124
+    },
+    {
+      "name": "Slaughter To Prevail",
+      "id": 125
+    },
+    {
+      "name": "Paramore",
+      "id": 126
+    },
+    {
+      "name": "Tegan and Sara",
+      "id": 127
     }
   ],
   "concerts": [
@@ -752,6 +788,22 @@
       "tourPoster": "",
       "date": "2017-09-09",
       "venueId": 2
+    },
+    {
+      "userId": 2,
+      "tourName": "",
+      "tourPoster": "",
+      "date": "2017-05-12",
+      "venueId": 19,
+      "id": 37
+    },
+    {
+      "userId": 2,
+      "tourName": "The American Nightmare Tour",
+      "tourPoster": "",
+      "date": "2017-04-06",
+      "venueId": 20,
+      "id": 38
     }
   ],
   "concertBands": [
@@ -1404,6 +1456,46 @@
       "bandId": 118,
       "concertId": 36,
       "id": 193
+    },
+    {
+      "bandId": 119,
+      "concertId": 37,
+      "id": 194
+    },
+    {
+      "bandId": 110,
+      "concertId": 37,
+      "id": 195
+    },
+    {
+      "bandId": 120,
+      "concertId": 37,
+      "id": 196
+    },
+    {
+      "bandId": 121,
+      "concertId": 37,
+      "id": 197
+    },
+    {
+      "bandId": 122,
+      "concertId": 37,
+      "id": 198
+    },
+    {
+      "bandId": 66,
+      "concertId": 38,
+      "id": 199
+    },
+    {
+      "bandId": 9,
+      "concertId": 38,
+      "id": 200
+    },
+    {
+      "bandId": 33,
+      "concertId": 38,
+      "id": 201
     }
   ],
   "videos": [],
@@ -1498,6 +1590,56 @@
       "name": "Chain Reaction",
       "locationId": 10,
       "id": 18
+    },
+    {
+      "name": "The Regent",
+      "locationId": 2,
+      "id": 19
+    },
+    {
+      "name": "The Shrine",
+      "locationId": 2,
+      "id": 20
+    },
+    {
+      "name": "House of Blues",
+      "locationId": 10,
+      "id": 21
+    },
+    {
+      "name": "Irvine Meadows Ampitheater",
+      "locationId": 11,
+      "id": 22
+    },
+    {
+      "name": "Viejas Arena",
+      "locationId": 4,
+      "id": 23
+    },
+    {
+      "name": "Honda Center",
+      "locationId": 10,
+      "id": 24
+    },
+    {
+      "name": "El Rey Theatre",
+      "locationId": 2,
+      "id": 25
+    },
+    {
+      "name": "The Novo",
+      "locationId": 2,
+      "id": 26
+    },
+    {
+      "name": "The Joint",
+      "locationId": 7,
+      "id": 27
+    },
+    {
+      "name": "Soma (Sidestage)",
+      "locationId": 4,
+      "id": 28
     }
   ],
   "locations": [
@@ -1540,6 +1682,10 @@
     {
       "cityState": "Anaheim, CA",
       "id": 10
+    },
+    {
+      "cityState": "Irvine, CA",
+      "id": 11
     }
   ]
 }

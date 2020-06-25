@@ -54,11 +54,11 @@ const ConcertForm = (props) => {
       setVenues(venuesFromAPI)
     })
   }
-  useEffect(() => {
-    getBands();
-    getLocations();
-    getVenues();
-  }, []);
+  // useEffect(() => {
+  //   getBands();
+  //   getLocations();
+  //   getVenues();
+  // }, []);
   //
 
   // add new band, venue, location
@@ -82,6 +82,9 @@ const ConcertForm = (props) => {
     evt.preventDefault();
     setIsLoading(true);
     BandManager.postNewBand(newBand).then(getBands())
+    return BandManager.getAll().then((bandsFromAPI) => {
+      setBands(bandsFromAPI);
+    });
   };
   
   // add new location to database
@@ -96,6 +99,9 @@ const ConcertForm = (props) => {
     evt.preventDefault();
     setIsLoading(true);
     LocationManager.postNewLocation(newLocation).then(getLocations())
+    return LocationManager.getAll().then((locationsFromAPI) => {
+      setLocations(locationsFromAPI);
+    });
   };
   
   // add location id to new venue to database
@@ -116,7 +122,11 @@ const ConcertForm = (props) => {
   const constructNewVenue = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-    VenueManager.postNewVenue(newVenue).then(getVenues())
+    VenueManager.postNewVenue(newVenue)
+    return VenueManager.getAllVenueLocations().then((venuesFromAPI) => {
+      console.log("venuesFromAPI", venuesFromAPI)
+      setVenues(venuesFromAPI)
+    })
   };
 
   
@@ -157,6 +167,17 @@ const ConcertForm = (props) => {
         BandManager.postConcertBand(band);
       })
     }).then(() => props.history.push("/concerts"))
+  }
+
+  useEffect(() => {
+    getBands();
+    getLocations();
+    getVenues();
+  }, []);
+
+  const testFunction = () => {
+    constructNewVenue();
+    getVenues();
   }
 
   return (

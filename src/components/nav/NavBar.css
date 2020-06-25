@@ -118,6 +118,10 @@ p, h3 {
 .add-tour-poster-btn {
   margin-left: 10px;
 }
+
+.concert-container {
+  vertical-align: middle;
+}
 html,
 body {
   margin: 0;
