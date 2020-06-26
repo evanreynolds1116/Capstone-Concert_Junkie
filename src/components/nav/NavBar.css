@@ -122,6 +122,12 @@ p, h3 {
 .concert-container {
   vertical-align: middle;
 }
+
+#concert-chart {
+  width: 800px;
+  height: 400px;
+}
+
 html,
 body {
   margin: 0;
