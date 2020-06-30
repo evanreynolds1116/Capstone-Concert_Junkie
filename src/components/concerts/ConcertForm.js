@@ -16,6 +16,7 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import LocationManager from "../../modules/LocationManager";
 import VenueManager from "../../modules/VenueManager";
 import ConcertManager from "../../modules/ConcertManager";
+import Cloudinary from "./Cloudinary";
 
 const ConcertForm = (props) => {
   // for modal stuff
@@ -152,6 +153,12 @@ const ConcertForm = (props) => {
     setConcert(concertToAdd);
   }
 
+  // const handleImage = url => {
+  //   const stateToChange = { ...concert };
+  //   stateToChange["tourPoster"] = url;
+  //   setConcert(stateToChange);
+  // }
+
   const constructNewConcert = evt => {
     evt.preventDefault();
     setIsLoading(true);
@@ -253,6 +260,10 @@ const ConcertForm = (props) => {
             className="concert-form-input"
           />
         </FormGroup>
+        {/* <FormGroup>
+          <Label for="tourPoster">Tour Poster</Label>
+          <Cloudinary id="tourPoster" handleImage={handleImage} />
+        </FormGroup> */}
         <FormGroup>
           <Label for="location">Location</Label>
           <div className="location-input">
