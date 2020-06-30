@@ -180,7 +180,7 @@ const ConcertForm = (props) => {
           </div>
         </div>
         <FormGroup>
-          <Label for="band">Band</Label>
+          <Label for="band">Band(S)</Label>
           <div className="band-input">
             <Typeahead
               // allowNew
@@ -198,7 +198,7 @@ const ConcertForm = (props) => {
               className="band-typeahead"
             />
             <Button
-              color="secondary"
+              color="primary"
               onClick={toggleBand}
               className="add-band-btn"
             >
@@ -220,7 +220,7 @@ const ConcertForm = (props) => {
                   />
                   <Button
                     type="submit"
-                    color="secondary"
+                    color="primary"
                     className="add-band-database"
                     onClick={toggleBand}
                   >
@@ -254,6 +254,61 @@ const ConcertForm = (props) => {
           />
         </FormGroup>
         <FormGroup>
+          <Label for="location">Location</Label>
+          <div className="location-input">
+            <Typeahead
+              type="text"
+              options={loc}
+              labelKey={(loc) => loc.cityState}
+              name="location"
+              id="loc"
+              value={concert}
+              // onChange={handleConcertFieldChange}
+              onFocus={getLocations}
+              minLength="2"
+              emptyLabel="If no matches found, click Add Location to add it to the database!"
+              placeholder="e.g. Nashville, TN"
+              className="concert-form-input"
+            />
+            <Button
+              color="primary"
+              onClick={toggleLocation}
+              className="add-location-btn"
+            >
+              Add Location
+            </Button>{" "}
+            <Modal
+              isOpen={modalLocation}
+              toggle={toggleLocation}
+              className={className}
+            >
+              <ModalHeader toggle={toggleLocation}>Add Location</ModalHeader>
+              <ModalBody>
+                <Form onSubmit={constructNewLocation}>
+                  <FormGroup>
+                    <Label for="newLocation">Location</Label>
+                    <Input
+                      type="text"
+                      name="newLocation"
+                      id="cityState"
+                      placeholder="e.g. Los Angeles, CA"
+                      onChange={handleAddLocationFieldChange}
+                    />
+                    <Button
+                      type="submit"
+                      color="primary"
+                      className="add-location-database"
+                      onClick={toggleLocation}
+                    >
+                      Add
+                    </Button>
+                  </FormGroup>
+                </Form>
+              </ModalBody>
+            </Modal>
+          </div>
+        </FormGroup>
+        <FormGroup>
           <Label for="venue">Venue</Label>
           <div className="venue-input">
             <Typeahead
@@ -265,11 +320,12 @@ const ConcertForm = (props) => {
               onChange={handleVenueFieldChange}
               onFocus={getVenues}
               minLength="2"
+              emptyLabel="If no matches found, click Add Venue to add it to the database!"
               placeholder="e.g. Exit/In"
               className="concert-form-input"
             />
             <Button
-              color="secondary"
+              color="primary"
               onClick={toggleVenue}
               className="add-venue-btn"
             >
@@ -304,7 +360,7 @@ const ConcertForm = (props) => {
                     <Button
                       type="submit"
                       onClick={toggleVenue}
-                      color="secondary"
+                      color="primary"
                       className="add-venue-database"
                     >
                       Add
@@ -315,61 +371,7 @@ const ConcertForm = (props) => {
             </Modal>
           </div>
         </FormGroup>
-        <FormGroup>
-          <Label for="location">Location</Label>
-          <div className="location-input">
-            <Typeahead
-              type="text"
-              options={loc}
-              labelKey={(loc) => loc.cityState}
-              name="location"
-              id="loc"
-              value={concert}
-              // onChange={handleConcertFieldChange}
-              onFocus={getLocations}
-              minLength="2"
-              placeholder="e.g. Nashville, TN"
-              className="concert-form-input"
-            />
-            <Button
-              color="secondary"
-              onClick={toggleLocation}
-              className="add-location-btn"
-            >
-              Add Location
-            </Button>{" "}
-            <Modal
-              isOpen={modalLocation}
-              toggle={toggleLocation}
-              className={className}
-            >
-              <ModalHeader toggle={toggleLocation}>Add Location</ModalHeader>
-              <ModalBody>
-                <Form onSubmit={constructNewLocation}>
-                  <FormGroup>
-                    <Label for="newLocation">Location</Label>
-                    <Input
-                      type="text"
-                      name="newLocation"
-                      id="cityState"
-                      placeholder="e.g. Los Angeles, CA"
-                      onChange={handleAddLocationFieldChange}
-                    />
-                    <Button
-                      type="submit"
-                      color="secondary"
-                      className="add-location-database"
-                      onClick={toggleLocation}
-                    >
-                      Add
-                    </Button>
-                  </FormGroup>
-                </Form>
-              </ModalBody>
-            </Modal>
-          </div>
-        </FormGroup>
-        <Button onClick={constructNewConcert} /*disabled={isLoading}*/ color="secondary">Add Concert</Button>{" "}
+        <Button onClick={constructNewConcert} /*disabled={isLoading}*/ color="primary" className="submit-concert">Add Concert</Button>{" "}
       </Form>
     </>
   );

@@ -506,6 +506,14 @@
     {
       "name": "Tegan and Sara",
       "id": 127
+    },
+    {
+      "name": "Rage Against The Machine",
+      "id": 128
+    },
+    {
+      "name": "Neil Young",
+      "id": 129
     }
   ],
   "concerts": [
@@ -804,6 +812,14 @@
       "date": "2017-04-06",
       "venueId": 20,
       "id": 38
+    },
+    {
+      "id": 39,
+      "userId": 2,
+      "tourName": "Bryans Dream Tour",
+      "tourPoster": "",
+      "date": "2020-06-25",
+      "venueId": 2
     }
   ],
   "concertBands": [
@@ -1496,6 +1512,16 @@
       "bandId": 35,
       "concertId": 5,
       "id": 205
+    },
+    {
+      "bandId": 128,
+      "concertId": 39,
+      "id": 209
+    },
+    {
+      "bandId": 129,
+      "concertId": 39,
+      "id": 210
     }
   ],
   "videos": [],

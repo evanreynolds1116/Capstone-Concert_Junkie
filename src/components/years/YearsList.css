@@ -1,5 +1,5 @@
 body {
-	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-family: 'lato', sans-serif;
 	font-size: 14px;
 	color: white;
 	margin: 0;
@@ -30,14 +30,18 @@ a:hover {
 	color: white;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
 	color: white;
 	font-weight: 100;
 	margin: 0.5em 0;
+} */
+
+.years-list-h2 {
+  color: white;
 }
 
 label {
-	color: white;
+	/* color: white; */
 	display: inline-block;
 	font-size: 0.85em;
 	font-weight: bold;
