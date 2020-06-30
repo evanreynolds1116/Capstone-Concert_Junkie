@@ -101,6 +101,9 @@ const NavBar = (props) => {
               <NavItem>
                 <NavLink href="/locations">Locations</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/years">Years</NavLink>
+              </NavItem>
             </Nav>
 
             <NavLink href="/" onClick={handleLogout}>

@@ -8,6 +8,7 @@ import ConcertEditForm from './concerts/ConcertEditForm'
 import BandList from './bands/BandList';
 import VenueList from './venues/VenueList'
 import LocationList from './locations/LocationList';
+import YearsList from './years/YearsList'
 
 const ApplicationViews = props => {
   return (
@@ -41,6 +42,10 @@ const ApplicationViews = props => {
 
       <Route path="/locations" render={(props) => {
         return <LocationList {...props} />
+      }} />
+
+      <Route path="/years" render={(props) => {
+        return <YearsList {...props} />
       }} />
 
     </React.Fragment>

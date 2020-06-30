@@ -12,6 +12,13 @@
       "password": "e",
       "passwordConfirm": "e",
       "id": 2
+    },
+    {
+      "email": "evan@evan.com",
+      "username": "evan",
+      "password": "123",
+      "passwordConfirm": "123",
+      "id": 3
     }
   ],
   "bands": [
@@ -506,6 +513,18 @@
     {
       "name": "Tegan and Sara",
       "id": 127
+    },
+    {
+      "name": "Rage Against The Machine",
+      "id": 128
+    },
+    {
+      "name": "Neil Young",
+      "id": 129
+    },
+    {
+      "name": "The Weepies",
+      "id": 130
     }
   ],
   "concerts": [
@@ -804,6 +823,22 @@
       "date": "2017-04-06",
       "venueId": 20,
       "id": 38
+    },
+    {
+      "id": 39,
+      "userId": 2,
+      "tourName": "Bryans Dream Tour",
+      "tourPoster": "",
+      "date": "2020-06-25",
+      "venueId": 2
+    },
+    {
+      "id": 40,
+      "userId": "2",
+      "tourName": "WHO ARE THE WEEPIES?!?",
+      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bad_Omens_tour_htmfle",
+      "date": "2020-06-30",
+      "venueId": 2
     }
   ],
   "concertBands": [
@@ -1496,6 +1531,21 @@
       "bandId": 35,
       "concertId": 5,
       "id": 205
+    },
+    {
+      "bandId": 128,
+      "concertId": 39,
+      "id": 209
+    },
+    {
+      "bandId": 129,
+      "concertId": 39,
+      "id": 210
+    },
+    {
+      "bandId": 130,
+      "concertId": 40,
+      "id": 211
     }
   ],
   "videos": [],

@@ -4,6 +4,7 @@ import ConcertManager from "../../modules/ConcertManager";
 import BandManager from "../../modules/BandManager";
 import "./ConcertDetails.css";
 import VenueManager from "../../modules/VenueManager";
+import Cloudinary from "./Cloudinary";
 
 const ConcertDetails = (props) => {
   const [concert, setConcert] = useState({
@@ -33,6 +34,7 @@ const ConcertDetails = (props) => {
               concertWithBands.location = venueLocation.location
               console.log(concertWithBands)
               setConcert({
+                id: props.match.params.concertId,
                 tourName: concertWithBands.tourName,
                 tourPoster: concertWithBands.tourPoster,
                 bands: concertWithBands.bands,
@@ -50,12 +52,47 @@ const ConcertDetails = (props) => {
       });
   }, [props.concertId]);
 
+  const [concertOnly, setConcertOnly] = useState({
+    tourName: "",
+    date: "", 
+    tourPoster: ""
+  })
+
+  useEffect(() => {
+    ConcertManager.getConcertOnly(props.concertId).then((concertOnlyFromAPI) => {
+      setConcertOnly({
+        id: props.match.params.concertId,
+        userId: sessionStorage.activeUser,
+        tourName: concertOnlyFromAPI.tourName,
+        tourPoster: concertOnlyFromAPI.tourPoster,
+        date: concertOnlyFromAPI.date,
+        venueId: concertOnlyFromAPI.venueId
+      })
+    })
+  }, [props.concertId])
+
   const handleDelete = () => {
     setIsLoading(true);
     ConcertManager.delete(props.concertId).then(() => 
       props.history.push("/concerts")
     );
   };
+
+  const handleImage = url => {
+    const stateToChange = { ...concert };
+    stateToChange["tourPoster"] = url;
+    setConcert(stateToChange);
+    const concertToChange = { ...concertOnly}
+    concertToChange["tourPoster"] = url;
+    setConcertOnly(concertToChange)
+    // ConcertManager.update(props.concertId);
+  }
+
+  const saveImage = () => {
+    ConcertManager.update(concertOnly)
+  }
+
+
 
   return (
     <div className="card">
@@ -70,7 +107,8 @@ const ConcertDetails = (props) => {
             <img src={concert.tourPoster} alt="Tour Poster" />
           </picture>
         </div>
-          <Button color="primary" size="sm" className="add-tour-poster-btn">+ Upload Tour Poster</Button>{' '}
+          {/* <Button color="primary" size="sm" className="add-tour-poster-btn">+ Upload Tour Poster</Button>{' '} */}
+          <Cloudinary id="tourPoster" handleImage={handleImage} />
         <div className="concert-details bands-heading">
           <h3>
             <strong>Bands</strong>
@@ -120,6 +158,13 @@ const ConcertDetails = (props) => {
             onClick={() => props.history.push(`/concerts/${props.concertId}/edit`)}
           >
             Edit Concert
+          </Button>{" "}
+          <Button 
+            color="primary" 
+            size="sm" 
+            onClick={saveImage}
+          >
+            Save Tour Poster
           </Button>{" "}
           <Button 
             color="danger" 

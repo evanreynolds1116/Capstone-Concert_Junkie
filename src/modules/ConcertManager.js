@@ -19,6 +19,9 @@ export default {
   getConcert(id, venueId) {
     return fetch(`${remoteURL}/concerts/${id}?venue=${venueId}&_expand=venue`).then(result => result.json())
   },
+  getConcertOnly(id) {
+    return fetch(`${remoteURL}/concerts/${id}`).then(result => result.json())
+  },
   delete(id) {
     return fetch(`${remoteURL}/concerts/${id}`, {
       method: "DELETE"

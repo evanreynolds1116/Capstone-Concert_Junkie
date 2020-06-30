@@ -17,6 +17,7 @@ header > h1 {
 img {
   height: 100px;
   width: 100px;
+  color: orange
 }
 
 .header-div {
@@ -122,6 +123,19 @@ p, h3 {
 .concert-container {
   vertical-align: middle;
 }
+
+#concert-chart {
+  width: 800px;
+  height: 400px;
+}
+
+.submit-concert {
+  margin: 0px 0px 5px 10px
+}
+
+tr:hover {background-color: rgba(255, 165, 0, .8);}
+
+
 html,
 body {
   margin: 0;

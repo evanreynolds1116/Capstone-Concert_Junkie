@@ -18,6 +18,7 @@ const VenueList = (props) => {
           });
         })
       ).then((venuesWithLocations) => {
+        console.log(venuesWithLocations)
         const countResults = [
           ...venuesWithLocations
             .reduce((mp, o) => {
@@ -28,6 +29,8 @@ const VenueList = (props) => {
             }, new Map())
             .values(),
         ];
+
+        console.log(countResults)
 
         const result = Array.from(new Set(countResults.map((s) => s.id))).map(
           (id) => {
