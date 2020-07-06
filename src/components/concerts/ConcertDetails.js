@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import ConcertManager from "../../modules/ConcertManager";
 import BandManager from "../../modules/BandManager";
 import "./ConcertDetails.css";
 import VenueManager from "../../modules/VenueManager";
 import Cloudinary from "./Cloudinary";
+import CloudinaryVideo from "./CloudinaryVideo";
+import VideoManager from "../../modules/VideoManager";
 
 const ConcertDetails = (props) => {
   const [concert, setConcert] = useState({
@@ -14,9 +16,9 @@ const ConcertDetails = (props) => {
     venue: "",
     location: "",
     tourPoster: "",
-    video: ""
+    video: "",
   });
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     ConcertManager.getConcert(props.concertId, props.venueId).then(
@@ -26,13 +28,20 @@ const ConcertDetails = (props) => {
             concertFromAPI.bands = concertBandsFromAPI.map(
               (concertBand) => concertBand.band
             );
-            console.log(concertFromAPI)
+            console.log(concertFromAPI);
+            const concertBands = concertFromAPI.bands
+            console.log(concertBands)
+            const justBands = concertBands.map((band) => {
+              return band.name
+            })
+            console.log(justBands)
+            console.log(justBands.join(' | '))
             return concertFromAPI;
           })
           .then((concertWithBands) => {
             VenueManager.get(concertWithBands.venueId).then((venueLocation) => {
-              concertWithBands.location = venueLocation.location
-              console.log(concertWithBands)
+              concertWithBands.location = venueLocation.location;
+              console.log(concertWithBands);
               setConcert({
                 id: props.match.params.concertId,
                 tourName: concertWithBands.tourName,
@@ -43,60 +52,107 @@ const ConcertDetails = (props) => {
                 location: concertWithBands.location.cityState,
                 image: concert.image,
                 video: concert.video,
-              })
-              return concertWithBands
-            })
-          })
-            setIsLoading(false)
-            
-      });
+              });
+              return concertWithBands;
+            });
+          });
+        setIsLoading(false);
+      }
+    );
   }, [props.concertId]);
 
   const [concertOnly, setConcertOnly] = useState({
     tourName: "",
-    date: "", 
-    tourPoster: ""
-  })
+    date: "",
+    tourPoster: "",
+  });
 
   useEffect(() => {
-    ConcertManager.getConcertOnly(props.concertId).then((concertOnlyFromAPI) => {
-      setConcertOnly({
-        id: props.match.params.concertId,
-        userId: sessionStorage.activeUser,
-        tourName: concertOnlyFromAPI.tourName,
-        tourPoster: concertOnlyFromAPI.tourPoster,
-        date: concertOnlyFromAPI.date,
-        venueId: concertOnlyFromAPI.venueId
-      })
-    })
-  }, [props.concertId])
+    ConcertManager.getConcertOnly(props.concertId).then(
+      (concertOnlyFromAPI) => {
+        setConcertOnly({
+          id: props.match.params.concertId,
+          userId: sessionStorage.activeUser,
+          tourName: concertOnlyFromAPI.tourName,
+          tourPoster: concertOnlyFromAPI.tourPoster,
+          date: concertOnlyFromAPI.date,
+          venueId: concertOnlyFromAPI.venueId,
+        });
+      }
+    );
+  }, [props.concertId]);
 
   const handleDelete = () => {
     setIsLoading(true);
-    ConcertManager.delete(props.concertId).then(() => 
+    ConcertManager.delete(props.concertId).then(() =>
       props.history.push("/concerts")
     );
   };
 
-  const handleImage = url => {
+  const handleImage = (url) => {
     const stateToChange = { ...concert };
     stateToChange["tourPoster"] = url;
     setConcert(stateToChange);
-    const concertToChange = { ...concertOnly}
+    const concertToChange = { ...concertOnly };
     concertToChange["tourPoster"] = url;
-    setConcertOnly(concertToChange)
+    setConcertOnly(concertToChange);
     // ConcertManager.update(props.concertId);
-  }
+  };
 
   const saveImage = () => {
-    ConcertManager.update(concertOnly)
+    ConcertManager.update(concertOnly);
+  };
+
+  const [videos, setVideos] = useState({
+    concertId: concertOnly.id,
+    url: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    ConcertManager.getConcertOnly(props.concertId).then(
+      (concertOnlyFromAPI) => {
+        setVideos({
+          concertId: props.match.params.concertId,
+          url: "",
+          description: "",
+        });
+      }
+    );
+  }, [props.concertId]);
+
+  const handleVideo = (url) => {
+    const stateToChange = { ...videos };
+    stateToChange["url"] = url;
+    setVideos(stateToChange);
+    // const concertToChange = { ...concertOnly}
+    // concertToChange["tourPoster"] = url;
+    // setConcertOnly(concertToChange)
+    // ConcertManager.update(props.concertId);
+  };
+
+  const saveVideo = () => {
+    VideoManager.postVideo(videos);
   }
+  const [concertVideos, setConcertVideos] = useState([]);
 
+  useEffect(() => {
+    VideoManager.getVideo(props.concertId).then(
+      (videosFromAPI) => {
+        setConcertVideos(videosFromAPI)
+      }
+    )
+  }) 
 
+  const { buttonLabel, className } = props;
+
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
 
   return (
-    <div className="card concert-detail">
-      <div className="card-content">
+    <div className=" concert-detail" id="card-details">
+      <div className="card-content" id="card-details">
         <div className="concert-details tour-details">
           <h3>
             <span className="card-petname">
@@ -104,11 +160,32 @@ const ConcertDetails = (props) => {
             </span>
           </h3>
           <picture className="tour-poster-img">
-            <img src={concert.tourPoster} alt="Tour Poster" />
+            <img src={concert.tourPoster} alt="Tour Poster" id="tour-poster" />
           </picture>
         </div>
-          {/* <Button color="primary" size="sm" className="add-tour-poster-btn">+ Upload Tour Poster</Button>{' '} */}
-          <Cloudinary id="tourPoster" handleImage={handleImage} />
+        <Button color="primary" size="sm" onClick={toggle} className="tour-poster-btn">
+          {buttonLabel}+ Upload Tour Poster
+        </Button>
+        <Modal isOpen={modal} toggle={toggle} className={className}>
+          <ModalHeader toggle={toggle}>Upload Tour Poster</ModalHeader>
+          <ModalBody>
+            <Cloudinary id="tourPoster" handleImage={handleImage} />
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color="primary"
+              onClick={() => {
+                saveImage();
+                toggle();
+              }}
+            >
+              Save Image
+            </Button>{" "}
+            <Button color="secondary" onClick={toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
         <div className="concert-details bands-heading">
           <h3>
             <strong>Bands</strong>
@@ -146,30 +223,50 @@ const ConcertDetails = (props) => {
           <h3>
             <strong>Videos</strong>
           </h3>
-          <Button color="primary" size="sm">
-            {" "}
-            + Upload Video
-          </Button>{" "}
+          {/* <CloudinaryVideo handleVideo={handleVideo} /> */}
+          <Button color="primary" size="sm" onClick={toggle} className="video-btn">
+          {buttonLabel}+ Upload Video
+          </Button>
+        <Modal isOpen={modal} toggle={toggle} className={className}>
+          <ModalHeader toggle={toggle}>Upload Video</ModalHeader>
+          <ModalBody>
+            <CloudinaryVideo handleVideo={handleVideo} />
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color="primary"
+              onClick={() => {
+                saveVideo();
+                toggle();
+              }}
+            >
+              Save Video
+            </Button>{" "}
+            <Button color="secondary" onClick={toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
+          <div>
+            {concertVideos.map((video) => (
+              <video src={video.url} controls/>
+            ))}
+          </div>
         </div>
         <div className="edit-delete-btns">
-          <Button 
-            color="primary" 
-            size="sm" 
-            onClick={() => props.history.push(`/concerts/${props.concertId}/edit`)}
+          <Button
+            color="primary"
+            size="sm"
+            onClick={() =>
+              props.history.push(`/concerts/${props.concertId}/edit`)
+            }
           >
             Edit Concert
           </Button>{" "}
-          <Button 
-            color="primary" 
-            size="sm" 
-            onClick={saveImage}
-          >
-            Save Tour Poster
-          </Button>{" "}
-          <Button 
-            color="danger" 
-            size="sm" 
-            disabled={isLoading} 
+          <Button
+            color="danger"
+            size="sm"
+            disabled={isLoading}
             onClick={handleDelete}
           >
             Delete Concert

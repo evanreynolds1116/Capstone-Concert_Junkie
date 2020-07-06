@@ -18,7 +18,7 @@ const ConcertList = (props) => {
         BandManager.getConcertBand(concert.id).then((concertBandsFromAPI) => {
           concert.bands = concertBandsFromAPI
           .map(
-            (concertBand) => concertBand.band
+            (concertBand) => concertBand.band.name
             );
           return concert;
         })
@@ -47,7 +47,7 @@ const ConcertList = (props) => {
     getNumberConcerts();
   }, []);
 
-
+  console.log(concerts.bands)
   return (
     <>
       <div className="concert-list-body">
@@ -85,9 +85,10 @@ const ConcertList = (props) => {
                   </strong>
                   </div>
                   {/* <br></br> */}
-                  {concert.bands.map((band) => (
+                  {/* {concert.bands.map((band) => (
                     <span key={band.id}>| {band.name} |</span>
-                  ))}
+                  ))} */}
+                  <span> {concert.bands.join(' | ')} </span>
                 </td>
                 <td className="concert-venue">{concert.venue.name}</td>
                 <td className="concert-location">{concert.venue.location.cityState}</td>

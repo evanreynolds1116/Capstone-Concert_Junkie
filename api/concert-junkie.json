@@ -525,7 +525,7 @@
       "id": 2,
       "userId": "2",
       "tourName": "THICC THICCLY TOUR PART 1",
-      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bilmuri_Tour_xmibsh",
+      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bilmuri_Tour_eb7orx",
       "date": "2020-03-11",
       "venueId": 2
     },
@@ -1510,7 +1510,20 @@
       "id": 205
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "concertId": "2",
+      "url": "https://res.cloudinary.com/emrcloud/video/upload/f_auto,q_auto/v1/upload/bilmuri-cowpeople_bot8xm.mov",
+      "description": "",
+      "id": 1
+    },
+    {
+      "concertId": "2",
+      "url": "https://res.cloudinary.com/emrcloud/video/upload/f_auto,q_auto/v1/upload/OhSleeperr_zvtmjp.mov",
+      "description": "",
+      "id": 2
+    }
+  ],
   "photos": [],
   "venues": [
     {

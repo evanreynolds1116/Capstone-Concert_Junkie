@@ -40,8 +40,23 @@ table > thead, table > tbody {
   color: white;
 }
 
+table > thead, tr > th {
+  color: white;
+  text-shadow: -1px 0 #007BFF, 0 1px #007BFF, 1px 0 #007BFF, 0 -1px #007BFF;
+}
+
 .table td {
   vertical-align: middle;
+}
+
+#nav-link {
+  color: white;
+  text-shadow: -1px 0 #007BFF, 0 1px #007BFF, 1px 0 #007BFF, 0 -1px #007BFF;
+}
+
+#logout-btn {
+  color: #007BFF;
+  /* text-shadow: -1px 0 orange, 0 1px orange, 1px 0 orange, 0 -1px orange; */
 }
 
 .concert-list-body {
@@ -97,6 +112,15 @@ p, h3 {
 
 .card-content {
   background-color: black;
+  margin: 20px 20px 20px 20px;
+}
+
+#card-details {
+  border: none;
+}
+
+#tour-poster { 
+  border: 1px solid white;
 }
 
 #locations-table {
@@ -131,6 +155,18 @@ p, h3 {
 
 .submit-concert {
   margin: 0px 0px 5px 10px
+}
+
+.tour-poster-btn {
+  margin-left: 10px;
+}
+
+video {
+  width: 450px;
+  height: 600px;
+  border: 1px solid white;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 tr:hover {background-color: rgba(255, 165, 0, .8);}
@@ -227,7 +263,7 @@ strong {
 }
 
 .concert-detail {
-  margin: 10px 20px 10px 20px;
+  margin: 20px 20px 20px 20px;
 }
 
 .jumbotron {

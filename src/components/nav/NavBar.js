@@ -49,27 +49,27 @@ const NavBar = (props) => {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="mr-auto" navbar>
                 <NavItem>
-                  <NavLink href="/concerts">Concerts</NavLink>
+                  <NavLink href="/concerts" id="nav-link">Concerts</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="/bands">Bands</NavLink>
+                  <NavLink href="/bands" id="nav-link">Bands</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="/venues">Venues</NavLink>
+                  <NavLink href="/venues" id="nav-link">Venues</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="/locations">Locations</NavLink>
+                  <NavLink href="/locations" id="nav-link">Locations</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="/years">Years</NavLink>
+                  <NavLink href="/years" id="nav-link">Years</NavLink>
                 </NavItem>
               </Nav>
 
-              <NavLink href="/" onClick={handleLogout}>
+              <NavLink href="/" onClick={handleLogout} id="logout-btn">
                 Log Out
               </NavLink>
             </Collapse>

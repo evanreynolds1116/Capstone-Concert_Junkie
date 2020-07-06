@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { CloudinaryContext, Image } from "cloudinary-react";
-import { fetchPhotos, openUploadWidget } from "./CloudinaryService";
+import { fetchVideos, openUploadWidgetVideo } from "./CloudinaryServiceVideo";
 import './Cloudinary.css';
 import { Button } from "reactstrap";
 
-function Cloudinary(props) {
-  const [images, setImages] = useState([]);
+function CloudinaryVideo(props) {
+  const [videos, setVideos] = useState([]);
 
   const beginUpload = tag => {
     const uploadOptions = {
@@ -14,12 +14,12 @@ function Cloudinary(props) {
       uploadPreset: "upload"
     };
   
-    openUploadWidget(uploadOptions, (error, photos) => {
+    openUploadWidgetVideo(uploadOptions, (error, photos) => {
       if (!error) {
         if(photos.event === 'success'){
-          const imageURL = `https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/${photos.info.public_id}`
-          props.handleImage(imageURL)
-          setImages([...images, photos.info.public_id])
+          const videoURL = `https://res.cloudinary.com/emrcloud/video/upload/f_auto,q_auto/v1/${photos.info.public_id}.mov`
+          props.handleVideo(videoURL)
+          setVideos([...videos, photos.info.public_id])
           // console.log("PHOTOS", photos);
           // console.log("IMAGES", images)
         }
@@ -29,17 +29,17 @@ function Cloudinary(props) {
     })
   };
 
-  // useEffect( () => {
-  //   fetchPhotos("image", setImages);
-  // }, []);
+  useEffect( () => {
+    fetchVideos("video", setVideos);
+  }, []);
 
   return (
     <CloudinaryContext cloudName="emrcloud">
       <div className="formgrid">
       <label></label>
-      <Button color="primary" onClick={() => beginUpload("nonsense")}>Upload Image</Button> 
+      <Button color="primary" onClick={() => beginUpload("nonsense")}>Upload Video</Button> 
         <section>
-          {images.map(i => <Image
+          {videos.map(i => <video
             key={i}
             publicId={i}
             fetch-format="auto"
@@ -51,4 +51,4 @@ function Cloudinary(props) {
   );
 }
 
-export default Cloudinary
+export default CloudinaryVideo
