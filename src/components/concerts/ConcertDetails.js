@@ -95,7 +95,7 @@ const ConcertDetails = (props) => {
 
 
   return (
-    <div className="card">
+    <div className="card concert-detail">
       <div className="card-content">
         <div className="concert-details tour-details">
           <h3>

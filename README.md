@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![Concert Junkie](/home/evanr95/workspace/capstone-concert_junkie/public/Concert Junkie Neon.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -66,3 +68,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+# Concert Junkie
+![image](https://res.cloudinary.com/emrcloud/image/upload/v1594049564/upload/Concert_Junkie_Neon_m6akfi.png)
+
+A front-end capstone project from [Evan Reynolds](https://www.linkedin.com/in/evanmaxreynolds/) for Nashville Software School C40.
+

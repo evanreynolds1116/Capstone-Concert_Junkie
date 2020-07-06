@@ -79,10 +79,12 @@ const ConcertList = (props) => {
               <tr key={concert.id}>
                 <td className="concert-date">{concert.date}</td>
                 <td className="concert-container">
+                  <div>
                   <strong>
                     {concert.tourName}
                   </strong>
-                  <br></br>
+                  </div>
+                  {/* <br></br> */}
                   {concert.bands.map((band) => (
                     <span key={band.id}>| {band.name} |</span>
                   ))}

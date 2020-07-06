@@ -1,6 +1,10 @@
-input[type="text"], input[type="date"] {
-  width: 500px;
+input[type="date"] {
+  width: 400px;
 }
+
+/* input[className="concert-form-input"] {
+  width: 500px;
+} */
 
 .form-group {
   display: flex;
@@ -18,6 +22,7 @@ input[type="text"], input[type="date"] {
 .band-input, .venue-input, .location-input {
   display: flex;
   flex-direction: row;
+  
 }
 
 .add-band-btn, .add-venue-btn, .add-location-btn {
@@ -64,3 +69,4 @@ select {
   min-width: 500px;
   max-width: 700px;
 }
+

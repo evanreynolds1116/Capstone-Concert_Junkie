@@ -221,6 +221,21 @@ body {
   vertical-align: middle;
 }
 
+strong {
+  color: white;
+  text-shadow: -1px 0 #007BFF, 0 1px #007BFF, 1px 0 #007BFF, 0 -1px #007BFF;
+}
+
+.concert-detail {
+  margin: 10px 20px 10px 20px;
+}
+
+.jumbotron {
+  width: 700px;
+  height: 400px;
+  margin-top: 10px;
+}
+
 
 /* h1 {
   text-align: center;

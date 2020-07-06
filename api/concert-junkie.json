@@ -7,18 +7,11 @@
       "password": ""
     },
     {
-      "email": "evan.m.reynolds95@gmail.com",
-      "username": "e",
-      "password": "e",
-      "passwordConfirm": "e",
-      "id": 2
-    },
-    {
       "email": "evan@evan.com",
-      "username": "evan",
-      "password": "123",
-      "passwordConfirm": "123",
-      "id": 3
+      "username": "EvanReynolds",
+      "password": "1234",
+      "passwordConfirm": "1234",
+      "id": 2
     }
   ],
   "bands": [
@@ -530,27 +523,27 @@
   "concerts": [
     {
       "id": 2,
-      "userId": 2,
+      "userId": "2",
       "tourName": "THICC THICCLY TOUR PART 1",
-      "tourPoster": "",
+      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bilmuri_Tour_xmibsh",
       "date": "2020-03-11",
       "venueId": 2
     },
     {
-      "userId": 2,
+      "id": 3,
+      "userId": "2",
       "tourName": "The Killed and Born Again Tour",
-      "tourPoster": "",
+      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bad_Omens_tour_cybi01",
       "date": "2020-02-23",
-      "venueId": 2,
-      "id": 3
+      "venueId": 2
     },
     {
-      "userId": 2,
+      "id": 4,
+      "userId": "2",
       "tourName": "The Degenerates Tour",
-      "tourPoster": "",
+      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/A_Day_To_Remember_qt9ezi",
       "date": "2019-11-22",
-      "venueId": 3,
-      "id": 4
+      "venueId": 3
     },
     {
       "id": 5,
@@ -823,22 +816,6 @@
       "date": "2017-04-06",
       "venueId": 20,
       "id": 38
-    },
-    {
-      "id": 39,
-      "userId": 2,
-      "tourName": "Bryans Dream Tour",
-      "tourPoster": "",
-      "date": "2020-06-25",
-      "venueId": 2
-    },
-    {
-      "id": 40,
-      "userId": "2",
-      "tourName": "WHO ARE THE WEEPIES?!?",
-      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bad_Omens_tour_htmfle",
-      "date": "2020-06-30",
-      "venueId": 2
     }
   ],
   "concertBands": [
@@ -1531,21 +1508,6 @@
       "bandId": 35,
       "concertId": 5,
       "id": 205
-    },
-    {
-      "bandId": 128,
-      "concertId": 39,
-      "id": 209
-    },
-    {
-      "bandId": 129,
-      "concertId": 39,
-      "id": 210
-    },
-    {
-      "bandId": 130,
-      "concertId": 40,
-      "id": 211
     }
   ],
   "videos": [],

@@ -16,7 +16,7 @@ const NavBar = (props) => {
 
     sessionStorage.removeItem("activeUser");
     sessionStorage.removeItem("credentials");
-    props.history.push("/");
+    props.history.push("/login");
   };
 
   // stuff more reactstrap modal
@@ -35,82 +35,46 @@ const NavBar = (props) => {
           />
         </picture> */}
         <header>
-        <div className="container">
-          <div className="neon">Concert</div>
-          <div className="flux">Junkie</div>
-        </div>
-          {/* <div class="foo">
-            <span class="letter" data-letter="C">
-              C
-            </span>
-            <span class="letter" data-letter="O">
-              O
-            </span>
-            <span class="letter" data-letter="N">
-              N
-            </span>
-            <span class="letter" data-letter="C">
-              C
-            </span>
-            <span class="letter" data-letter="E">
-              E
-            </span>
-            <span class="letter" data-letter="R">
-              R
-            </span>
-            <span class="letter" data-letter="T">
-              T
-            </span>
-            <span></span>
-            <span class="letter" data-letter="J">
-              J
-            </span>
-            <span class="letter" data-letter="U">
-              U
-            </span>
-            <span class="letter" data-letter="N">
-              N
-            </span>
-            <span class="letter" data-letter="K">
-              K
-            </span>
-            <span class="letter" data-letter="I">
-              I
-            </span>
-            <span class="letter" data-letter="E">
-              E
-            </span>
-          </div> */}
+          <div className="container">
+            <div className="neon">Concert</div>
+            <div className="flux">Junkie</div>
+          </div>
         </header>
       </div>
       <div className="navbar-div">
-        <Navbar expand="md">
-          {/* <NavbarBrand href="/">reactstrap</NavbarBrand> */}
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink href="/concerts">Concerts</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/bands">Bands</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/venues">Venues</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/locations">Locations</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/years">Years</NavLink>
-              </NavItem>
-            </Nav>
+        {props.hasUser ? (
+          <Navbar expand="md">
+            {/* <NavbarBrand href="/">reactstrap</NavbarBrand> */}
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav className="mr-auto" navbar>
+                <NavItem>
+                  <NavLink href="/concerts">Concerts</NavLink>
+                </NavItem>
 
-            <NavLink href="/" onClick={handleLogout}>
-              Log Out
-            </NavLink>
-          </Collapse>
-        </Navbar>
+                <NavItem>
+                  <NavLink href="/bands">Bands</NavLink>
+                </NavItem>
+
+                <NavItem>
+                  <NavLink href="/venues">Venues</NavLink>
+                </NavItem>
+
+                <NavItem>
+                  <NavLink href="/locations">Locations</NavLink>
+                </NavItem>
+
+                <NavItem>
+                  <NavLink href="/years">Years</NavLink>
+                </NavItem>
+              </Nav>
+
+              <NavLink href="/" onClick={handleLogout}>
+                Log Out
+              </NavLink>
+            </Collapse>
+          </Navbar>
+        ) : null}
       </div>
     </>
   );

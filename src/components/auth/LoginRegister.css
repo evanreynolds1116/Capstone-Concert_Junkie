@@ -14,7 +14,7 @@ form {
 
 input[type="text"],
 input[type="password"] {
-  width: 100%;
+  width: 400px;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -77,4 +77,30 @@ span.psw {
   height: 50px;
   margin: 50px 10px 10px 10px;
   background: rgb(33, 69, 240);
+}
+
+.LoginRegisterDiv {
+  font-family: 'lato', sans-serif;
+  margin-top: 50px;
+}
+
+.login-register-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+#jumbotron {
+  background-color: rgb(30, 30, 30);
+  color: white
+}
+
+.jumbotron-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
