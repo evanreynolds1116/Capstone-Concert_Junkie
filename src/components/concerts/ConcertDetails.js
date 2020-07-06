@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form,
+  FormGroup,
+  Label,
+  Input, } from "reactstrap";
 import ConcertManager from "../../modules/ConcertManager";
 import BandManager from "../../modules/BandManager";
 import "./ConcertDetails.css";
@@ -29,13 +32,13 @@ const ConcertDetails = (props) => {
               (concertBand) => concertBand.band
             );
             console.log(concertFromAPI);
-            const concertBands = concertFromAPI.bands
-            console.log(concertBands)
+            const concertBands = concertFromAPI.bands;
+            console.log(concertBands);
             const justBands = concertBands.map((band) => {
-              return band.name
-            })
-            console.log(justBands)
-            console.log(justBands.join(' | '))
+              return band.name;
+            });
+            console.log(justBands);
+            console.log(justBands.join(" | "));
             return concertFromAPI;
           })
           .then((concertWithBands) => {
@@ -131,42 +134,72 @@ const ConcertDetails = (props) => {
     // ConcertManager.update(props.concertId);
   };
 
+  const handleDescriptionChange = (evt) => {
+    const stateToChange = { ...videos};
+    stateToChange[evt.target.id] = evt.target.value
+    setVideos(stateToChange)
+  }
+
   const saveVideo = () => {
     VideoManager.postVideo(videos);
-  }
+  };
   const [concertVideos, setConcertVideos] = useState([]);
 
   useEffect(() => {
-    VideoManager.getVideo(props.concertId).then(
-      (videosFromAPI) => {
-        setConcertVideos(videosFromAPI)
-      }
-    )
-  }) 
+    VideoManager.getVideo(props.concertId).then((videosFromAPI) => {
+      console.log("concertVideos", videosFromAPI)
+      setConcertVideos(videosFromAPI);
+    });
+  }, []);
 
-  const { buttonLabel, className } = props;
+  const { buttonLabel, className, classNamee } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
 
+  // console.log("concertVideos", concertVideos)
+
+  const getVideos = () => {
+    return VideoManager.getVideo(props.concertId).then((videosFromAPI) => {
+      setConcertVideos(videosFromAPI);
+    });
+  };
+
+  useEffect(() => {
+    getVideos();
+  });
+
   return (
     <div className=" concert-detail" id="card-details">
       <div className="card-content" id="card-details">
-        <div className="concert-details tour-details">
-          <h3>
-            <span className="card-petname">
-              <strong>{concert.tourName}</strong>
-            </span>
-          </h3>
-          <picture className="tour-poster-img">
-            <img src={concert.tourPoster} alt="Tour Poster" id="tour-poster" />
-          </picture>
+        <div className="concert-details tour-details" id="concert-name-poster">
+          <div>
+            <h1>
+              <span className="card-petname">
+                <strong>{concert.tourName}</strong>
+              </span>
+            </h1>
+          </div>
+          <div>
+            <picture className="tour-poster-img">
+              <img
+                src={concert.tourPoster}
+                alt="Tour Poster"
+                id="tour-poster"
+              />
+            </picture>
+          </div>
+          <Button
+            color="primary"
+            size="sm"
+            onClick={toggle}
+            className="tour-poster-btn"
+          >
+            {buttonLabel}+ Upload Tour Poster
+          </Button>
         </div>
-        <Button color="primary" size="sm" onClick={toggle} className="tour-poster-btn">
-          {buttonLabel}+ Upload Tour Poster
-        </Button>
-        <Modal isOpen={modal} toggle={toggle} className={className}>
+        <Modal isOpen={modal} toggle={toggle} className={classNamee}>
           <ModalHeader toggle={toggle}>Upload Tour Poster</ModalHeader>
           <ModalBody>
             <Cloudinary id="tourPoster" handleImage={handleImage} />
@@ -186,70 +219,92 @@ const ConcertDetails = (props) => {
             </Button>
           </ModalFooter>
         </Modal>
-        <div className="concert-details bands-heading">
-          <h3>
-            <strong>Bands</strong>
-          </h3>
+        <div id="concert-bands-details-container">
+          <div /*className="concert-details"*/ id="concert-details">
+            <h2>
+              <strong>Concert Details</strong>
+            </h2>
+            <p>
+              <strong>Date:</strong> {concert.date}
+            </p>
+            <p>
+              <strong>Venue:</strong> {concert.venue}
+            </p>
+            <p>
+              <strong>Location:</strong> {concert.location}
+            </p>
+          </div>
+          <div className="concert-details bands-heading" id="concert-bands">
+            <h2>
+              <strong>Bands</strong>
+            </h2>
+            {/* <div className="concert-details"> */}
+            {concert.bands.map((band) => (
+              <p key={band.id}>{band.name} </p>
+            ))}
+            {/* </div> */}
+          </div>
         </div>
-        <div className="concert-details">
-          {concert.bands.map((band) => (
-            <p key={band.id}>{band.name} </p>
-          ))}
-        </div>
-        <div className="concert-details">
-          <h3>
-            <strong>Concert Details</strong>
-          </h3>
-          <p>
-            <strong>Date:</strong> {concert.date}
-          </p>
-          <p>
-            <strong>Venue:</strong> {concert.venue}
-          </p>
-          <p>
-            <strong>Location:</strong> {concert.location}
-          </p>
-        </div>
-        <div className="concert-details">
-          <h3>
+        <div className="concert-details" id="concert-photos">
+          <h2>
             <strong>Photos</strong>
-          </h3>
+          </h2>
           <Button color="primary" size="sm">
             {" "}
             + Upload Photo
           </Button>{" "}
         </div>
-        <div className="concert-details">
-          <h3>
+        <div className="concert-details" id="concert-videos">
+          <h2>
             <strong>Videos</strong>
-          </h3>
+          </h2>
           {/* <CloudinaryVideo handleVideo={handleVideo} /> */}
-          <Button color="primary" size="sm" onClick={toggle} className="video-btn">
-          {buttonLabel}+ Upload Video
+          <Button
+            color="primary"
+            size="sm"
+            onClick={toggle}
+            className="video-btn"
+          >
+            {buttonLabel}+ Upload Video
           </Button>
-        <Modal isOpen={modal} toggle={toggle} className={className}>
-          <ModalHeader toggle={toggle}>Upload Video</ModalHeader>
-          <ModalBody>
-            <CloudinaryVideo handleVideo={handleVideo} />
-          </ModalBody>
-          <ModalFooter>
-            <Button
-              color="primary"
-              onClick={() => {
-                saveVideo();
-                toggle();
-              }}
-            >
-              Save Video
-            </Button>{" "}
-            <Button color="secondary" onClick={toggle}>
-              Cancel
-            </Button>
-          </ModalFooter>
-        </Modal>
-          <div>
+          <Modal isOpen={modal} toggle={toggle} className={className}>
+            <ModalHeader toggle={toggle}>Upload Video</ModalHeader>
+            <ModalBody>
+              <CloudinaryVideo handleVideo={handleVideo} />
+              <Form>
+              <Label htmlFor="description">Description (Optional)</Label>
+              <Input
+                type="text"
+                name="description"
+                id="description"
+                onChange={handleDescriptionChange}
+              />
+            </Form>
+            </ModalBody>
+            <ModalFooter>
+              <Button
+                color="primary"
+                onClick={() => {
+                  saveVideo();
+                  getVideos();
+                  toggle();
+                }}
+              >
+                Save 
+              </Button>{" "}
+              <Button color="secondary" onClick={toggle}>
+                Cancel
+              </Button>
+            </ModalFooter>
+          </Modal>
+          <div id="video-container">
             {concertVideos.map((video) => (
-              <video src={video.url} controls/>
+              <div>
+                <video src={video.url} controls>
+                 </video>
+                 <p>{video.description}</p>
+              </div>
+              
             ))}
           </div>
         </div>

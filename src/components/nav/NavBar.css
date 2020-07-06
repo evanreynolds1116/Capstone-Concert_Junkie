@@ -157,17 +157,7 @@ p, h3 {
   margin: 0px 0px 5px 10px
 }
 
-.tour-poster-btn {
-  margin-left: 10px;
-}
 
-video {
-  width: 450px;
-  height: 600px;
-  border: 1px solid white;
-  margin-top: 10px;
-  margin-right: 10px;
-}
 
 tr:hover {background-color: rgba(255, 165, 0, .8);}
 
@@ -263,7 +253,7 @@ strong {
 }
 
 .concert-detail {
-  margin: 20px 20px 20px 20px;
+  margin: 20px 60px 20px 60px;
 }
 
 .jumbotron {
@@ -271,6 +261,7 @@ strong {
   height: 400px;
   margin-top: 10px;
 }
+
 
 
 /* h1 {
