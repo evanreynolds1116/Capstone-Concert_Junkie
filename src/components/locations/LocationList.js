@@ -71,7 +71,7 @@ const LocationList = (props) => {
   return (
     <>
       <div className="location-list-header">
-        <h3>You have seen concerts in {locationCounter} locations</h3>
+        <h2>You have seen concerts in {locationCounter} locations</h2>
       </div>
       <div className="location-list-table">
         <div>

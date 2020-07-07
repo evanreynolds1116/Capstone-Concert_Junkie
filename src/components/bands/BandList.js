@@ -16,19 +16,16 @@ const BandList = (props) => {
               concert.bands = concertBandsFromAPI.map(
                 (concertBand) => concertBand.band
               );
-              // console.log("concert", concert);
               return concert;
             }
           );
         })
       ).then((concertsWithBands) => {
-        console.log(concertsWithBands);
         const bandsArray = concertsWithBands.map((concerts) => concerts.bands);
         const bandsObj = [];
         const anotherBandsArray = bandsArray.map((bands) => {
           bands.forEach((band) => bandsObj.push(band));
         });
-        console.log("bandsObj", bandsObj);
 
         const countResults = [
           ...bandsObj
@@ -40,10 +37,8 @@ const BandList = (props) => {
             }, new Map())
             .values(),
         ];
-        console.log("countResults", countResults);
 
         const total = countResults.length;
-        console.log("total", total);
         setTotalBands(total);
 
         const result = Array.from(new Set(countResults.map((s) => s.id))).map(
@@ -63,16 +58,15 @@ const BandList = (props) => {
     });
   }, []);
 
-  // console.log(concerts)
 
   return (
     <>
       <div className="bands-list-header">
-        <h3>You have seen {totalBands} bands</h3>
+        <h2>You have seen {totalBands} bands</h2>
       </div>
       <div className="bands-list-table">
         <div>
-          <Table>
+          <Table id="bands-table">
             <thead>
               <tr>
                 <th>Band</th>

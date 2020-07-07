@@ -20,8 +20,8 @@ function Cloudinary(props) {
           const imageURL = `https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/${photos.info.public_id}`
           props.handleImage(imageURL)
           setImages([...images, photos.info.public_id])
-          // console.log("PHOTOS", photos);
-          // console.log("IMAGES", images)
+          console.log("PHOTOS", photos);
+          console.log("IMAGES", images)
         }
       } else {
         console.log(error);
@@ -29,15 +29,15 @@ function Cloudinary(props) {
     })
   };
 
-  // useEffect( () => {
-  //   fetchPhotos("image", setImages);
-  // }, []);
+  useEffect( () => {
+    fetchPhotos("image", setImages);
+  }, []);
 
   return (
     <CloudinaryContext cloudName="emrcloud">
       <div className="formgrid">
       <label></label>
-      <Button color="primary" onClick={() => beginUpload("nonsense")}>Upload Image</Button> 
+      <Button color="primary" onClick={() => beginUpload("nonsense")}>+ Upload Tour Poster</Button> 
         <section>
           {images.map(i => <Image
             key={i}

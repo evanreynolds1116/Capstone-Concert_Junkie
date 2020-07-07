@@ -23,7 +23,6 @@ const ConcertList = (props) => {
           return concert;
         })
       )).then((concertsWithBands) => {
-        // console.log(concertsWithBands)
         return Promise.all(
           concertsWithBands.map((concert) => 
             VenueManager.get(concert.venueId).then((venueLocation) => {
@@ -47,7 +46,7 @@ const ConcertList = (props) => {
     getNumberConcerts();
   }, []);
 
-  console.log(concerts.bands)
+  
   return (
     <>
       <div className="concert-list-body">
@@ -59,7 +58,7 @@ const ConcertList = (props) => {
             props.history.push("/new-concert");
           }}
         >
-          Add New Concert
+          + Add New Concert
         </Button>{" "}
       </div>
       <div className="concert-list">
@@ -84,10 +83,6 @@ const ConcertList = (props) => {
                     {concert.tourName}
                   </strong>
                   </div>
-                  {/* <br></br> */}
-                  {/* {concert.bands.map((band) => (
-                    <span key={band.id}>| {band.name} |</span>
-                  ))} */}
                   <span> {concert.bands.join(' | ')} </span>
                 </td>
                 <td className="concert-venue">{concert.venue.name}</td>
@@ -113,6 +108,3 @@ const ConcertList = (props) => {
 
 export default ConcertList;
 
-/*{concerts.map(concert => 
-  <ConcertCard key={concert.id} concert={concert} {...props} />
-  )}*/

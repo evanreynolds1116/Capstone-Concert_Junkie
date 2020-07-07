@@ -28,12 +28,6 @@ const NavBar = (props) => {
   return (
     <>
       <div className="header-div ">
-        {/* <picture>
-          <img
-            src={require("/home/evanr95/workspace/capstone-concert_junkie/src/components/capstone-logo.png")}
-            alt="logo"
-          />
-        </picture> */}
         <header>
           <div className="container">
             <div className="neon">Concert</div>
@@ -44,7 +38,6 @@ const NavBar = (props) => {
       <div className="navbar-div">
         {props.hasUser ? (
           <Navbar expand="md">
-            {/* <NavbarBrand href="/">reactstrap</NavbarBrand> */}
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="mr-auto" navbar>

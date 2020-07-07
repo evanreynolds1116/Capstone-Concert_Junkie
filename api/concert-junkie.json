@@ -128,14 +128,6 @@
       "id": 31
     },
     {
-      "name": "I Prevail",
-      "id": 32
-    },
-    {
-      "name": "Beartooth",
-      "id": 33
-    },
-    {
       "name": "Can't Swim",
       "id": 34
     },
@@ -518,13 +510,21 @@
     {
       "name": "The Weepies",
       "id": 130
+    },
+    {
+      "name": "I Prevail",
+      "id": 131
+    },
+    {
+      "name": "Beartooth",
+      "id": 132
     }
   ],
   "concerts": [
     {
       "id": 2,
-      "userId": "2",
-      "tourName": "THICC THICCLY TOUR PART 1",
+      "userId": 2,
+      "tourName": "Bilmuri Spring Tour Part 1",
       "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bilmuri_Tour_eb7orx",
       "date": "2020-03-11",
       "venueId": 2
@@ -532,18 +532,10 @@
     {
       "id": 3,
       "userId": "2",
-      "tourName": "The Killed and Born Again Tour",
+      "tourName": "TKABA Tour",
       "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bad_Omens_tour_cybi01",
       "date": "2020-02-23",
       "venueId": 2
-    },
-    {
-      "id": 4,
-      "userId": "2",
-      "tourName": "The Degenerates Tour",
-      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/A_Day_To_Remember_qt9ezi",
-      "date": "2019-11-22",
-      "venueId": 3
     },
     {
       "id": 5,
@@ -808,14 +800,6 @@
       "date": "2017-05-12",
       "venueId": 19,
       "id": 37
-    },
-    {
-      "userId": 2,
-      "tourName": "The American Nightmare Tour",
-      "tourPoster": "",
-      "date": "2017-04-06",
-      "venueId": 20,
-      "id": 38
     }
   ],
   "concertBands": [
@@ -838,26 +822,6 @@
       "bandId": 8,
       "concertId": 3,
       "id": 10
-    },
-    {
-      "bandId": 31,
-      "concertId": 4,
-      "id": 11
-    },
-    {
-      "bandId": 32,
-      "concertId": 4,
-      "id": 12
-    },
-    {
-      "bandId": 33,
-      "concertId": 4,
-      "id": 13
-    },
-    {
-      "bandId": 34,
-      "concertId": 4,
-      "id": 14
     },
     {
       "bandId": 24,
@@ -973,31 +937,6 @@
       "bandId": 22,
       "concertId": 11,
       "id": 39
-    },
-    {
-      "bandId": 26,
-      "concertId": 2,
-      "id": 97
-    },
-    {
-      "bandId": 27,
-      "concertId": 2,
-      "id": 98
-    },
-    {
-      "bandId": 28,
-      "concertId": 2,
-      "id": 99
-    },
-    {
-      "bandId": 29,
-      "concertId": 2,
-      "id": 100
-    },
-    {
-      "bandId": 30,
-      "concertId": 2,
-      "id": 101
     },
     {
       "bandId": 52,
@@ -1485,21 +1424,6 @@
       "id": 198
     },
     {
-      "bandId": 66,
-      "concertId": 38,
-      "id": 199
-    },
-    {
-      "bandId": 9,
-      "concertId": 38,
-      "id": 200
-    },
-    {
-      "bandId": 33,
-      "concertId": 38,
-      "id": 201
-    },
-    {
       "bandId": 21,
       "concertId": 5,
       "id": 204
@@ -1508,16 +1432,34 @@
       "bandId": 35,
       "concertId": 5,
       "id": 205
-    }
-  ],
-  "videos": [
+    },
     {
-      "concertId": "2",
-      "url": "https://res.cloudinary.com/emrcloud/video/upload/f_auto,q_auto/v1/upload/bilmuri-cowpeople_bot8xm.mov",
-      "description": "",
-      "id": 1
+      "bandId": 26,
+      "concertId": 2,
+      "id": 210
+    },
+    {
+      "bandId": 28,
+      "concertId": 2,
+      "id": 211
+    },
+    {
+      "bandId": 29,
+      "concertId": 2,
+      "id": 212
+    },
+    {
+      "bandId": 27,
+      "concertId": 2,
+      "id": 213
+    },
+    {
+      "bandId": 30,
+      "concertId": 2,
+      "id": 214
     }
   ],
+  "videos": [],
   "photos": [],
   "venues": [
     {
@@ -1659,6 +1601,11 @@
       "name": "Soma (Sidestage)",
       "locationId": 4,
       "id": 28
+    },
+    {
+      "name": "Test Venue",
+      "locationId": 12,
+      "id": 29
     }
   ],
   "locations": [
@@ -1705,6 +1652,10 @@
     {
       "cityState": "Irvine, CA",
       "id": 11
+    },
+    {
+      "cityState": "Memphis, TN",
+      "id": 12
     }
   ]
 }

@@ -113,7 +113,6 @@ const LoginRegister = (props) => {
               </form>
             </ModalBody>
             <ModalFooter>
-              {/* <Button color="primary" type="submit">Sign In</Button>{' '} */}
               <Button onClick={toggleLogin}>
                 Cancel
               </Button>
@@ -200,9 +199,6 @@ const LoginRegister = (props) => {
               </form>
             </ModalBody>
             <ModalFooter>
-              {/* <Button color="primary" type="submit">
-              Register
-            </Button>{" "} */}
               <Button onClick={toggleRegister}>
                 Cancel
               </Button>

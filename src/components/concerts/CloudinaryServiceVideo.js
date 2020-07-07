@@ -23,6 +23,6 @@ const urlPath = url(imageTag.toString(), options);
 
 fetch(urlPath)
 .then(res => res.text())
-.then(text => (text ? setter(JSON.parse(text).resources.map(image => image.public_id)) : []))
+.then(text => (text ? setter(JSON.parse(text).resources.map(video=> video.public_id)) : []))
 .catch(err => console.log(err));
 };
