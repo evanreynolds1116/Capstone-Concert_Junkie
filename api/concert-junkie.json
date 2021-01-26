@@ -19,6 +19,20 @@
       "password": "1234",
       "passwordConfirm": "1234",
       "id": 3
+    },
+    {
+      "email": "anothertest@test.com",
+      "username": "Testie",
+      "password": "1234",
+      "passwordConfirm": "1235",
+      "id": 4
+    },
+    {
+      "email": "e@e.com",
+      "username": "ee",
+      "password": "123",
+      "passwordConfirm": "123",
+      "id": 5
     }
   ],
   "bands": [
@@ -525,6 +539,10 @@
     {
       "name": "Beartooth",
       "id": 132
+    },
+    {
+      "name": "LANDMVRKS",
+      "id": 133
     }
   ],
   "concerts": [
