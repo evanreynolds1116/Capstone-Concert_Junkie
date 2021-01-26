@@ -38,7 +38,6 @@
 
 1. Click "Register" to create an account
 2. Fill out the form and click "Register" at the bottom. You will be automatically signed and and redirected to the home page
-- *If you would like to see an account with a large amount of data already in place, click "Login" and enter the following credentials: email: evan@evan.com password: 1234
 
 <img src="./public/CJ-Login&Register-Page.png" width="950" height="300">
 <img src="./public/CJ-Register-Form.png" width="950" height="300">
