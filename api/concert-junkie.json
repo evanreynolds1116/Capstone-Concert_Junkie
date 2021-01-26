@@ -12,6 +12,13 @@
       "password": "1234",
       "passwordConfirm": "1234",
       "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "username": "Test",
+      "password": "1234",
+      "passwordConfirm": "1234",
+      "id": 3
     }
   ],
   "bands": [
@@ -800,6 +807,14 @@
       "date": "2017-05-12",
       "venueId": 19,
       "id": 37
+    },
+    {
+      "userId": 2,
+      "tourName": "The Degenerates Tour",
+      "tourPoster": "",
+      "date": "2019-11-22",
+      "venueId": 3,
+      "id": 38
     }
   ],
   "concertBands": [
@@ -1436,30 +1451,61 @@
     {
       "bandId": 26,
       "concertId": 2,
-      "id": 210
-    },
-    {
-      "bandId": 28,
-      "concertId": 2,
-      "id": 211
+      "id": 215
     },
     {
       "bandId": 29,
       "concertId": 2,
-      "id": 212
+      "id": 216
     },
     {
-      "bandId": 27,
+      "bandId": 28,
       "concertId": 2,
-      "id": 213
+      "id": 217
     },
     {
-      "bandId": 30,
-      "concertId": 2,
-      "id": 214
+      "bandId": 31,
+      "concertId": 38,
+      "id": 218
+    },
+    {
+      "bandId": 131,
+      "concertId": 38,
+      "id": 219
+    },
+    {
+      "bandId": 132,
+      "concertId": 38,
+      "id": 220
+    },
+    {
+      "bandId": 34,
+      "concertId": 38,
+      "id": 221
+    },
+    {
+      "bandId": 34,
+      "concertId": 38,
+      "id": 222
+    },
+    {
+      "bandId": 132,
+      "concertId": 38,
+      "id": 223
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "concertId": 38,
+      "url": "https://res.cloudinary.com/emrcloud/video/upload/f_auto,q_auto/v1/upload/ADTR_Concert_Video_nxinsd",
+      "id": 1
+    },
+    {
+      "concertId": 2,
+      "url": "https://res.cloudinary.com/emrcloud/video/upload/f_auto,q_auto/v1/upload/ADTR-Sticks_Bricks_qrzqmf",
+      "id": 2
+    }
+  ],
   "photos": [],
   "venues": [
     {
