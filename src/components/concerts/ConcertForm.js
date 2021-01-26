@@ -51,7 +51,6 @@ const ConcertForm = (props) => {
   };
   const getVenues = () => {
     return VenueManager.getAllVenueLocations().then((venuesFromAPI) => {
-      console.log("venuesFromAPI", venuesFromAPI)
       setVenues(venuesFromAPI)
     })
   }
@@ -250,7 +249,7 @@ const ConcertForm = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="tour">Tour/Concert Title</Label>
+          <Label for="tour">Tour/Concert Title <small>(optional)</small></Label>
           <Input
             type="text"
             name="tour"
@@ -260,10 +259,6 @@ const ConcertForm = (props) => {
             className="concert-form-input"
           />
         </FormGroup>
-        {/* <FormGroup>
-          <Label for="tourPoster">Tour Poster</Label>
-          <Cloudinary id="tourPoster" handleImage={handleImage} />
-        </FormGroup> */}
         <FormGroup>
           <Label for="location">Location</Label>
           <div className="location-input">

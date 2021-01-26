@@ -7,17 +7,17 @@
       "password": ""
     },
     {
-      "email": "evan.m.reynolds95@gmail.com",
-      "username": "e",
-      "password": "e",
-      "passwordConfirm": "e",
+      "email": "evan@evan.com",
+      "username": "EvanReynolds",
+      "password": "1234",
+      "passwordConfirm": "1234",
       "id": 2
     },
     {
-      "email": "evan@evan.com",
-      "username": "evan",
-      "password": "123",
-      "passwordConfirm": "123",
+      "email": "test@test.com",
+      "username": "Test",
+      "password": "1234",
+      "passwordConfirm": "1234",
       "id": 3
     }
   ],
@@ -133,14 +133,6 @@
     {
       "name": "A Day To Remember",
       "id": 31
-    },
-    {
-      "name": "I Prevail",
-      "id": 32
-    },
-    {
-      "name": "Beartooth",
-      "id": 33
     },
     {
       "name": "Can't Swim",
@@ -525,32 +517,32 @@
     {
       "name": "The Weepies",
       "id": 130
+    },
+    {
+      "name": "I Prevail",
+      "id": 131
+    },
+    {
+      "name": "Beartooth",
+      "id": 132
     }
   ],
   "concerts": [
     {
       "id": 2,
       "userId": 2,
-      "tourName": "THICC THICCLY TOUR PART 1",
-      "tourPoster": "",
+      "tourName": "Bilmuri Spring Tour Part 1",
+      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bilmuri_Tour_eb7orx",
       "date": "2020-03-11",
       "venueId": 2
     },
     {
-      "userId": 2,
-      "tourName": "The Killed and Born Again Tour",
-      "tourPoster": "",
+      "id": 3,
+      "userId": "2",
+      "tourName": "TKABA Tour",
+      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bad_Omens_tour_cybi01",
       "date": "2020-02-23",
-      "venueId": 2,
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "tourName": "The Degenerates Tour",
-      "tourPoster": "",
-      "date": "2019-11-22",
-      "venueId": 3,
-      "id": 4
+      "venueId": 2
     },
     {
       "id": 5,
@@ -818,27 +810,11 @@
     },
     {
       "userId": 2,
-      "tourName": "The American Nightmare Tour",
+      "tourName": "The Degenerates Tour",
       "tourPoster": "",
-      "date": "2017-04-06",
-      "venueId": 20,
+      "date": "2019-11-22",
+      "venueId": 3,
       "id": 38
-    },
-    {
-      "id": 39,
-      "userId": 2,
-      "tourName": "Bryans Dream Tour",
-      "tourPoster": "",
-      "date": "2020-06-25",
-      "venueId": 2
-    },
-    {
-      "id": 40,
-      "userId": "2",
-      "tourName": "WHO ARE THE WEEPIES?!?",
-      "tourPoster": "https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/upload/Bad_Omens_tour_htmfle",
-      "date": "2020-06-30",
-      "venueId": 2
     }
   ],
   "concertBands": [
@@ -861,26 +837,6 @@
       "bandId": 8,
       "concertId": 3,
       "id": 10
-    },
-    {
-      "bandId": 31,
-      "concertId": 4,
-      "id": 11
-    },
-    {
-      "bandId": 32,
-      "concertId": 4,
-      "id": 12
-    },
-    {
-      "bandId": 33,
-      "concertId": 4,
-      "id": 13
-    },
-    {
-      "bandId": 34,
-      "concertId": 4,
-      "id": 14
     },
     {
       "bandId": 24,
@@ -996,31 +952,6 @@
       "bandId": 22,
       "concertId": 11,
       "id": 39
-    },
-    {
-      "bandId": 26,
-      "concertId": 2,
-      "id": 97
-    },
-    {
-      "bandId": 27,
-      "concertId": 2,
-      "id": 98
-    },
-    {
-      "bandId": 28,
-      "concertId": 2,
-      "id": 99
-    },
-    {
-      "bandId": 29,
-      "concertId": 2,
-      "id": 100
-    },
-    {
-      "bandId": 30,
-      "concertId": 2,
-      "id": 101
     },
     {
       "bandId": 52,
@@ -1508,21 +1439,6 @@
       "id": 198
     },
     {
-      "bandId": 66,
-      "concertId": 38,
-      "id": 199
-    },
-    {
-      "bandId": 9,
-      "concertId": 38,
-      "id": 200
-    },
-    {
-      "bandId": 33,
-      "concertId": 38,
-      "id": 201
-    },
-    {
       "bandId": 21,
       "concertId": 5,
       "id": 204
@@ -1533,22 +1449,63 @@
       "id": 205
     },
     {
-      "bandId": 128,
-      "concertId": 39,
-      "id": 209
+      "bandId": 26,
+      "concertId": 2,
+      "id": 215
     },
     {
-      "bandId": 129,
-      "concertId": 39,
-      "id": 210
+      "bandId": 29,
+      "concertId": 2,
+      "id": 216
     },
     {
-      "bandId": 130,
-      "concertId": 40,
-      "id": 211
+      "bandId": 28,
+      "concertId": 2,
+      "id": 217
+    },
+    {
+      "bandId": 31,
+      "concertId": 38,
+      "id": 218
+    },
+    {
+      "bandId": 131,
+      "concertId": 38,
+      "id": 219
+    },
+    {
+      "bandId": 132,
+      "concertId": 38,
+      "id": 220
+    },
+    {
+      "bandId": 34,
+      "concertId": 38,
+      "id": 221
+    },
+    {
+      "bandId": 34,
+      "concertId": 38,
+      "id": 222
+    },
+    {
+      "bandId": 132,
+      "concertId": 38,
+      "id": 223
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "concertId": 38,
+      "url": "https://res.cloudinary.com/emrcloud/video/upload/f_auto,q_auto/v1/upload/ADTR_Concert_Video_nxinsd",
+      "id": 1
+    },
+    {
+      "concertId": 2,
+      "url": "https://res.cloudinary.com/emrcloud/video/upload/f_auto,q_auto/v1/upload/ADTR-Sticks_Bricks_qrzqmf",
+      "id": 2
+    }
+  ],
   "photos": [],
   "venues": [
     {
@@ -1690,6 +1647,11 @@
       "name": "Soma (Sidestage)",
       "locationId": 4,
       "id": 28
+    },
+    {
+      "name": "Test Venue",
+      "locationId": 12,
+      "id": 29
     }
   ],
   "locations": [
@@ -1736,6 +1698,10 @@
     {
       "cityState": "Irvine, CA",
       "id": 11
+    },
+    {
+      "cityState": "Memphis, TN",
+      "id": 12
     }
   ]
 }

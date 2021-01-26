@@ -46,7 +46,6 @@ const ConcertEditForm = props => {
   const handleVenueFieldChange = (selectedVenue) => {
     const concertToAdd = { ...concert};
     concertToAdd["venueId"] = selectedVenue[0].id;
-    console.log(concertToAdd)
     setConcert(concertToAdd);
   }
 
@@ -92,7 +91,6 @@ const ConcertEditForm = props => {
         .map(
           (concertBand) => concertBand.band
           )
-        console.log("concert", concert)
         const bandsFromAPI = concert.bands
         setConcertBands(bandsFromAPI)
         return concert;
@@ -108,7 +106,6 @@ const ConcertEditForm = props => {
       const venueArray = []
       const venueObj = concert.venue
       venueArray.push(venueObj)
-      console.log(venueArray)
       setOnlyVenue(venueArray);
       VenueManager.get(concert.venueId).then((venueLocation) => {
         const locationArray = [];
@@ -243,7 +240,7 @@ const ConcertEditForm = props => {
               placeholder="e.g. My Chemical Romance"
             />
             <Button
-              color="secondary"
+              color="primary"
               onClick={toggleBand}
               className="add-band-btn"
             >
@@ -265,7 +262,7 @@ const ConcertEditForm = props => {
                   />
                   <Button
                     type="submit"
-                    color="secondary"
+                    color="primary"
                     className="add-band-database"
                     onClick={toggleBand}
                   >
@@ -315,7 +312,7 @@ const ConcertEditForm = props => {
               className="concert-form-input"
             />
             <Button
-              color="secondary"
+              color="primary"
               onClick={toggleLocation}
               className="add-location-btn"
             >
@@ -340,7 +337,7 @@ const ConcertEditForm = props => {
                     />
                     <Button
                       type="submit"
-                      color="secondary"
+                      color="primary"
                       className="add-location-database"
                       onClick={toggleLocation}
                     >
@@ -366,7 +363,7 @@ const ConcertEditForm = props => {
               className="concert-form-input"
             />
             <Button
-              color="secondary"
+              color="primary"
               onClick={toggleVenue}
               className="add-venue-btn"
             >
@@ -401,7 +398,7 @@ const ConcertEditForm = props => {
                     <Button
                       type="submit"
                       onClick={toggleVenue}
-                      color="secondary"
+                      color="primary"
                       className="add-venue-database"
                     >
                       Add
@@ -412,7 +409,7 @@ const ConcertEditForm = props => {
             </Modal>
           </div>
         </FormGroup>
-        <Button onClick={updateExistingConcert} disabled={isLoading} color="secondary">Update Concert</Button>{" "}
+        <Button onClick={updateExistingConcert} disabled={isLoading} color="primary" id="update-concert-btn">Update Concert</Button>{" "}
       </Form>
     </>
   )

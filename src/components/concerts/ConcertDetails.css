@@ -1,6 +1,6 @@
-.concert-details {
+/* .concert-details {
   margin: 10px 10px 10px 10px;
-}
+} */
 
 .bands-heading {
   display: flex;
@@ -33,3 +33,100 @@ hr {
 body {
   background-color: black;
 }
+
+#concert-name-poster, #concert-bands, #concert-details, #concert-photos, #concert-videos {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'lato', sans-serif;
+  /* background-color: rgba(30, 30, 30, 0.7); */
+}
+
+#concert-bands-details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center;
+  align-content: center; */
+  background-color: rgba(30, 30, 30, 0.6);
+}
+
+#concert-bands, #concert-details {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+#concert-name-poster {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: rgba(30, 30, 30, 0.6);
+}
+
+.tour-poster-btn {
+  margin: 20px 0px 0px 0px;
+}
+
+#video-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 10px 10px 10px 10px;
+}
+
+video {
+  width: 450px;
+  height: 600px;
+  border: 1px solid white;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#concert-videos, #concert-photos {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+  background-color: rgba(30, 30, 30, 0.6);
+}
+
+/* #concert-videos > h2, #concert-videos > button, #concert-photos {
+  margin-left: 218px;
+} */
+
+#concert-photo {
+  width: 300px;
+  height: 200px;
+  border: 1px solid white;
+}
+
+#photo-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 10px 10px 10px 10px;
+}
+
+#concert-photos > h2 {
+  padding-top: 20px;
+  margin-left: 20px;
+}
+
+#concert-photos > button {
+  margin-left: 20px;
+}
+
+#concert-videos > h2 {
+  padding-top: 20px;
+  margin-left: 20px;
+}
+
+#concert-videos > button {
+  margin-left: 20px;
+}
+
+.tour-poster-btn {
+  margin-bottom: 10px;
+}
+
+

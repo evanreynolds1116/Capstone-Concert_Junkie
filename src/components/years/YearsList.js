@@ -75,37 +75,18 @@ const YearsList = (props) => {
       (concerts) => {
         console.log("concerts", concerts);
         const datesList = concerts.map((concert) => {
-          // const yearsArray = concert.date
-          // console.log("yearsArray", yearsArray)
-          // setYears(yearsArray)
 
           return {
             id: concert.id,
             date: concert.date,
           };
         });
-        // console.log("datesList", datesList)
-        // setDates(datesList)
+        
         const yearsList = datesList.map((dateObj) => {
           const yearsArray = dateObj.date;
           const year = yearsArray.slice(0, 4);
-          console.log(year);
           return year;
         });
-        console.log("yearsList", yearsList);
-
-        // const countResults = [
-        //   ...yearsList
-        //     .reduce((mp, o) => {
-        //       const key = ([o]);
-        //       if (!mp.has(key)) mp.set(key, { ...o, count: 0 });
-        //       mp.get(key).count++;
-        //       return mp;
-        //     }, new Map())
-        //     .values(),
-        // ];
-
-        // console.log(countResults)
 
         function getOccurence(array, value) {
           let count = 0;
@@ -119,19 +100,18 @@ const YearsList = (props) => {
         yearCount.push({ year: 2018, count: getOccurence(yearsList, "2018") });
         yearCount.push({ year: 2017, count: getOccurence(yearsList, "2017") });
         // yearCount.push({ year: 2016, count: getOccurence(yearsList, "2016")})
-        console.log(yearCount);
 
         const yearsWithCount = yearCount.map((yearObj) => {
           if (yearObj.count != 0) {
             return yearObj;
-            // setYearCounter(yearObj)
+            
           }
         });
-        console.log(yearsWithCount);
+        
         setYearCounter(yearsWithCount);
 
         const distinctYears = [...new Set(yearsList)];
-        console.log(distinctYears);
+        
         setTotalYears(distinctYears.length)
 
         function getOccurence(array, value) {
@@ -140,22 +120,7 @@ const YearsList = (props) => {
           return count;
         }
 
-        // const testYear = []
-        // testYear.push(getOccurence(yearsList, "2015"))
-        // testYear.push(getOccurence(yearsList, "2016"))
-        // testYear.push(getOccurence(yearsList, "2017"))
-        // testYear.push(getOccurence(yearsList, "2018"))
-        // testYear.push(getOccurence(yearsList, "2019"))
-        // testYear.push(getOccurence(yearsList, "2020"))
-        // console.log(testYear)
-
-        // setYears(testYear)
-
-        // function getOccurence(array, value) {
-        //   let count = 0;
-        //   array.forEach((v) => (v === value && count++));
-        //   return count
-        // }
+        
       }
     );
   }, []);

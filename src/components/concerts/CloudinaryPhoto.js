@@ -4,7 +4,7 @@ import { fetchPhotos, openUploadWidget } from "./CloudinaryService";
 import './Cloudinary.css';
 import { Button } from "reactstrap";
 
-function Cloudinary(props) {
+function CloudinaryPhoto(props) {
   const [images, setImages] = useState([]);
 
   const beginUpload = tag => {
@@ -17,10 +17,10 @@ function Cloudinary(props) {
     openUploadWidget(uploadOptions, (error, photos) => {
       if (!error) {
         if(photos.event === 'success'){
-          const imageURL = `https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/${photos.info.public_id}`
-          props.handleImage(imageURL)
+          const photoURL = `https://res.cloudinary.com/emrcloud/image/upload/f_auto,q_auto/v1/${photos.info.public_id}`
+          props.handlePhoto(photoURL)
           setImages([...images, photos.info.public_id])
-          console.log("PHOTOS", photos);
+          // console.log("PHOTOS", photos);
           console.log("IMAGES", images)
         }
       } else {
@@ -29,15 +29,15 @@ function Cloudinary(props) {
     })
   };
 
-  useEffect( () => {
-    fetchPhotos("image", setImages);
-  }, []);
+  // useEffect( () => {
+  //   fetchPhotos("image", setImages);
+  // }, []);
 
   return (
     <CloudinaryContext cloudName="emrcloud">
       <div className="formgrid">
       <label></label>
-      <Button color="primary" onClick={() => beginUpload("nonsense")}>+ Upload Tour Poster</Button> 
+      <Button color="primary" onClick={() => beginUpload("nonsense")}>+ Upload Photo</Button> 
         <section>
           {images.map(i => <Image
             key={i}
@@ -51,4 +51,4 @@ function Cloudinary(props) {
   );
 }
 
-export default Cloudinary
+export default CloudinaryPhoto

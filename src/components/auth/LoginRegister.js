@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LoginRegister.css";
 import AuthManager from "../../modules/AuthManager";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const LoginRegister = (props) => {
   const { buttonLabel, className } = props;
@@ -27,7 +27,7 @@ const LoginRegister = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    props.setUser(credentials);
     AuthManager.loginUser(credentials).then((result) => {
       if (result.length > 0) {
         sessionStorage.setItem("activeUser", result[0].id);
@@ -49,8 +49,19 @@ const LoginRegister = (props) => {
   return (
     <>
       <div className="LoginRegisterDiv">
+        <Jumbotron id="jumbotron">
+        <div className="jumbotron-header">
+          <div>
+            <h1>Welcome to Concert Junkie!</h1>
+            <hr />
+          </div>
+          <div>
+            <p>Please sign in or register a new account to continue.</p>
+          </div>
+        </div>
+        <div className="login-register-container">
         <div>
-          <Button className="login-btn" onClick={toggleLogin}>
+          <Button className="login-btn" onClick={toggleLogin} color="primary">
             {buttonLabel}Sign In
           </Button>
           <Modal
@@ -90,16 +101,18 @@ const LoginRegister = (props) => {
                         className="inputPassword"
                       />
 
-                      <button type="submit" onClick={toggleLogin}>
+                      <Button 
+                        color="primary"
+                        type="submit" 
+                        onClick={toggleLogin}>
                         Sign in
-                      </button>
+                      </Button>
                     </div>
                   </fieldset>
                 </div>
               </form>
             </ModalBody>
             <ModalFooter>
-              {/* <Button color="primary" type="submit">Sign In</Button>{' '} */}
               <Button onClick={toggleLogin}>
                 Cancel
               </Button>
@@ -109,16 +122,17 @@ const LoginRegister = (props) => {
         <div>
           <Button
             className="register-btn"
+            color="primary"
             onClick={toggleRegister}
           >
             {buttonLabel}Register
           </Button>
           <Modal
             isOpen={modalRegister}
-            toggleregister={toggleRegister}
+            toggleRegister={toggleRegister}
             className={className}
           >
-            <ModalHeader toggleregister={toggleRegister}>Register</ModalHeader>
+            <ModalHeader toggleRegister={toggleRegister}>Register</ModalHeader>
             <ModalBody>
               <form onSubmit={handleRegister}>
                 <div className="container">
@@ -133,6 +147,7 @@ const LoginRegister = (props) => {
                     className=""
                     id="email"
                     placeholder="Enter Email"
+                    className="inputEmail"
                     required
                   />
 
@@ -142,7 +157,7 @@ const LoginRegister = (props) => {
                   <input
                     onChange={handleFieldChange}
                     type="text"
-                    className=""
+                    className="inputUsername"
                     id="username"
                     placeholder="Enter Username"
                   />
@@ -153,7 +168,7 @@ const LoginRegister = (props) => {
                   <input
                     onChange={handleFieldChange}
                     type="password"
-                    className=""
+                    className="inputPassword"
                     id="password"
                     placeholder="Enter Password"
                     required
@@ -165,33 +180,33 @@ const LoginRegister = (props) => {
                   <input
                     onChange={handleFieldChange}
                     type="password"
-                    className=""
+                    className="inputConfirmPassword"
                     id="passwordConfirm"
                     placeholder="Repeat Password"
                     required
                   />
 
-                  <button
+                  <Button
                     type="submit"
+                    color="primary"
                     className="registerBtn"
                     id="saveRegister"
                     onClick={toggleRegister}
                   >
                     Register
-                  </button>
+                  </Button>
                 </div>
               </form>
             </ModalBody>
             <ModalFooter>
-              {/* <Button color="primary" type="submit">
-              Register
-            </Button>{" "} */}
               <Button onClick={toggleRegister}>
                 Cancel
               </Button>
             </ModalFooter>
           </Modal>
         </div>
+        </div>
+        </Jumbotron>
       </div>
     </>
   );

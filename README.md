@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Concert Junkie
+![image](https://res.cloudinary.com/emrcloud/image/upload/v1594049564/upload/Concert_Junkie_Neon_m6akfi.png)
 
-## Available Scripts
+**A front-end capstone project from [Evan Reynolds](https://www.linkedin.com/in/evanmaxreynolds/) for Nashville Software School C40.**
 
-In the project directory, you can run:
+### **Concert Tracker**
 
-### `npm start`
+**Description:** I created an app that allows users to track concerts that they've been to as well as total number of artists/bands seen, total number of venues/locations they've been too, and how many concerts they attended per year. Users can also upload photos and videos of the concerts.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Purpose:** The reason I created this app is because I go to concerts as often as I can and sometimes I forget what artists/bands I've seen or where I've seen them. I wanted something to be able to track all that information and it's nice to look back and previous concerts to trigger forgotten memories.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+### **To run this code:**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone it down
 
-### `npm run build`
+1. Go to your terminal of choice and create a new folder
+1. Copy the SSH key in git hub
+1. In your terminal write: git clone `git@github.com:evanreynolds1116/Capstone-Concert_Junkie.git`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Launch from Terminal 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. `cd` into Capstone-Concert_Junkie
+1. `npm install`
+1. `npm start` \*If doesn't open automatically then paste http://localhost:3000 in your browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Now launch JSON file
 
-### `npm run eject`
+1. `cd Capstone-Concert_Junkie/api`
+1. `json-server -p 5002 -w concert-junkie.json`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### **Techologies Used**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To build this app the following were used:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Learn More
+- [React Router](https://reacttraining.com/react-router/) for page routing
+- [Reactstrap](https://reactstrap.github.io/components/navbar/) and [Bootstrap](https://getbootstrap.com/) for prebuilt components
+- [Cloudinary](https://cloudinary.com/) to upload photos and videos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Skills Utilized 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. API Calls: POST, PUT, DELETE, GET
+1. Javascript: Objects, Arrays, Functions, etc.
+1. Persistent data storage with JSON sercer
+1. Github Scrum workflow
+1. CSS
+1. Semantic HTML
+1. React: hooks, props, routes
+1. Modular code
 
-### Code Splitting
+## Troubleshooting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+If you are having trouble getting the application running:
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Double check your file paths to make sure they are in the right directories
+- Make sure all dependencies are installed
+- Check to make sure your servers are correct. Should be `localhost:3000` for app and `localhost:5001` for the JSON server.
+- Contact me through my linkedin and I would be happy to try and help (https://www.linkedin.com/in/evanmaxreynolds/)

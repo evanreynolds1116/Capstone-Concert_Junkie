@@ -18,7 +18,6 @@ const VenueList = (props) => {
           });
         })
       ).then((venuesWithLocations) => {
-        console.log(venuesWithLocations)
         const countResults = [
           ...venuesWithLocations
             .reduce((mp, o) => {
@@ -29,8 +28,6 @@ const VenueList = (props) => {
             }, new Map())
             .values(),
         ];
-
-        console.log(countResults)
 
         const result = Array.from(new Set(countResults.map((s) => s.id))).map(
           (id) => {
@@ -64,11 +61,11 @@ const VenueList = (props) => {
   return (
     <>
       <div className="venue-list-header">
-        <h3>You have been to {venueCounter} venues</h3>
+        <h2>You have been to {venueCounter} venues</h2>
       </div>
       <div className="venue-list-table">
         <div>
-          <Table>
+          <Table id="venues-table">
             <thead>
               <tr>
                 <th>Venue</th>

@@ -21,7 +21,7 @@ img {
 }
 
 .header-div {
-  background-color: rgb(30, 30, 30);
+  background-color: rgba(30, 30, 30, 0.6);;
   color: white
 }
 
@@ -40,8 +40,23 @@ table > thead, table > tbody {
   color: white;
 }
 
+table > thead, tr > th {
+  color: white;
+  text-shadow: -1px 0 #007BFF, 0 1px #007BFF, 1px 0 #007BFF, 0 -1px #007BFF;
+}
+
 .table td {
   vertical-align: middle;
+}
+
+#nav-link {
+  color: white;
+  text-shadow: -1px 0 #007BFF, 0 1px #007BFF, 1px 0 #007BFF, 0 -1px #007BFF;
+}
+
+#logout-btn {
+  color: #007BFF;
+  /* text-shadow: -1px 0 orange, 0 1px orange, 1px 0 orange, 0 -1px orange; */
 }
 
 .concert-list-body {
@@ -97,15 +112,24 @@ p, h3 {
 
 .card-content {
   background-color: black;
+  margin: 20px 20px 20px 20px;
+}
+
+#card-details {
+  border: none;
+}
+
+#tour-poster { 
+  border: 1px solid white;
 }
 
 #locations-table {
   width: 500px;
 }
 
-#concert-table {
+/* #concert-table {
   max-width: 1200px;
-}
+} */
 
 .concert-date, .concert-location, .concert-venue {
   white-space: nowrap;
@@ -132,6 +156,8 @@ p, h3 {
 .submit-concert {
   margin: 0px 0px 5px 10px
 }
+
+
 
 tr:hover {background-color: rgba(255, 165, 0, .8);}
 
@@ -220,6 +246,82 @@ body {
 #concert-table > tbody > tr > td {
   vertical-align: middle;
 }
+
+strong {
+  color: white;
+  text-shadow: -1px 0 #007BFF, 0 1px #007BFF, 1px 0 #007BFF, 0 -1px #007BFF;
+}
+
+.concert-detail {
+  margin: 20px 60px 20px 60px;
+}
+
+.jumbotron {
+  width: 700px;
+  height: 400px;
+  margin-top: 10px;
+}
+
+#bands-table {
+  width: 550px;
+  font-size: 1.25em;
+}
+
+.bands-list-header > h2, .venue-list-header > h2, .location-list-header > h2 {
+  color: white;
+}
+
+#venues-table {
+  font-size: 1.25em;
+}
+
+#locations-table {
+  font-size: 1.25em;
+  width: 600px;
+}
+
+.years-list-table > table {
+  width: 400px;
+  font-size: 1.25em;
+}
+
+.years-list-container {
+  font-family: 'lato', sans-serif;
+}
+
+#nav-link {
+  font-size: 22px;
+}
+
+.concert-list {
+  font-size: 20px;
+}
+
+#concert-table {
+  width: 1400px;
+}
+
+.bands-list-header {
+  font-family: 'lato', sans-serif;
+}
+
+.venue-list-header {
+  font-family: 'lato', sans-serif;
+}
+
+.location-list-header {
+  font-family: 'lato', sans-serif;
+}
+
+.concert-form {
+  font-family: 'lato', sans-serif;
+}
+
+#update-concert-btn {
+  margin: 0px 0px 10px 10px;
+}
+
+
 
 
 /* h1 {
