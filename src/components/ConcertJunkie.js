@@ -18,7 +18,7 @@ const ConcertJunkie = () => {
 
   return (
     <React.Fragment>
-      <NavBar hasUser={hasUser}/>
+      <NavBar hasUser={hasUser} />
       <ApplicationViews hasUser={hasUser} setUser={setUser} />
     </React.Fragment>
   );

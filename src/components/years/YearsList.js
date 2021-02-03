@@ -19,30 +19,18 @@ const YearsList = (props) => {
   useEffect(() => {
     ConcertManager.getUserConcerts(sessionStorage.activeUser).then(
       (concerts) => {
-        // console.log("concerts", concerts)
         const datesList = concerts.map((concert) => {
-          // const yearsArray = concert.date
-          // console.log("yearsArray", yearsArray)
-          // setYears(yearsArray)
-
           return {
             id: concert.id,
             date: concert.date,
           };
         });
-        // console.log("datesList", datesList)
-        // setDates(datesList)
+
         const yearsList = datesList.map((dateObj) => {
           const yearsArray = dateObj.date;
           const year = yearsArray.slice(0, 4);
           return year;
-          // dateObj.year = year
-          // return {
-
-          //   date: parseInt(dateObj.year)
-          // }
         });
-        // console.log("yearsList", yearsList)
 
         function getOccurence(array, value) {
           let count = 0;
@@ -104,7 +92,6 @@ const YearsList = (props) => {
         const yearsWithCount = yearCount.map((yearObj) => {
           if (yearObj.count != 0) {
             return yearObj;
-            
           }
         });
         
@@ -120,7 +107,6 @@ const YearsList = (props) => {
           return count;
         }
 
-        
       }
     );
   }, []);
@@ -164,13 +150,13 @@ const YearsList = (props) => {
                 <th>Concerts Seen</th>
               </tr>
             </thead>
-            <tbody>
-              {yearCounter.map((yearThing) => (
+            <tbody> 
+              { yearCounter[0] !== undefined ? yearCounter.map((yearThing) => (
                 <tr>
                   <td>{yearThing.year}</td>
                   <td>{yearThing.count} concerts</td>
                 </tr>
-              ))}
+              )) : <tr><td></td><td></td></tr>}
             </tbody>
           </Table>
         </div>
