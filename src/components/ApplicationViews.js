@@ -19,7 +19,7 @@ const setUser = props.setUser;
   return (
     <React.Fragment>
 
-      <Route path="/login" /*component={LoginRegister}*/ render={props => {
+      <Route exact path="/" /*component={LoginRegister}*/ render={props => {
         return <LoginRegister setUser={setUser} {...props} />
       }}/>
 
@@ -27,7 +27,7 @@ const setUser = props.setUser;
         if (hasUser) {
           return <ConcertList {...props} />
         } else {
-          return <Redirect to="/login" />
+          return <Redirect to="/" />
         }
       }} />
 
@@ -35,7 +35,7 @@ const setUser = props.setUser;
         if (hasUser) {
          return <ConcertForm {...props} />
         } else {
-          return <Redirect to="/login" />
+          return <Redirect to="/" />
         }
       }} />
 
@@ -43,7 +43,7 @@ const setUser = props.setUser;
         if (hasUser) {
           return <ConcertDetails concertId={parseInt(props.match.params.concertId)} {...props} />
         } else {
-          return <Redirect to="/login" />
+          return <Redirect to="/" />
         }
       }} />
 
@@ -51,7 +51,7 @@ const setUser = props.setUser;
         if (hasUser) {
           return <ConcertEditForm {...props} />
         } else {
-          return <Redirect to="/login" />
+          return <Redirect to="/" />
         }
       }} />
 
@@ -59,7 +59,7 @@ const setUser = props.setUser;
         if (hasUser) {
           return <BandList {...props}/>
         } else {
-          return <Redirect to="/login" />
+          return <Redirect to="/" />
         }
       }} />
 
@@ -67,7 +67,7 @@ const setUser = props.setUser;
         if (hasUser) {
           return <VenueList {...props}/>
         } else {
-          return <Redirect to="/login" />
+          return <Redirect to="/" />
         }
       }} />
 
@@ -75,7 +75,7 @@ const setUser = props.setUser;
         if (hasUser) {
           return <LocationList {...props} />
         } else {
-          return <Redirect to="/login" />
+          return <Redirect to="/" />
         }
       }} />
 
@@ -83,7 +83,7 @@ const setUser = props.setUser;
         if (hasUser) {
           return <YearsList {...props} />
         } else {
-          return <Redirect to="/login" />
+          return <Redirect to="/" />
         } 
       }} />
 

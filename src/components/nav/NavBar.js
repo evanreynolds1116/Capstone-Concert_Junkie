@@ -16,7 +16,7 @@ const NavBar = (props) => {
 
     sessionStorage.removeItem("activeUser");
     sessionStorage.removeItem("credentials");
-    props.history.push("/login");
+    props.history.push("/");
   };
 
   // stuff more reactstrap modal
